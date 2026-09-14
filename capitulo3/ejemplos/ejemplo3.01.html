@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<!--Fig 3.1 nuevostiposdeformulario.html-->
+<!--Los nuevos tipos de elementos input de formularios de HTML5 y sus atributos-->
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Nuevos tipos de input de HTML5</title>
+    </head>
 
+    <body>
+        <h1>Ejemplo 3.01</h1>
+        <hr>
+        <h1>Demo de nuevos tipos de input de HTML5</h1>
+        <p>Este formulario demuestra los nuevos tipos de elementos input de HTML5
+            y los atributos placeholder, required y autofocus. Los navegadores que no soporten HTML5 mostrarán los elementos input como texto normal.
+
+        </p>
+
+        <form method = "post" action = "http://www.deitel.com">
+            <p>
+                <label>Color:
+                    <input type = "color" autofocus/>
+                    (c&oacute;digo hexadecimal como #ADD8E6)
+
+                </label>
+            </p>
+            <P>
+                <label>Fecha:
+                    <input type = "date" />
+                    (aaaa-mm-dd)
+                </label>
+            </P>
+
+            <p>
+                <label>Fecha y hora:
+                    <input type = "datetime" />
+                    (aaaa-mm-ddThh:mm+f:gg, como 27-01-2012T03:15)
+                </label>
+            </p>
+
+            <p>
+                <label>Hora y fecha local
+                    <input type = "datetime-local"/>
+                    (aaaa-mm-ddThh:mm, como 2012-01-27T03:15)
+                </label>
+            </p>
+            <p>
+                <label>Email
+                    <input type = "email" placeholder = "nombre@dominio.com" required/>(nombre@dominio.com)
+                </label>
+            </p>
+
+            <p>
+                <label>Mes
+                    <input type = "month"/>(aaaa-mm)
+                </label>
+            </p>
+            <p>
+                <label>N&uacute;mero
+                    <input type = "number"
+                    min= "0"
+                    max= "7"
+                    step= "1"
+                    value="4"/>
+                </label>(Escriba un n&uacute;mero entre 0 y 7)
+            </p>
+            <p>
+                <label>Rango:
+                0<input type = "range"
+                    min= "0"
+                    max= "20"
+                    value="10"/>
+                </label>
+            </p>
+            <p>
+                <label>b&uacute;squeda
+                    <input type = "search" placeholder = "Buscar aqu&iacute;"/>
+                </label> (Escriba aqu&iacute; su consulta de b&uacute;squeda.)
+            </p>
+            <p>
+                <label>Tel:
+                    <input type = "tel" placeholdere = "(###) ###-####"
+                    pattern="^\(\d{3}\) + \d{3}-\d{4}$" required/>
+                    (###) ###-####
+                </label>
+            </p>
+
+            <p>Hora:
+                <input type = "time" /> (hh:mm:ss)
+            </p>
+            <label>URL
+                <input type = "url" placeholder = "http://www.nombrededominio.com"/>
+                (http://www.nombrededominio.com)
+            </label>
+            <p>
+                <label>Semana
+                    <input type = "week" /> (aaaa-Wnn, tal como 2012-W01)
+                </label>
+            </p>
+            <input type = "submit" value = "Enviar formulario"/>
+            <inpur type = "reset" value = "Borrar formulario"/>
+
+        </form>
+
+            <p>
+                <a href="../../index.html">Inicio</a>
+                |
+                <a href="ejemplo3.02.html">Siguiente ➡</a>
+            </p>
+
+    </body>
+</html>
