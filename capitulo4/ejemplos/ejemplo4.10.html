@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--Fig 4.15: flotante.html-->
+<!--Elementos flotantes-->
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Texto que fluye alrededor de elementos flotantes</title>
+        <h1>Ejercicio 4.10</h1>
+
+        <style type = "text/css">
+            header  { background-color: SkyBlue;
+                      text-align:center;
+                      font-family: arial, helvetica, sans-serif;
+                      padding: .2em; }
+            p       { text-align: justify;
+                     font-family:verdana, geneva, sans-serif;
+                     margin: .5em; }
+            h1      { margin-top: 0px;}
+            .flotante {background-color: LightGrey;
+                       font-size: 1.5em;
+                       font-family: arial, helvetica, sans-serif;
+                       padding: .2em;
+                       margin-left: -5em;
+                       margin-bottom: .5em;
+                       float: right;
+                       text-align: right;
+                       width: 50%; }
+            section { border: 1px solid skyblue;}         
+        </style>
+    </head>
+    <body>
+        <header> <img src = "../../src/deitel.jpg" alt = "Deitel" /></header>
+        <section>
+            <h1 class = "flotante">Capacitacion corporativa y creacion de
+                contenido
+            </h1>
+            <p> Deite1 & A ssociates. Inc. es una empresa reconocida a nivel mundial,
+                dedicada al entrenamiento corporativo y la creaci&oacute;n de contenido.
+                Se especializa en lenguajes de programaci&oacute;n, tecnolog&iacute;a de
+                Internet/Web, desarrollo de aplicaciones para iPhone y Android, y educaci&oacute;n
+                sobre tecno1og&iacute;a de objetos. La empresa ofrece cursos sobre
+                Java, C++, C#, Visual Basic, C, programaci&oacute;n en Internet y Web,
+                Tecnolog&iacute; de objetos y desarrollo de aplicaciones para iPhone y
+                Android.
+            </p>
+        </section>
+        <h1 class = "flotante">Libros y video sobre programacion</h1>
+        <p>A lo largo de su sociedad
+            editorial con Pearson, Deitel & Associates,
+            Inc . publica libros de texto de vanguardia sobre programacion,
+            libros profesionales y cursos de video LiveLessons en DVD y
+            basados en Web.</p>
+    </body>
+</html>

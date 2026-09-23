@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<!--Fig 4.12: anchura.hmtl-->
+<!--Dimensiones de los elementos y alineacion del texto-->
+<html>
+    <head>
+        <meta chartset = "utf-8">
+        <title>Dimensiones del cuadro</title>
+        <h1>Ejemplo 4.08</h1>
+        <style type = "text/css">
+            p   {background-color: lightskyblue;
+                    margin-bottom: .5em;
+                    font-family: arial, Helvetica, sans-serif;}
+        </style>
+    </head>
+    <body>
+        <p style = "width: 20%;">   Este es um
+            texto que va dentro de un cuadro, el cual
+            se estira a lo largo del veinte porciento
+            de la anchura de la pantalla.</p>
+
+        <p sytle = "width: 80%; text-align: center;">
+            Este es un texto CENTRADO que va dentro de un cuadro,
+            el cual se estira a lo largo del ochenta porciento
+            de la anchura de la pantalla </p>
+        
+        <p style = "width: 20%; height: 150px; overflow: scroll;">
+            Este cuadro solamente tiene el veinte por ciento
+            de la anchura y una altura fija.
+            &iquest;Qu&eacute; hacemos si se desborda? &iexcl;Ajustamos la
+            propiedad overflow a scroll.</p>
+    </body>
+</html>
