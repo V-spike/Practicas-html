@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<!--Fig. 5.8: multiplesfondos.html-->
+<!--Múltiples Imágenes de fondo en CSS3.-->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Múltiples fondos</title>
+    <style type = "text/css">
+        div.fondo 
+        {
+            background-image: url(../../src/deitel_mini.png), url(../../src/oceano.jpg);
+            background-position: bottom right, 250% center;
+            background-origin: border-box, content-box;
+            background-repeat: no-repeat, repeat; 
+        }
+        div.contenido
+        {
+            padding: 10px 15px;
+            color: black;
+            font-weight: bold;
+            font-size: 120%;
+        }
+    </style>
+</head>
+    <body>
+        <header>
+            <h1>Ejemplo 5.07</h1>
+        </header>
+
+        <div class = "fondo">
+            <div class = "contenido">
+                <p>
+                Deitel & Associates, Inc. es una empresa reconocidad a nivel mundial,
+                dedidcada al entrenamiento corporativo y creación de contenido.
+                La empresa ofrece cursos impartidos por instructores de programación y otros temas
+                de software como C++, Visual C++<sup>&reg;</sup> C, Java&trade;,
+                C#<sup>&reg;</sup>Visual Basic<sup>&reg;</sup>,
+                Objective-C<sup>&reg;</sup>, XML<sup>&reg;</sup>,
+                Python<sup>&reg;</sup>, JavaScript, tecnología de objetos,
+                programacion en internet y Web, y desarrollo de aplicaciones
+                para Android y iPhone.
+                </p>
+            </div></div>
+
+        <p>
+            <a href="ejemplo5.06.html">⬅ Anterior</a>
+            |
+            <a href="../../index.html">Inicio</a>
+            |
+            <a href="ejemplo5.08.html">Siguiente ➡</a>
+        </p>
+
+    </body>
+</html>

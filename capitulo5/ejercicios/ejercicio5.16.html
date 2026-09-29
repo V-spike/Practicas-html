@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5.16</title>
+    <style>
+        .multicolumna {
+            column-count: 3;
+            column-gap: 30px;
+            column-rule: 2px solid gray;
+        }
+        /* dispositivos móviles: una sola columna */
+        @media (max-width: 480px) {
+            .multicolumna {
+                column-count: 1;
+                column-rule: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 5.16</h1>
+    <h2>Consultas de medios</h2>
+
+    <p>Reduzca el ancho de la ventana a 480px o menos para ver una sola columna.</p>
+
+    <div class="multicolumna">
+        <p>Las consultas de medios permiten que una misma página se vea bien en pantallas de distintos tamaños. El navegador revisa características del dispositivo, como el ancho de la ventana, y aplica solo los estilos que cumplen la condición.</p>
+        <p>En una computadora hay espacio suficiente para mostrar el texto en tres columnas. En un teléfono, en cambio, las columnas quedarían muy angostas y el texto sería difícil de leer.</p>
+        <p>Por eso se usa la regla <code>@media</code> con una anchura máxima de 480px. Cuando la pantalla es igual o menor a ese tamaño, la página cambia a una sola columna y se elimina la línea entre columnas.</p>
+        <p>Este enfoque se conoce como diseño adaptable y es la base de las páginas modernas, que deben funcionar tanto en computadoras como en tabletas y teléfonos.</p>
+    </div>
+
+    <p>
+        <a href="ejercicio5.15.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+    </p>
+</body>
+</html>

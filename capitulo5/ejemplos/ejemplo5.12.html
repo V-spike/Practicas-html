@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<!--Fig. 5.13: 1 n clin ar.h tm l-->
+<!--Elementos de inclinación y de transform acción en CSS3. -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Inclinar (skew)</title>
+    <style type = "text/css">
+        .textbox
+        {
+            margin-left: 7px;
+            background: lightgreen;
+            height: 100px;
+            width: 200px;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 250%;
+            border: 3px solid Darkgreen;
+            border-radius: 15px;
+            -webkit-animation: skew 3s infinite linear;
+            -moz-animation: skew 3s infinite linear;
+            animation: skew 3s infinite linear;
+        }
+        @-webkit-keyframes skew
+        {
+            from { -webkit-transform: skewX(0deg); }
+            25% { -webkit-transform: skewX(45deg); }
+            50% { -webkit-transform: skewX(0); }
+            75% { -webkit-transform: skewX(-45deg); }
+            to { -webkit-transform: skewX(0); }
+        }
+
+        @-moz-keyframes skew
+        {
+            from { -webkit-transform: skewX(0deg); }
+            25% { -webkit-transform: skewX(45deg); }
+            50% { -webkit-transform: skewX(0deg); }
+            75% { -webkit-transform: skewX(-45deg); }
+            to { -webkit-transform: skewX(0); }
+        }
+
+        @keyframes skew
+        {
+            from { -webkit-transform: skewX(0deg); }
+            25% { -webkit-transform: skewX(45deg); }
+            50% { -webkit-transform: skewX(0deg); }
+            75% { -webkit-transform: skewX(-45deg); }
+            to { -webkit-transform: skewX(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo 5.12</h1>
+    </header>
+
+    <div class = "box skew"></div>
+    <div class = "textbox">Inclinar texto</div>
+    <p>
+            <a href="ejemplo5.11.html">⬅ Anterior</a>
+            |
+            <a href="../../index.html">Inicio</a>
+            |
+            <a href="ejemplo5.13.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

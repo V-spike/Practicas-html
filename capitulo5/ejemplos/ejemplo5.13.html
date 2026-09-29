@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<!--Fig. 5.14: fusionarimagenes.html-->
+<!--Fusionar una imagen en o tr a mediante CSS3.-->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Fusión de imágenes</title>
+    <style type = "text/css">
+        #portada 
+        {
+            position: relative;
+            margin: 0 auto;
+        }
+        #portada img 
+        {
+            position: absolute;
+            left: 0;
+            -webkit-transition: opacity 4s ease-in-out;
+            transition: opacity 4s ease-in-out;
+        }
+        #portada img.top:hover 
+            { opacity: 0;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo 5.13</h1>
+        <p>
+            <a href="ejemplo5.12.html">⬅ Anterior</a>
+            |
+            <a href="../../index.html">Inicio</a>
+            |
+            <a href="ejemplo5.14.html">Siguiente ➡</a>
+        </p>
+    </header>
+
+    <div id = "portada">
+        <img clas = "bottom" src = "../../src/jhtp.jpg" alt = "Portada de Java 9e">
+        <img class = "top" src = "../../src/cpphtp.jpg" alt = "Portada de Java 8e">
+    </div>
+</body>
+</html>

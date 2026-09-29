@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<!--Fig . 5.10: bordeim agen.htm l-->
+<!--Estirar y repetir una imagen para crear un borde.-->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Borde de imagen</title>
+    <style type = "text/css">
+        img{
+            width: 500px;
+            height: auto;
+        }
+        div
+        {
+            border-width: 30px;
+            border-style: solid;
+            width: 234px;
+            padding: 20px 20px;
+        }
+        #stretch
+        {
+            border-image: url(../../src/wallhaven-lydogq_1920x1080.png) 80 stretch
+        }
+        #repeat 
+        {
+            border-image: url(../../src/wallhaven-lydogq_1920x1080.png) 34% repeat;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo 5.09</h1>
+    </header>
+
+    <h2>Bordes de imagen</h2>
+    <img src = "../../src/wallhaven-lydogq_1920x1080.png" alt = "imagen utilizada para demostrar los bordes">
+    <div id = "stretch">Se estira el borde de la imagen</div>
+    <div id = "repeat">Se repite el borde de la imagen</div>
+    <p>
+            <a href="ejemplo5.08.html">⬅ Anterior</a>
+            |
+            <a href="../../index.html">Inicio</a>
+            |
+            <a href="ejemplo5.10.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

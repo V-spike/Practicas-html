@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5.10</title>
+    <style>
+        .textbox {
+            margin: 20px 7px;
+            background: lightgreen;
+            height: 100px;
+            width: 200px;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 250%;
+            border: 3px solid darkgreen;
+            border-radius: 15px;
+            animation: skew 4s infinite linear;
+        }
+        @keyframes skew {
+            0%   { transform: skew(0deg, 0deg); }
+            25%  { transform: skew(0deg, 30deg); }   /* arriba hacia abajo */
+            50%  { transform: skew(0deg, 0deg); }
+            75%  { transform: skew(30deg, 0deg); }   /* izquierda a derecha */
+            100% { transform: skew(0deg, 0deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 5.10</h1>
+    <h2>Inclinación</h2>
+
+
+    <div class="textbox">Inclinar texto</div>
+
+    <p>
+        <a href="ejercicio5.09.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio5.11.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

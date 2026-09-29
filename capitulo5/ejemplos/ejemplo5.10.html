@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<!-- Flg. 5.11: animacion.html-->
+<!--Animación en CSS3.-->
+
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo 5.10</title>
+    <style type = "text/css">
+        img 
+        {
+            position: relative;
+            -webkit-animation: movingimage linear 10s 1s 2 alternate;
+            -moz-animation: movingimage linear 10s 2s 2 alternate;
+            animation: movingimage linear 10s 1s 2 alternate
+        }
+        @-webkit-keyframes movingimage
+        {
+            0% {opacity: 0; left: 50px; top: 0px;}
+            25% {opacity: 1; left: 0px; top: 50px;}
+            50% {opacity: 0; left: 50px; top: 100px;}
+            75% {opacity: 1; left: 100px; top: 50px;}
+            100% {opacity: 0; left: 50px; top: 0px;}
+
+        }
+        @-moz-keyframes movingimage
+        {
+            0% {opacity: 0; left: 50px; top: 0px;}
+            25% {opacity: 1; left: 0px; top: 50px;}
+            50% {opacity: 0; left: 50px; top: 100px;}
+            75% {opacity: 1; left: 100px; top: 50px;}
+            100% {opacity: 0; left: 50px; top: 0px;} 
+        }
+        @keyframes movingimage
+        {
+            0% {opacity: 0; left: 50px; top: 0px;}
+            25% {opacity: 1; left: 0px; top: 50px;}
+            50% {opacity: 0; left: 50px; top: 100px;}
+            75% {opacity: 1; left: 100px; top: 50px;}
+            100% {opacity: 0; left: 50px; top: 0px;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo 5.10</h1>
+    </header>
+
+    <img src = "../../src/jhtp.jpg" width="138" height = "180"
+        alt = "Portada del libro how to program">
+        <div></div>
+    <p>
+            <a href="ejemplo5.09.html">⬅ Anterior</a>
+            |
+            <a href="../../index.html">Inicio</a>
+            |
+            <a href="ejemplo5.11.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

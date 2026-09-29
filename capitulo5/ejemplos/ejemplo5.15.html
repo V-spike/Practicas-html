@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<!--Fig. 5.16: mdcf.html -->
+<!--Módulo de diseño de caja flexible . -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Modelo de diseño de caja flexible</title>
+    <link href = "https://fonts.googleapis.com/css?family=Rosario"
+        rel = 'stylesheet' type = 'text/css'>
+    <style type = "text/css">
+         img {
+            width: 100px;
+            height: auto;
+            border-radius: 12px;
+        }
+        .flexbox 
+        {
+            width: 600px;
+            height: 420px;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient: horizontal;
+            box-orient: horizontal;
+        }
+        .flexbox > div
+        {
+            -webkit-transition: 1s ease-out;
+            transition: 1s ease-out;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: 120px;
+            margin: 10px -10px 10px 0px;
+            padding: 20px 20px 20px 20px;
+            box-shadow: 10px 10px 10px dimgrey;
+        }
+        .flexbox > div:nth-child(1) { background-color: lightgrey; }
+        .flexbox > div:nth-child(2) { background-color: lightgrey; }
+        .flexbox > div:nth-child(3) { background-color: lightgrey; }
+        .flexbox > div:nth-child(4) { background-color: lightgrey; }
+
+        .flexbox > div:hover {
+            width: 200px; color: white; font-weight: bold;
+        }
+
+        .flexbox > div:nth-child(1):hover { background-color: royalblue; }
+        .flexbox > div:nth-child(2):hover { background-color: crimson; }
+        .flexbox > div:nth-child(3):hover { background-color: crimson; }
+        .flexbox > div:nth-child(4):hover { background-color: darkgreen; }
+        p { height: 250px; overflow: hidden; font-family: "Rosario"}
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Ejemplo 5.15</h1>
+    </header>
+
+    <div class = "flexbox">
+        <div><img src = "../../src/deitel_mini.png" alt = "Icono de una una buena práctica de programacion">
+            <p>Las buenas prácticas de programación indican las técnicas
+                que le ayudarán a producir programas más claros, 
+                comprensibles y fáciles de mantener.</p></div>
+  
+        <div><img src = "../../src/prevenir.jpg" alt = "Icono para prevenir errores">
+            <p>Los tips para prevenir errores contienen sugerencias para exponer errores y eliminarlos de sus programas; 
+                muchos describen aspectos de programación que evitan que los errores 
+                entren siquiera a los programas.</p></div>
+
+        <div><img src = "../../src/error.jpg" alt = "Icono de error de programacion">
+            <p>Los errores comunes de programación señalan los errores que cometen los estudiantes con frecuencia. 
+                Estos errores comunes de programación reducen la probabilidad de que usted cometa los mismos errores.</p></div>
+
+        <div><img src = "../../src/observacion.jpg" alt = "Icono de observacion de ingenieria de software">
+            <p>Las observaciones de ingeniería de software resaltan los asuntos de arquitectura y diseño que afectan
+                en la construcción de sistemas de software, en especial los sistemas de gran escala.</p></div>
+    </div>
+    <p>
+            <a href="ejemplo5.14.html">⬅ Anterior</a>
+            |
+            <a href="../../index.html">Inicio</a>
+            |
+            <a href="ejemplo5.16.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

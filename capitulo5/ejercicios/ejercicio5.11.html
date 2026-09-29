@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5.11</title>
+    <style>
+        .fusion {
+            position: relative;
+            width: 250px;
+            height: 300px;
+        }
+        .fusion img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            transition-property: opacity;
+            transition-duration: 3s;
+            transition-timing-function: linear;
+        }
+        /* la imagen 1 queda arriba y la 5 al fondo */
+        .fusion img:nth-child(1) { z-index: 5; }
+        .fusion img:nth-child(2) { z-index: 4; }
+        .fusion img:nth-child(3) { z-index: 3; }
+        .fusion img:nth-child(4) { z-index: 2; }
+        .fusion img:nth-child(5) { z-index: 1; }
+
+        /* al pasar el mouse, se desvanecen una tras otra */
+        .fusion:hover img:nth-child(1) { opacity: 0; }
+        .fusion:hover img:nth-child(2) { opacity: 0; transition-delay: 3s; }
+        .fusion:hover img:nth-child(3) { opacity: 0; transition-delay: 6s; }
+        .fusion:hover img:nth-child(4) { opacity: 0; transition-delay: 9s; }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 5.11</h1>
+    <h2>Fusionar imágenes</h2>
+    <p>Pase el mouse sobre la imagen.</p>
+    <div class="fusion">
+        <img src="../../src/ejemplo1.jpg" alt="Imagen 1">
+        <img src="../../src/deitel.jpg" alt="Imagen 2">
+        <img src="../../src/wallhaven-lydogq_1920x1080.png" alt="Imagen 3">
+        <img src="../../src/camello-joroba.jpg" alt="Imagen 4">
+        <img src="../../src/wallhaven-k8dqr6_1920x1080.png" alt="Imagen 5">
+    </div>
+
+    <p>
+        <a href="ejercicio5.10.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio5.12.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

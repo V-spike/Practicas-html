@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5.12</title>
+    <style>
+        h3, h4 { margin: 0 0 4px; }
+        .multicolumna {
+            column-count: 2;
+            column-gap: 30px;
+            column-rule: 5px solid purple;
+        }
+        .multicolumna img {
+            float: left;
+            width: 120px;
+            margin: 0 15px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 5.12</h1>
+    <h2>Texto multicolumna</h2>
+
+    <h3>Nuevas funciones de CSS3</h3>
+    <h4>Diseño de texto en varias columnas</h4>
+    <p><em>Por Rodríguez Flores Axel Mauritzio</em></p>
+
+    <div class="multicolumna">
+        <img src="../../src/deitel_mini.png" alt="Imagen de ejemplo">
+        <p>CSS3 permite dividir el contenido de un elemento en varias columnas, de forma parecida a como se presenta el texto en un periódico o en una revista. Basta con indicar cuántas columnas se desean y el navegador reparte el texto de manera equilibrada.</p>
+        <p>Con la propiedad <code>column-gap</code> se controla el espacio entre columnas, y con <code>column-rule</code> se dibuja una línea entre ellas. Esa línea puede tener el grosor, el estilo y el color que se prefieran.</p>
+        <p>Cuando se agrega una imagen con <code>float</code>, el texto fluye alrededor de ella y ocupa el espacio disponible. Esto ayuda a que la página se vea más natural y aprovechar mejor el espacio.</p>
+        <p>El diseño multicolumna resulta útil para textos largos, porque las líneas cortas son más fáciles de leer que una sola línea muy ancha que ocupa toda la pantalla.</p>
+    </div>
+
+    <p>
+        <a href="ejercicio5.11.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio5.13.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

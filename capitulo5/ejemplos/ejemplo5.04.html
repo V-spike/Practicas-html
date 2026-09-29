@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<!-- Fig. 5.4: gradiente11neal.html -->
+<!--Gradientes lin e a le s en CSS3.--> 
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title> Gradiente Lineal </title>
+    <style type = "text/css">
+        div 
+        {
+            width: 200px;
+            height: 200px;
+            border: 3px solid navy;
+            padding: 5px 20px;
+            text-align: center;
+
+            background: -webkit-gradient(
+                linear,  center top, center bottom,
+                color-stop(15%, white), color-stop(50%, lightsteelblue),
+                color-stop(75%, navy)
+            );
+
+            background: -moz-linear-gradient(
+                top center, white 15%, lightsteelblue 50%, navy 75%
+            );
+
+            background: linear-gradient(
+                top center, white 15%, lightsteelblue 50%, navy 75%
+            );
+
+            float: left;
+            margin-right: 15px;
+
+        }
+        #horizontal
+        {
+            width:  200px;
+            height: 200px;
+            border: 3px solid orange;
+            padding: 5px 20px;
+            text-align: center;
+
+            background: -webkit-gradient(
+                linear, left top, right top,
+                color-stop(15%, white), color-stop(50%, yellow),
+                color-stop(75%, orange)
+            );
+
+            background: -moz-linear-gradient(
+                left, white 15%, yellow 50%, orange 75%
+            );
+
+            background: linear-gradient(
+                left, white 15%, yellow 50%, orange 75%
+            );
+            margin-right: 15px;
+        }
+
+        #diagonal
+        {
+            width:  200px;
+            height: 200px;
+            border: 3px solid purple;
+            padding: 5px 20px;
+            text-align: center;
+
+            background: -webkit-gradient(
+                linear, left top, right top,
+                color-stop(15%, white), color-stop(50%, plum),
+                color-stop(75%, purple)
+            );
+
+            background: -moz-linear-gradient(
+                left, white 15%, plum 50%, purple 75%
+            );
+
+            background: linear-gradient(
+                left, white 15%, plum 50%, purple 75%
+            );
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo 5.04</h1>
+    </header>
+
+    <div><h2>Gradiente lineal vertical</h2></div>
+    <div id = "horizontal"><h2>Gradiente lineal horizontal</h2></div>
+    <div id = "diagonal"><h2>Gradiente lineal diagonal</h2></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <p>
+        <a href="ejemplo5.03.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejemplo5.05.html">Siguiente ➡</a>
+    </p>
+
+</body>
+</html>
