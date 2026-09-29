@@ -1,131 +1,230 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prácticas de HTML - Capítulo 2</title>
+    <title>Prácticas de HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: rgb(55, 22, 57);   /* color de fondo */
+            color: #f1f1f1;
+            a { color: rgb(158, 65, 163); text-decoration: none; }
+            a:hover { text-decoration: underline; }
+        }
+
+        h1, h2 { color: #eceff1; }
+        li { margin: 4px 0; }
+
+        p { margin: 0.9em 0; }
+
+        .capitulo {
+            background: rgb(21, 20, 20);
+            border: 1px solid #d0d7de;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 20px 0;
+        }
+
+        /* Ejemplos | Ejercicios lado a lado */
+        .listas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 30px;
+        }
+
+        .listas > div:first-child {
+            border-right: 1px outset black;   /* línea entre columnas */
+            padding-right: 15px;
+        }
+
+        /* En pantallas pequeñas, una columna */
+        @media (max-width: 600px) {
+            .listas {
+                grid-template-columns: 1fr;
+            }
+            .listas > div:first-child {
+                border-right: none;
+                padding-right: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <header>
+        <h1>Prácticas de HTML</h1>
+        <h2>Rodríguez Flores Axel Mauritzio</h2>
+    </header>
 
-    <h1>Prácticas de HTML</h1>
+    <main>
+        <section class="capitulo">
+            <h2>Capítulo 2</h2>
+            <div class="listas">
+                <div>
+                    <h3>Ejemplos</h3>
+                    <ol>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.01.html">Ejemplo 2.01</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.02.html">Ejemplo 2.02</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.03.html">Ejemplo 2.03</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.04.html">Ejemplo 2.04</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.05.html">Ejemplo 2.05</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.06.html">Ejemplo 2.06</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.07.html">Ejemplo 2.07</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.08.html">Ejemplo 2.08</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.09.html">Ejemplo 2.09</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.10.html">Ejemplo 2.10</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.11.html">Ejemplo 2.11</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.12.html">Ejemplo 2.12</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.13.html">Ejemplo 2.13</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.14.html">Ejemplo 2.14</a></li>
+                        <li><a href="capitulo2/ejemplos/ejemplo2.15.html">Ejemplo 2.15</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Ejercicios</h3>
+                    <ol>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.01.html">Ejercicio 2.01</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.02.html">Ejercicio 2.02</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.03.html">Ejercicio 2.03</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.04.html">Ejercicio 2.04</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.05.html">Ejercicio 2.05</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.06.html">Ejercicio 2.06</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.07.html">Ejercicio 2.07</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.08.html">Ejercicio 2.08</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.09.html">Ejercicio 2.09</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.10.html">Ejercicio 2.10</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.11.html">Ejercicio 2.11</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.12.html">Ejercicio 2.12</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.13.html">Ejercicio 2.13</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.14.html">Ejercicio 2.14</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.15.html">Ejercicio 2.15</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.16.html">Ejercicio 2.16</a></li>
+                        <li><a href="capitulo2/ejercicios/ejercicio2.17.html">Ejercicio 2.17</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
 
-    <h2>Rodríguez Flores Axel Mauritzio</h2>
+        <section class="capitulo">
+            <h2>Capítulo 3</h2>
+            <div class="listas">
+                <div>
+                    <h3>Ejemplos</h3>
+                    <ol>
+                        <li><a href="capitulo3/ejemplos/ejemplo3.01.html">Ejemplo 3.01</a></li>
+                        <li><a href="capitulo3/ejemplos/ejemplo3.02.html">Ejemplo 3.02</a></li>
+                        <li><a href="capitulo3/ejemplos/ejemplo3.03.html">Ejemplo 3.03</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Ejercicios</h3>
+                    <ol>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.01.html">Ejercicio 3.01</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.02.html">Ejercicio 3.02</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.03.html">Ejercicio 3.03</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.04.html">Ejercicio 3.04</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.05.html">Ejercicio 3.05</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.06.html">Ejercicio 3.06</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.07.html">Ejercicio 3.07</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.08.html">Ejercicio 3.08</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.09.html">Ejercicio 3.09</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.10.html">Ejercicio 3.10</a></li>
+                        <li><a href="capitulo3/ejercicios/ejercicio3.11.html">Ejercicio 3.11</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
 
-    <hr>
-
-    <h2>Capítulo 2</h2>
-
-    <h3>Ejemplos</h3>
-
-    <ol>
-        <li><a href="capitulo2/ejemplos/ejemplo2.01.html">Ejemplo 2.01</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.02.html">Ejemplo 2.02</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.03.html">Ejemplo 2.03</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.04.html">Ejemplo 2.04</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.05.html">Ejemplo 2.05</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.06.html">Ejemplo 2.06</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.07.html">Ejemplo 2.07</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.08.html">Ejemplo 2.08</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.09.html">Ejemplo 2.09</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.10.html">Ejemplo 2.10</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.11.html">Ejemplo 2.11</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.12.html">Ejemplo 2.12</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.13.html">Ejemplo 2.13</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.14.html">Ejemplo 2.14</a></li>
-        <li><a href="capitulo2/ejemplos/ejemplo2.15.html">Ejemplo 2.15</a></li>
-    </ol>
-
-    <hr>
-
-    <h3>Ejercicios</h3>
-
-    <ol>
-        <li><a href="capitulo2/ejercicios/ejercicio2.01.html">Ejercicio 2.01</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.02.html">Ejercicio 2.02</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.03.html">Ejercicio 2.03</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.04.html">Ejercicio 2.04</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.05.html">Ejercicio 2.05</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.06.html">Ejercicio 2.06</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.07.html">Ejercicio 2.07</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.08.html">Ejercicio 2.08</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.09.html">Ejercicio 2.09</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.10.html">Ejercicio 2.10</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.11.html">Ejercicio 2.11</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.12.html">Ejercicio 2.12</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.13.html">Ejercicio 2.13</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.14.html">Ejercicio 2.14</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.15.html">Ejercicio 2.15</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.16.html">Ejercicio 2.16</a></li>
-        <li><a href="capitulo2/ejercicios/ejercicio2.17.html">Ejercicio 2.17</a></li>
-    </ol>
-
-    <hr>
-    
-    <h2>Capítulo 3</h2>
-
-    <h3>Ejemplos</h3>
-    <ol>
-        <li><a href="capitulo3/ejemplos/ejemplo3.01.html">Ejemplo 3.01</a></li>
-        <li><a href="capitulo3/ejemplos/ejemplo3.02.html">Ejemplo 3.02</a></li>
-        <li><a href="capitulo3/ejemplos/ejemplo3.03.html">Ejemplo 3.03</a></li>
-    </ol>
-
-    <hr>
-
-    <h3>Ejercicios</h3>
-    <ol>
-        <li><a href="capitulo3/ejercicios/ejercicio3.01.html">Ejercicio 3.01</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.02.html">Ejercicio 3.02</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.03.html">Ejercicio 3.03</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.04.html">Ejercicio 3.04</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.05.html">Ejercicio 3.05</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.06.html">Ejercicio 3.06</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.07.html">Ejercicio 3.07</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.08.html">Ejercicio 3.08</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.09.html">Ejercicio 3.09</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.10.html">Ejercicio 3.10</a></li>
-        <li><a href="capitulo3/ejercicios/ejercicio3.11.html">Ejercicio 3.11</a></li>
-    </ol>
-
-    <hr>
-    
-    <h2>Capítulo 4</h2>
-
-    <h3>Ejemplos</h3>
-    <ol>
-        <li><a href="capitulo4/ejemplos/ejemplo4.01.html">Ejemplo 4.01</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.02.html">Ejemplo 4.02</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.03.html">Ejemplo 4.03</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.04.html">Ejemplo 4.04</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.05.html">Ejemplo 4.05</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.06.html">Ejemplo 4.06</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.07.html">Ejemplo 4.07</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.08.html">Ejemplo 4.08</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.09.html">Ejemplo 4.09</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.10.html">Ejemplo 4.10</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.11.html">Ejemplo 4.11</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.12.html">Ejemplo 4.12</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.13.html">Ejemplo 4.13</a></li>
-        <li><a href="capitulo4/ejemplos/ejemplo4.14.html">Ejemplo 4.14</a></li>
-    </ol>
-
-    <hr>
-
-    <h3>Ejercicios</h3>
-    <ol>
-        <li><a href="capitulo4/ejercicios/ejercicio4.01.html">Ejercicio 4.01</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.02.html">Ejercicio 4.02</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.03.html">Ejercicio 4.03</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.04.html">Ejercicio 4.04</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.05.html">Ejercicio 4.05</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.06.html">Ejercicio 4.06</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.07.html">Ejercicio 4.07</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.08.html">Ejercicio 4.08</a></li>
-        <li><a href="capitulo4/ejercicios/ejercicio4.09.html">Ejercicio 4.09</a></li>
-    </ol>
-
+        <section class="capitulo">
+            <h2>Capítulo 4</h2>
+            <div class="listas">
+                <div>
+                    <h3>Ejemplos</h3>
+                    <ol>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.01.html">Ejemplo 4.01</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.02.html">Ejemplo 4.02</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.03.html">Ejemplo 4.03</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.04.html">Ejemplo 4.04</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.05.html">Ejemplo 4.05</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.06.html">Ejemplo 4.06</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.07.html">Ejemplo 4.07</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.08.html">Ejemplo 4.08</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.09.html">Ejemplo 4.09</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.10.html">Ejemplo 4.10</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.11.html">Ejemplo 4.11</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.12.html">Ejemplo 4.12</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.13.html">Ejemplo 4.13</a></li>
+                        <li><a href="capitulo4/ejemplos/ejemplo4.14.html">Ejemplo 4.14</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Ejercicios</h3>
+                    <ol>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.01.html">Ejercicio 4.01</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.02.html">Ejercicio 4.02</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.03.html">Ejercicio 4.03</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.04.html">Ejercicio 4.04</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.05.html">Ejercicio 4.05</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.06.html">Ejercicio 4.06</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.07.html">Ejercicio 4.07</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.08.html">Ejercicio 4.08</a></li>
+                        <li><a href="capitulo4/ejercicios/ejercicio4.09.html">Ejercicio 4.09</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="capitulo">
+            <h2>Capítulo 5</h2>
+            <div class="listas">
+                <div>
+                    <h3>Ejemplos</h3>
+                    <ol>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.01.html">Ejemplo 5.01</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.02.html">Ejemplo 5.02</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.03.html">Ejemplo 5.03</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.04.html">Ejemplo 5.04</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.05.html">Ejemplo 5.05</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.06.html">Ejemplo 5.06</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.07.html">Ejemplo 5.07</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.08.html">Ejemplo 5.08</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.09.html">Ejemplo 5.09</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.10.html">Ejemplo 5.10</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.11.html">Ejemplo 5.11</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.12.html">Ejemplo 5.12</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.13.html">Ejemplo 5.13</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.14.html">Ejemplo 5.14</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.15.html">Ejemplo 5.15</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.16.html">Ejemplo 5.16</a></li>
+                        <li><a href="capitulo5/ejemplos/ejemplo5.17.html">Ejemplo 5.17</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>Ejercicios</h3>
+                    <ol>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.01.html">Ejercicio 5.01</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.02.html">Ejercicio 5.02</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.03.html">Ejercicio 5.03</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.04.html">Ejercicio 5.04</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.05.html">Ejercicio 5.05</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.06.html">Ejercicio 5.06</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.07.html">Ejercicio 5.07</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.08.html">Ejercicio 5.08</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.09.html">Ejercicio 5.09</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.10.html">Ejercicio 5.10</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.11.html">Ejercicio 5.11</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.12.html">Ejercicio 5.12</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.13.html">Ejercicio 5.13</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.14.html">Ejercicio 5.14</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.15.html">Ejercicio 5.15</a></li>
+                        <li><a href="capitulo5/ejercicios/ejercicio5.16.html">Ejercicio 5.16</a></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
-
 </html>
