@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.18 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.18</title>
+</head>
+<body>
+    <h1>Ejercicio 6.18</h1>
+    <h2>Suma, promedio, producto, menor y mayor de tres enteros</h2>
+
+    <script>
+        // Pide tres enteros y muestra en un diálogo alert:
+        // suma, promedio, producto, menor y mayor.
+        var valor1, valor2, valor3;
+        var numero1, numero2, numero3;
+        var suma, promedio, producto, menor, mayor;
+
+        valor1 = window.prompt("Escriba el primer entero:", "0");
+        valor2 = window.prompt("Escriba el segundo entero:", "0");
+        valor3 = window.prompt("Escriba el tercer entero:", "0");
+
+        numero1 = parseInt(valor1);
+        numero2 = parseInt(valor2);
+        numero3 = parseInt(valor3);
+
+        suma = numero1 + numero2 + numero3;
+        promedio = suma / 3;
+        producto = numero1 * numero2 * numero3;
+
+        // Se supone que el primero es el menor y se compara con los otros dos
+        menor = numero1;
+        if (numero2 < menor) {
+            menor = numero2;
+        }
+        if (numero3 < menor) {
+            menor = numero3;
+        }
+
+        // Lo mismo para el mayor
+        mayor = numero1;
+        if (numero2 > mayor) {
+            mayor = numero2;
+        }
+        if (numero3 > mayor) {
+            mayor = numero3;
+        }
+
+        // \n hace un salto de línea dentro del diálogo
+        window.alert("Suma: " + suma +
+            "\nPromedio: " + promedio +
+            "\nProducto: " + producto +
+            "\nMenor: " + menor +
+            "\nMayor: " + mayor);
+    </script>
+
+    <p>
+        <a href="ejercicio6.17.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.19.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

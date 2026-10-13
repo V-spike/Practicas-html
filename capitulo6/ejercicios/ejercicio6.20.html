@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.20 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.20</title>
+</head>
+<body>
+    <h1>Ejercicio 6.20</h1>
+    <h2>Entero menor y mayor de cinco enteros</h2>
+
+    <script>
+        // Pide cinco enteros y muestra el menor y el mayor.
+        // Solo usa técnicas de este capítulo: variables, prompt, parseInt, if y document.writeln.
+        var valor1, valor2, valor3, valor4, valor5;
+        var numero1, numero2, numero3, numero4, numero5;
+        var menor, mayor;
+
+        valor1 = window.prompt("Escriba el primer entero:", "0");
+        valor2 = window.prompt("Escriba el segundo entero:", "0");
+        valor3 = window.prompt("Escriba el tercer entero:", "0");
+        valor4 = window.prompt("Escriba el cuarto entero:", "0");
+        valor5 = window.prompt("Escriba el quinto entero:", "0");
+
+        numero1 = parseInt(valor1);
+        numero2 = parseInt(valor2);
+        numero3 = parseInt(valor3);
+        numero4 = parseInt(valor4);
+        numero5 = parseInt(valor5);
+
+        // Se supone que el primero es el menor y se compara con los demás
+        menor = numero1;
+        if (numero2 < menor) {
+            menor = numero2;
+        }
+        if (numero3 < menor) {
+            menor = numero3;
+        }
+        if (numero4 < menor) {
+            menor = numero4;
+        }
+        if (numero5 < menor) {
+            menor = numero5;
+        }
+
+        // Lo mismo para el mayor
+        mayor = numero1;
+        if (numero2 > mayor) {
+            mayor = numero2;
+        }
+        if (numero3 > mayor) {
+            mayor = numero3;
+        }
+        if (numero4 > mayor) {
+            mayor = numero4;
+        }
+        if (numero5 > mayor) {
+            mayor = numero5;
+        }
+
+        document.writeln("<p>El entero menor es " + menor + "</p>");
+        document.writeln("<p>El entero mayor es " + mayor + "</p>");
+    </script>
+
+    <p>
+        <a href="ejercicio6.19.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.21.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

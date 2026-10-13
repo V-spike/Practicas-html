@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.17 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.17</title>
+</head>
+<body>
+    <h1>Ejercicio 6.17</h1>
+    <h2>Número mayor de dos enteros</h2>
+
+    <script>
+        // Pide dos enteros. Muestra el mayor en un diálogo de alerta,
+        // o un texto de HTML5 si son iguales.
+        var valor1, valor2;
+        var numero1, numero2;
+
+        valor1 = window.prompt("Escriba el primer entero:", "0");
+        valor2 = window.prompt("Escriba el segundo entero:", "0");
+
+        numero1 = parseInt(valor1);
+        numero2 = parseInt(valor2);
+
+        if (numero1 > numero2) {
+            window.alert(numero1 + " es mayor que " + numero2);
+        }
+
+        if (numero2 > numero1) {
+            window.alert(numero2 + " es mayor que " + numero1);
+        }
+
+        if (numero1 == numero2) {
+            document.writeln("<h3>Estos números son iguales</h3>");
+        }
+    </script>
+
+    <p>
+        <a href="ejercicio6.16.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.18.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

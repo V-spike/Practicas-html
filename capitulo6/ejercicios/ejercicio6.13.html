@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.13 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.13</title>
+</head>
+<body>
+    <h1>Ejercicio 6.13</h1>
+    <h2>Dada y = ax³ + 7, ¿cuáles de las siguientes instrucciones de JavaScript son correctas para esta ecuación?</h2>
+
+    <ol type="a">
+        <li>
+            <code>y = a * x * x * x + 7;</code>
+            <br>
+            <strong>Correcta.</strong> Calcula a·x·x·x (es decir, ax³) y después suma 7.
+        </li>
+        <li>
+            <code>y = a * x * x * (x + 7);</code>
+            <br>
+            <strong>Incorrecta.</strong> El paréntesis hace que se multiplique por (x + 7), lo que da ax³ + 7ax², no ax³ + 7.
+        </li>
+        <li>
+            <code>y = (a * x) * x * (x + 7);</code>
+            <br>
+            <strong>Incorrecta.</strong> Mismo problema que en el inciso b: el 7 queda multiplicado por ax².
+        </li>
+        <li>
+            <code>y = (a * x) * x * x + 7;</code>
+            <br>
+            <strong>Correcta.</strong> Los paréntesis son innecesarios, pero no cambian el resultado: la multiplicación
+            se evalúa antes que la suma, y da ax³ + 7.
+        </li>
+    </ol>
+
+    <p>
+        Respuesta: las instrucciones de los incisos <strong>a)</strong> y <strong>d)</strong>.
+    </p>
+
+    <p>
+        <a href="ejercicio6.12.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.14.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

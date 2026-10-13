@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.16 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.16</title>
+</head>
+<body>
+    <h1>Ejercicio 6.16</h1>
+    <h2>Suma, producto, diferencia y cociente de dos números</h2>
+
+    <script>
+        // Pide dos números y muestra su suma, producto, diferencia y cociente.
+        var valor1, valor2;
+        var numero1, numero2;
+        var suma, producto, diferencia, cociente;
+
+        // Leer los valores (llegan como cadenas)
+        valor1 = window.prompt("Escriba el primer número:", "1");
+        valor2 = window.prompt("Escriba el segundo número:", "2");
+
+        // parseFloat funciona como parseInt, pero conserva los decimales
+        numero1 = parseFloat(valor1);
+        numero2 = parseFloat(valor2);
+
+        // Cálculos
+        suma = numero1 + numero2;
+        producto = numero1 * numero2;
+        diferencia = numero1 - numero2;
+        cociente = numero1 / numero2;
+
+        // Mostrar resultados
+        document.writeln("<h3>Resultados con " + numero1 + " y " + numero2 + "</h3>");
+        document.writeln("<p>La suma es " + suma + "</p>");
+        document.writeln("<p>El producto es " + producto + "</p>");
+        document.writeln("<p>La diferencia es " + diferencia + "</p>");
+        document.writeln("<p>El cociente es " + cociente + "</p>");
+    </script>
+
+    <p>
+        <a href="ejercicio6.15.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.17.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

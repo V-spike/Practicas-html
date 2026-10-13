@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.09 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.09</title>
+</head>
+<body>
+    <h1>Ejercicio 6.09</h1>
+    <h2>Indique si cada uno de los siguientes enunciados es verdadero o falso. Si es falso, explique por qué</h2>
+
+    <ol type="a">
+        <li>
+            Los operadores de JavaScript se evalúan de izquierda a derecha.
+            <br>
+            <strong>Falso.</strong> El orden depende de la precedencia y de la asociatividad de cada operador.
+            Muchos operadores se evalúan de izquierda a derecha, pero otros, como el de asignación (<code>=</code>),
+            se evalúan de derecha a izquierda. Por ejemplo, en <code>a = b = 5</code> primero se ejecuta <code>b = 5</code>.
+        </li>
+        <li>
+            Los siguientes son nombres de variables válidos:
+            <code>_guion_bajo_</code>, <code>m928134</code>, <code>t5</code>, <code>j7</code>,
+            <code>sus_ventas$</code>, <code>el_total_de_su_$cuenta</code>, <code>a</code>, <code>b$</code>,
+            <code>c</code>, <code>z</code>, <code>z2</code>.
+            <br>
+            <strong>Verdadero.</strong> Todos empiezan con una letra, un guion bajo o el signo $, y el resto de
+            los caracteres son letras, dígitos, guiones bajos o $.
+        </li>
+        <li>
+            Una expresión aritmética válida de JavaScript sin paréntesis se evalúa de izquierda a derecha.
+            <br>
+            <strong>Falso.</strong> Primero se aplica la precedencia: <code>*</code>, <code>/</code> y <code>%</code>
+            se evalúan antes que <code>+</code> y <code>-</code>. Solo los operadores que tienen la misma precedencia
+            se evalúan de izquierda a derecha. Por ejemplo, <code>2 + 3 * 4</code> da 14, no 20.
+        </li>
+        <li>
+            Los siguientes son nombres de variables inválidos: <code>3g</code>, <code>87</code>,
+            <code>67h2</code>, <code>h22</code>, <code>2h</code>.
+            <br>
+            <strong>Falso.</strong> <code>h22</code> sí es un nombre válido, porque empieza con una letra.
+            Los demás son inválidos porque empiezan con un dígito.
+        </li>
+    </ol>
+
+    <p>
+        <a href="ejercicio6.08.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.10.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

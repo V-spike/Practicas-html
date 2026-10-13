@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.21 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.21</title>
+</head>
+<body>
+    <h1>Ejercicio 6.21</h1>
+    <h2>¿El entero es par o impar?</h2>
+
+    <script>
+        // Lee un entero y muestra si es par o impar usando el operador residuo.
+        // Un número par deja residuo 0 al dividirse entre 2.
+        var valor, numero;
+
+        valor = window.prompt("Escriba un entero:", "0");
+        numero = parseInt(valor);
+
+        if (numero % 2 == 0) {
+            document.writeln("<h3>" + numero + " es par</h3>");
+        }
+
+        // Se compara con "distinto de 0" (y no "igual a 1") para que
+        // también funcione con negativos: -3 % 2 da -1, no 1.
+        if (numero % 2 != 0) {
+            document.writeln("<h3>" + numero + " es impar</h3>");
+        }
+    </script>
+
+    <p>
+        <a href="ejercicio6.20.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.22.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

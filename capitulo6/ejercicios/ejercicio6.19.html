@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.19 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.19</title>
+</head>
+<body>
+    <h1>Ejercicio 6.19</h1>
+    <h2>Diámetro, circunferencia y área de un círculo</h2>
+
+    <script>
+        // Pide el radio de un círculo y muestra su diámetro, circunferencia y área.
+        // Fórmulas: diámetro = 2r, circunferencia = 2πr, área = πr²
+        var valorRadio, radio;
+        var pi = 3.14159;
+        var diametro, circunferencia, area;
+
+        valorRadio = window.prompt("Escriba el radio del círculo:", "1");
+
+        // parseFloat conserva los decimales (el radio puede ser, por ejemplo, 2.5)
+        radio = parseFloat(valorRadio);
+
+        diametro = 2 * radio;
+        circunferencia = 2 * pi * radio;
+        area = pi * radio * radio;
+
+        document.writeln("<h3>Círculo de radio " + radio + "</h3>");
+        document.writeln("<p>Diámetro: " + diametro + "</p>");
+        document.writeln("<p>Circunferencia: " + circunferencia + "</p>");
+        document.writeln("<p>Área: " + area + "</p>");
+    </script>
+
+    <p>
+        <a href="ejercicio6.18.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.20.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

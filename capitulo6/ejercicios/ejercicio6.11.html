@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.11 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.11</title>
+</head>
+<body>
+    <h1>Ejercicio 6.11</h1>
+    <h2>¿Qué aparece en el diálogo de alerta cuando se ejecuta cada una de las siguientes instrucciones? Asuma que x = 2 y y = 3</h2>
+
+    <ol type="a">
+        <li>
+            <code>window.alert("x = " + x);</code>
+            <br>
+            Aparece: <strong>x = 2</strong>
+        </li>
+        <li>
+            <code>window.alert("El valor de x + x es " + (x + x));</code>
+            <br>
+            Aparece: <strong>El valor de x + x es 4</strong>
+            <br>
+            Los paréntesis hacen que <code>x + x</code> se sume primero (da 4) y después ese número se une al texto.
+            Sin ellos, el <code>+</code> uniría el texto con cada 2 por separado y saldría "...es 22".
+        </li>
+        <li>
+            <code>window.alert("x =");</code>
+            <br>
+            Aparece: <strong>x =</strong>
+            <br>
+            Todo está entre comillas, así que es texto fijo y no se usa el valor de ninguna variable.
+        </li>
+        <li>
+            <code>window.alert((x + y) + " = " + (y + x));</code>
+            <br>
+            Aparece: <strong>5 = 5</strong>
+            <br>
+            Cada paréntesis suma sus dos números (2 + 3 y 3 + 2) y después los resultados se unen con el texto " = ".
+        </li>
+    </ol>
+
+    <p>
+        <a href="ejercicio6.10.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.12.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

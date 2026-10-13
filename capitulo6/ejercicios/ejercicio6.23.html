@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.23 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.23</title>
+</head>
+<body>
+    <h1>Ejercicio 6.23</h1>
+    <h2>Cantidad de números negativos, positivos y ceros</h2>
+
+    <script>
+        // Recibe tres números y cuenta cuántos son negativos, positivos y ceros.
+        var valor1, valor2, valor3;
+        var numero1, numero2, numero3;
+
+        // Contadores: empiezan en 0 y suben de 1 en 1
+        var negativos = 0;
+        var positivos = 0;
+        var ceros = 0;
+
+        valor1 = window.prompt("Escriba el primer número:", "0");
+        valor2 = window.prompt("Escriba el segundo número:", "0");
+        valor3 = window.prompt("Escriba el tercer número:", "0");
+
+        numero1 = parseFloat(valor1);
+        numero2 = parseFloat(valor2);
+        numero3 = parseFloat(valor3);
+
+        // Primer número
+        if (numero1 < 0) {
+            negativos = negativos + 1;
+        }
+        if (numero1 > 0) {
+            positivos = positivos + 1;
+        }
+        if (numero1 == 0) {
+            ceros = ceros + 1;
+        }
+
+        // Segundo número
+        if (numero2 < 0) {
+            negativos = negativos + 1;
+        }
+        if (numero2 > 0) {
+            positivos = positivos + 1;
+        }
+        if (numero2 == 0) {
+            ceros = ceros + 1;
+        }
+
+        // Tercer número
+        if (numero3 < 0) {
+            negativos = negativos + 1;
+        }
+        if (numero3 > 0) {
+            positivos = positivos + 1;
+        }
+        if (numero3 == 0) {
+            ceros = ceros + 1;
+        }
+
+        document.writeln("<p>Números negativos: " + negativos + "</p>");
+        document.writeln("<p>Números positivos: " + positivos + "</p>");
+        document.writeln("<p>Ceros: " + ceros + "</p>");
+    </script>
+
+    <p>
+        <a href="ejercicio6.22.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.24.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

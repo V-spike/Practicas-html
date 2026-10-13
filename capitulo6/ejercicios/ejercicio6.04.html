@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Ejercicio 6.04 -->
+<!-- Identificar y corregir errores en instrucciones if. -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 6.04</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 760px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.5;
+        }
+        pre {
+            padding: 0.75rem 1rem;
+            border-left: 4px solid #999999;
+            background: #f5f5f5;
+            overflow-x: auto;
+        }
+        pre.error {
+            border-left-color: #c0392b;
+        }
+        pre.correcto {
+            border-left-color: #27ae60;
+        }
+        .etiqueta {
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 6.04</h1>
+    <h2>Identifique y corrija los errores en cada una de las siguientes instrucciones</h2>
+
+    <h3>a</h3>
+    <p class="etiqueta">Instrucción con error:</p>
+    <pre class="error"><code>if (c &lt; 7);
+    window.alert("c es menor que 7");</code></pre>
+    <p>
+        <strong>Error:</strong> hay un punto y coma después del paréntesis de la condición.
+        Eso termina el <code>if</code> con una instrucción vacía, así que
+        <code>window.alert</code> se ejecuta siempre, sin importar el valor de <code>c</code>.
+    </p>
+    <p class="etiqueta">Corrección (se elimina el punto y coma):</p>
+    <pre class="correcto"><code>if (c &lt; 7)
+    window.alert("c es menor que 7");</code></pre>
+
+    <h3>b</h3>
+    <p class="etiqueta">Instrucción con error:</p>
+    <pre class="error"><code>if (c =&gt; 7)
+    window.alert("c es igual o mayor que 7");</code></pre>
+    <p>
+        <strong>Error:</strong> <code>=&gt;</code> no es un operador relacional válido en una condición.
+        El operador de "mayor o igual que" se escribe con el <code>&gt;</code> primero y el
+        <code>=</code> después.
+    </p>
+    <p class="etiqueta">Corrección (se cambia <code>=&gt;</code> por <code>&gt;=</code>):</p>
+    <pre class="correcto"><code>if (c &gt;= 7)
+    window.alert("c es igual o mayor que 7");</code></pre>
+
+    <p>
+        <a href="ejercicio6.03.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio6.05.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>
