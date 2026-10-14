@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.11 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.11</title>
+</head>
+<body>
+    <h1>Ejercicio 8.11</h1>
+    <h2>Ventas de un vendedor minorista en línea</h2>
+
+    <table border="1">
+        <tr><th>Producto</th><th>Precio</th></tr>
+        <tr><td>1</td><td>$2.98</td></tr>
+        <tr><td>2</td><td>$4.50</td></tr>
+        <tr><td>3</td><td>$9.98</td></tr>
+        <tr><td>4</td><td>$4.49</td></tr>
+        <tr><td>5</td><td>$6.87</td></tr>
+    </table>
+    <p>
+        Se leen pares (número de producto, cantidad vendida). El <code>switch</code> elige el precio y el centinela
+        <strong>0</strong> en el número de producto termina. Compáralo con el ejercicio 7.13, donde lo mismo se hizo con
+        <code>if...else if</code>.
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <pre>total = 0
+Pedir número de producto (0 para terminar)
+Mientras producto sea distinto de 0
+    Según producto, asignar precio (switch)
+    Si el producto es válido
+        Pedir cantidad
+        total += precio * cantidad
+    Pedir número de producto
+Mostrar total</pre>
+
+    <h3>Resultado</h3>
+    <script>
+        var producto; // número de producto (texto del prompt)
+        var cantidad; // unidades vendidas
+        var precio;   // precio del producto elegido
+        var total = 0;
+
+        producto = window.prompt( "Número de producto (1-5), 0 para terminar:", "0" );
+
+        while ( producto != "0" )
+        {
+            // prompt devuelve texto, por eso los case comparan con "1", "2"... como en la figura 8.7
+            switch ( producto )
+            {
+                case "1": precio = 2.98; break;
+                case "2": precio = 4.50; break;
+                case "3": precio = 9.98; break;
+                case "4": precio = 4.49; break;
+                case "5": precio = 6.87; break;
+                default:  precio = 0;    break; // producto inválido
+            } // fin de switch
+
+            if ( precio > 0 )
+            {
+                cantidad = parseInt( window.prompt( "Cantidad vendida del producto " + producto + ":", "1" ) );
+                total += precio * cantidad;
+                document.writeln( "<p>Producto " + producto + ": " + cantidad + " &times; $" + precio.toFixed( 2 ) +
+                    " = $" + ( precio * cantidad ).toFixed( 2 ) + "</p>" );
+            }
+            else
+                window.alert( "Producto inválido: escriba un número del 1 al 5" );
+
+            producto = window.prompt( "Número de producto (1-5), 0 para terminar:", "0" );
+        } // fin de while
+
+        document.writeln( "<h3>Valor total de ventas: $" + total.toFixed( 2 ) + "</h3>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> producto 1, cantidad 10 ($29.80); producto 3, cantidad 2 ($19.96);
+    producto 5, cantidad 4 ($27.48); luego 0. El total es <strong>$77.24</strong>.</p>
+
+    <p>
+        <a href="ejercicio8.10.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.12.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

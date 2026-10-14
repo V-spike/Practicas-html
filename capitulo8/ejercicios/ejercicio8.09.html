@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.09 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.09</title>
+</head>
+<body>
+    <h1>Ejercicio 8.09</h1>
+    <h2>Gráfico de barras (histograma) con asteriscos</h2>
+
+    <p>
+        Se leen 5 números entre 1 y 30. Por cada uno se imprime una línea con esa cantidad de asteriscos. Si el número está
+        fuera de rango, se vuelve a pedir: un <code>do...while</code> es ideal porque <em>siempre</em> hay que pedir el
+        número al menos una vez.
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <pre>Para contador desde 1 hasta 5
+    Hacer
+        Pedir un número
+    Mientras número &lt; 1 o número &gt; 30
+    Imprimir número asteriscos</pre>
+
+    <h3>Resultado</h3>
+    <pre><script>
+        var numero; // número leído
+
+        for ( var contador = 1; contador <= 5; ++contador )
+        {
+            do {
+                numero = parseInt( window.prompt( "Número " + contador + " de 5 (entre 1 y 30):", "1" ) );
+            } while ( !( numero >= 1 && numero <= 30 ) ); // se repite mientras NO esté en el rango
+            // !( ... ) también rechaza NaN si el usuario escribe texto
+
+            document.write( numero + "\t" ); // \t es un tabulador, para alinear las barras
+
+            for ( var i = 1; i <= numero; ++i )
+                document.write( "*" );
+
+            document.writeln( "" ); // salto de línea (estamos dentro de <pre>)
+        } // fin de for
+    </script></pre>
+
+    <p><strong>Datos de prueba sugeridos:</strong> 7, 15, 3, 30, 1. Prueba también 0, 31 o una letra: debe volver a preguntar.</p>
+
+    <p>
+        <a href="ejercicio8.08.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.10.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

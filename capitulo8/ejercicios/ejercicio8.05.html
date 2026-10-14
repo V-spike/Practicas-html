@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.05 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.05</title>
+</head>
+<body>
+    <h1>Ejercicio 8.05</h1>
+    <h2>¿Qué es lo que hace el siguiente programa?</h2>
+
+    <pre><code>document.writeln( "&lt;table&gt;" );
+
+for ( var i = 1; i &lt;= 10; i++ )
+{
+   document.writeln( "&lt;tr&gt;" );
+
+   for ( var j = 1; j &lt;= 5; j++ )
+      document.writeln( "&lt;td&gt;(" + i + ", " + j + ")&lt;/td&gt;" );
+
+   document.writeln( "&lt;/tr&gt;" );
+} // fin de for
+
+document.writeln( "&lt;/table&gt;" );</code></pre>
+
+    <h3>Respuesta</h3>
+    <p>
+        Crea una <strong>tabla de 10 filas por 5 columnas</strong>. Hay dos <code>for</code> <strong>anidados</strong>:
+    </p>
+    <ul>
+        <li>El externo (<code>i</code> de 1 a 10) crea cada fila <code>&lt;tr&gt;</code>.</li>
+        <li>El interno (<code>j</code> de 1 a 5) crea las 5 celdas de esa fila.</li>
+        <li>Cada celda muestra sus "coordenadas" <code>(fila, columna)</code>: la primera fila es (1, 1) (1, 2) ... (1, 5) y
+        la última es (10, 1) ... (10, 5).</li>
+    </ul>
+    <p>
+        En total se ejecuta el <code>writeln</code> de las celdas 10 × 5 = <strong>50 veces</strong>. Nota: el libro termina
+        con <code>&lt;body /&gt;</code>, que no es válido en HTML5; lo correcto es <code>&lt;body&gt;&lt;/body&gt;</code>.
+    </p>
+
+    <h3>Ejecución</h3>
+    <script>
+        document.writeln( "<table border='1'>" );
+
+        for ( var i = 1; i <= 10; i++ )
+        {
+            document.writeln( "<tr>" );
+
+            for ( var j = 1; j <= 5; j++ )
+                document.writeln( "<td>(" + i + ", " + j + ")</td>" );
+
+            document.writeln( "</tr>" );
+        } // fin de for
+
+        document.writeln( "</table>" );
+    </script>
+
+    <p>
+        <a href="ejercicio8.04.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.06.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

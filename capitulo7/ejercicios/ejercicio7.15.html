@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.15 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,59 @@
 </head>
 <body>
     <h1>Ejercicio 7.15</h1>
-    <h2>Objetos</h2>
-    <p><strong>Actividad:</strong> La instrucci&oacute;n if permite tomar decisiones.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Encontrar el número más grande de 10 dígitos</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.14.html">&larr; Anterior</a> | <a href="ejercicio7.16.html">Siguiente &rarr;</a>
+        Se reciben 10 números de un solo dígito y se muestra el mayor. Se usan las tres variables que pide el libro:
+        <code>contador</code>, <code>numero</code> y <code>mayor</code>.
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <pre>Asignar 1 a contador
+Pedir el primer número y guardarlo en mayor   (el primero es el mayor "hasta ahora")
+Sumar 1 a contador
+Mientras contador sea menor o igual a 10
+    Pedir un número
+    Si número es mayor que mayor
+        mayor = número
+    Sumar 1 a contador
+Mostrar mayor</pre>
+
+    <h3>Resultado</h3>
+    <script>
+        var contador; // cuántos números se han introducido
+        var numero;   // número más reciente introducido
+        var mayor;    // número más grande encontrado hasta ahora
+
+        contador = 1;
+
+        // El primer número se toma como el mayor inicial.
+        // Así no hay que inventar un valor inicial para "mayor".
+        mayor = parseInt( window.prompt( "Número " + contador + " de 10 (un dígito):", "0" ) );
+        ++contador;
+
+        while ( contador <= 10 )
+        {
+            numero = parseInt( window.prompt( "Número " + contador + " de 10 (un dígito):", "0" ) );
+
+            if ( numero > mayor )
+                mayor = numero;
+
+            ++contador;
+        } // fin de while
+
+        document.writeln( "<p>El número más grande es: <strong>" + mayor + "</strong></p>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> 3, 7, 1, 9, 0, 2, 9, 4, 5, 6, cuyo mayor es 9.
+    Prueba también con el mayor en la primera posición y en la última.</p>
+
+    <p>
+        <a href="ejercicio7.14.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.16.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.06 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,41 @@
 </head>
 <body>
     <h1>Ejercicio 7.06</h1>
-    <h2>Instrucci&oacute;n if/else</h2>
-    <p><strong>Actividad:</strong> Las funciones encapsulan instrucciones reutilizables.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Determine el valor de cada variable después del cálculo (todas empiezan en 5)</h2>
+
+    <ol type="a">
+        <li>
+            <code>producto *= x++;</code>
+            <br>
+            <strong>producto = 25, x = 6.</strong> Es postincremento: primero se usa x = 5 (5 * 5 = 25) y después x sube a 6.
+        </li>
+        <li>
+            <code>cociente /= ++x;</code>
+            <br>
+            <strong>cociente = 0.8333..., x = 6.</strong> Es preincremento: x sube a 6 primero y luego 5 / 6 = 0.8333...
+            (el libro imprime <code>+xx</code>, pero es un error: debe ser <code>++x</code>).
+        </li>
+    </ol>
+
+    <h3>Comprobación</h3>
+    <script>
+        var producto = 5, cociente = 5, x;
+
+        x = 5;
+        producto *= x++;
+        document.writeln( "<p>a) producto = " + producto + ", x = " + x + "</p>" );
+
+        x = 5;
+        cociente /= ++x;
+        document.writeln( "<p>b) cociente = " + cociente + ", x = " + x + "</p>" );
+    </script>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.05.html">&larr; Anterior</a> | <a href="ejercicio7.07.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.05.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.07.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.09 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,83 @@
 </head>
 <body>
     <h1>Ejercicio 7.09</h1>
-    <h2>Bucle for</h2>
-    <p><strong>Actividad:</strong> La instrucci&oacute;n if permite tomar decisiones.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Identifique y corrija los errores en cada segmento de código</h2>
+
+    <ol type="a">
+        <li>
+            <pre><code>if ( edad &gt;= 65 );
+   document.writeln( "Edad es mayor o igual que 65" );
+else
+   document.writeln( "Edad es menor que 65 )";</code></pre>
+            <strong>Errores:</strong>
+            <ol>
+                <li>El <code>;</code> después del <code>if</code> termina la instrucción ahí. Entonces el <code>else</code>
+                queda "suelto" sin un <code>if</code> y es un <strong>error de sintaxis</strong>.</li>
+                <li>En el último <code>writeln</code> la comilla de cierre está después del paréntesis:
+                <code>65 )";</code>. Debe ser <code>65" );</code>.</li>
+            </ol>
+            <strong>Corrección:</strong>
+            <pre><code>if ( edad &gt;= 65 )
+   document.writeln( "Edad es mayor o igual que 65" );
+else
+   document.writeln( "Edad es menor que 65" );</code></pre>
+        </li>
+        <li>
+            <pre><code>var x = 1, total;
+while ( x &lt;= 10 )
+{
+   total += x;
+   ++x;
+}</code></pre>
+            <strong>Error:</strong> <code>total</code> nunca se inicializa. Vale <code>undefined</code>, y
+            <code>undefined + 1</code> da <code>NaN</code>, así que el resultado final es <code>NaN</code>.
+            <br><strong>Corrección:</strong>
+            <pre><code>var x = 1, total = 0;</code></pre>
+        </li>
+        <li>
+            <pre><code>var x = 1;
+var total = 0;
+while ( x &lt;= 100 )
+   total += x;
+   ++x;</code></pre>
+            <strong>Error:</strong> sin llaves, el <code>while</code> solo controla <code>total += x;</code>.
+            La sangría engaña: <code>++x</code> nunca se ejecuta dentro del ciclo, así que <code>x</code> se queda en 1
+            y el ciclo es <strong>infinito</strong>.
+            <br><strong>Corrección:</strong>
+            <pre><code>while ( x &lt;= 100 )
+{
+   total += x;
+   ++x;
+}</code></pre>
+        </li>
+        <li>
+            <pre><code>var y = 5;
+while ( y &gt; 0 )
+{
+   document.writeln( y );
+   ++y;</code></pre>
+            <strong>Errores:</strong>
+            <ol>
+                <li><code>++y</code> hace que <code>y</code> crezca (6, 7, 8...). Nunca llega a ser 0, por lo que el ciclo
+                es <strong>infinito</strong>. Debe ser <code>--y</code>.</li>
+                <li>Falta la llave <code>}</code> que cierra el cuerpo del <code>while</code>.</li>
+            </ol>
+            <strong>Corrección:</strong>
+            <pre><code>var y = 5;
+while ( y &gt; 0 )
+{
+   document.writeln( y );
+   --y;
+}</code></pre>
+        </li>
+    </ol>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.08.html">&larr; Anterior</a> | <a href="ejercicio7.10.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.08.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.10.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

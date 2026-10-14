@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<!-- Fig. 8.11: PruebaBreak.html -->
+<!-- Uso de la instrucción break en una instrucción for. -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Uso de la instrucci&oacute;n break en una instrucci&oacute;n for</title>
+    <script>
+
+        for ( var cuenta = 1; cuenta <= 10; ++cuenta )
+        {
+            if ( cuenta == 5 )
+                break;
+
+            document.writeln( cuenta + " " );
+        } //fin de for
+
+        document.writeln(
+            "<p>Se interrumpi&oacute; el ciclo en cuenta = " + cuenta + "</p>" );
+    </script>
+</head>
+<body>
+    <h1>Ejemplo 8.07</h1>
+    <h2>Instrucción break</h2>
+
+    <p>
+        <a href="../../index.html">Inicio</a> | <a href="ejemplo8.06.html">&larr; Anterior</a> | <a href="ejemplo8.08.html">Siguiente &rarr;</a>
+    </p>
+</body>
+</html>

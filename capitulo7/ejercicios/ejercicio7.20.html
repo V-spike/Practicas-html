@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.20 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,89 @@
 </head>
 <body>
     <h1>Ejercicio 7.20</h1>
-    <h2>Valores de retorno</h2>
-    <p><strong>Actividad:</strong> Una variable puede almacenar n&uacute;meros, texto y valores l&oacute;gicos.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Determinar si un número de cinco dígitos es palíndromo</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.19.html">&larr; Anterior</a> | <a href="ejercicio7.21.html">Siguiente &rarr;</a>
+        Un palíndromo se lee igual al derecho y al revés (12321, 55555, 45554, 11611). Si el número no tiene 5 dígitos,
+        se muestra un <code>alert</code> y se vuelve a pedir.
+    </p>
+
+    <h3>¿Cómo se separan los dígitos?</h3>
+    <p>
+        Con división y residuo. Para <strong>12321</strong>:
+    </p>
+    <ul>
+        <li><code>% 10</code> se queda con el último dígito: 12321 % 10 = <strong>1</strong></li>
+        <li>Dividir entre 10 y quitar decimales "recorre" el número: <code>parseInt( 12321 / 10 )</code> = 1232</li>
+        <li>Combinando ambas: <code>parseInt( n / 1000 ) % 10</code> = 12 % 10 = <strong>2</strong> (el segundo dígito)</li>
+    </ul>
+
+    <h3>Pseudocódigo</h3>
+    <pre>valido = falso
+Mientras valido sea falso
+    Pedir un número
+    Si número &gt;= 10000 y número &lt;= 99999   (dos if anidados)
+        valido = verdadero
+    Si no
+        Mostrar alert "Debe tener 5 dígitos"
+Obtener d1, d2, d4, d5 (el dígito central d3 no importa)
+Si d1 es igual a d5
+    Si d2 es igual a d4
+        Mostrar "Es palíndromo"
+    Si no
+        Mostrar "No es palíndromo"
+Si no
+    Mostrar "No es palíndromo"</pre>
+
+    <h3>Resultado</h3>
+    <script>
+        var numero;  // número introducido
+        var valido;  // bandera: true cuando el número tiene 5 dígitos
+        var d1, d2, d4, d5; // dígitos (d1 = decenas de millar, d5 = unidades)
+
+        valido = false;
+
+        while ( valido == false )
+        {
+            numero = parseInt( window.prompt( "Escriba un entero de cinco dígitos:", "12321" ) );
+
+            // Los operadores && y || se ven en el capítulo 8, por eso se usan dos if anidados.
+            // Si el usuario escribe texto, numero es NaN y ambas comparaciones son falsas.
+            if ( numero >= 10000 )
+            {
+                if ( numero <= 99999 )
+                    valido = true;
+            }
+
+            if ( valido == false )
+                window.alert( "El número debe tener exactamente cinco dígitos. Intente de nuevo." );
+        } // fin de while
+
+        // Separar los dígitos con división y residuo
+        d1 = parseInt( numero / 10000 );     // 12321 -> 1
+        d2 = parseInt( numero / 1000 ) % 10; // 12321 -> 12 -> 2
+        d4 = parseInt( numero / 10 ) % 10;   // 12321 -> 1232 -> 2
+        d5 = numero % 10;                    // 12321 -> 1
+
+        if ( d1 == d5 )
+        {
+            if ( d2 == d4 )
+                document.writeln( "<p><strong>" + numero + "</strong> es un palíndromo</p>" );
+            else
+                document.writeln( "<p><strong>" + numero + "</strong> no es un palíndromo</p>" );
+        }
+        else
+            document.writeln( "<p><strong>" + numero + "</strong> no es un palíndromo</p>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> 12321 y 45554 (sí son); 12345 (no es); 123 y 999999 (deben mostrar el alert).</p>
+
+    <p>
+        <a href="ejercicio7.19.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.21.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

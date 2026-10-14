@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.07 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,41 @@
 </head>
 <body>
     <h1>Ejercicio 7.07</h1>
-    <h2>Instrucci&oacute;n else if</h2>
-    <p><strong>Actividad:</strong> JavaScript permite manipular contenido de una p&aacute;gina web.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Identifique y corrija los errores en cada segmento de código</h2>
+
+    <ol type="a">
+        <li>
+            <pre><code>while ( c &lt;= 5 ) {
+   producto *= c;
+   ++c;</code></pre>
+            <strong>Error:</strong> falta la llave derecha <code>}</code> que cierra el cuerpo del <code>while</code>.
+            <br><strong>Corrección:</strong>
+            <pre><code>while ( c &lt;= 5 ) {
+   producto *= c;
+   ++c;
+}</code></pre>
+        </li>
+        <li>
+            <pre><code>if ( genero == 1 )
+   document.writeln( "Mujer" );
+else;
+   document.writeln( "Hombre" );</code></pre>
+            <strong>Error:</strong> el <code>;</code> después de <code>else</code> es una instrucción vacía. El <code>else</code>
+            "no hace nada" y la segunda salida se ejecuta <em>siempre</em> (error lógico).
+            <br><strong>Corrección:</strong> quitar el punto y coma.
+            <pre><code>if ( genero == 1 )
+   document.writeln( "Mujer" );
+else
+   document.writeln( "Hombre" );</code></pre>
+        </li>
+    </ol>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.06.html">&larr; Anterior</a> | <a href="ejercicio7.08.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.06.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.08.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

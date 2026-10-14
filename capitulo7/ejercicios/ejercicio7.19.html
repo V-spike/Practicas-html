@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.19 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,101 @@
 </head>
 <body>
     <h1>Ejercicio 7.19</h1>
-    <h2>Par&aacute;metros</h2>
-    <p><strong>Actividad:</strong> JavaScript permite manipular contenido de una p&aacute;gina web.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Problema del else suelto</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.18.html">&larr; Anterior</a> | <a href="ejercicio7.20.html">Siguiente &rarr;</a>
+        El intérprete <strong>ignora la sangría</strong> y asocia cada <code>else</code> con el <code>if</code> anterior más
+        cercano, a menos que las llaves digan otra cosa. Se analiza con x = 9, y = 11 y con x = 11, y = 9.
+    </p>
+
+    <h3>a) Sin llaves</h3>
+    <p>Así lo entiende realmente el intérprete (con la sangría correcta):</p>
+    <pre><code>if ( x &lt; 10 )
+   if ( y &gt; 10 )
+      document.writeln( "&lt;p&gt;*****&lt;/p&gt;" );
+   else
+      document.writeln( "&lt;p&gt;#####&lt;/p&gt;" );
+document.writeln( "&lt;p&gt;$$$$$&lt;/p&gt;" );   // está fuera de los if: se ejecuta siempre</code></pre>
+    <ul>
+        <li><strong>x = 9, y = 11:</strong> imprime <code>*****</code> y <code>$$$$$</code></li>
+        <li><strong>x = 11, y = 9:</strong> imprime solo <code>$$$$$</code> (el <code>else</code> pertenece al if interno,
+        que ni se evalúa porque x &lt; 10 es falso)</li>
+    </ul>
+
+    <h3>b) Con llaves</h3>
+    <pre><code>if ( x &lt; 10 )
+{
+   if ( y &gt; 10 )
+      document.writeln( "&lt;p&gt;*****&lt;/p&gt;" );
+}
+else
+{
+   document.writeln( "&lt;p&gt;#####&lt;/p&gt;" );
+   document.writeln( "&lt;p&gt;$$$$$&lt;/p&gt;" );
+}</code></pre>
+    <ul>
+        <li><strong>x = 9, y = 11:</strong> imprime solo <code>*****</code></li>
+        <li><strong>x = 11, y = 9:</strong> imprime <code>#####</code> y <code>$$$$$</code> (ahora el <code>else</code>
+        pertenece al if externo)</li>
+    </ul>
+
+    <h3>Comprobación (ejecución real)</h3>
+    <script>
+        var x, y;
+
+        // ----- a) -----
+        x = 9; y = 11;
+        document.writeln( "<p><strong>a) x = 9, y = 11:</strong></p>" );
+        if ( x < 10 )
+            if ( y > 10 )
+                document.writeln( "<p>*****</p>" );
+            else
+                document.writeln( "<p>#####</p>" );
+        document.writeln( "<p>$$$$$</p>" );
+
+        x = 11; y = 9;
+        document.writeln( "<p><strong>a) x = 11, y = 9:</strong></p>" );
+        if ( x < 10 )
+            if ( y > 10 )
+                document.writeln( "<p>*****</p>" );
+            else
+                document.writeln( "<p>#####</p>" );
+        document.writeln( "<p>$$$$$</p>" );
+
+        // ----- b) -----
+        x = 9; y = 11;
+        document.writeln( "<p><strong>b) x = 9, y = 11:</strong></p>" );
+        if ( x < 10 )
+        {
+            if ( y > 10 )
+                document.writeln( "<p>*****</p>" );
+        }
+        else
+        {
+            document.writeln( "<p>#####</p>" );
+            document.writeln( "<p>$$$$$</p>" );
+        }
+
+        x = 11; y = 9;
+        document.writeln( "<p><strong>b) x = 11, y = 9:</strong></p>" );
+        if ( x < 10 )
+        {
+            if ( y > 10 )
+                document.writeln( "<p>*****</p>" );
+        }
+        else
+        {
+            document.writeln( "<p>#####</p>" );
+            document.writeln( "<p>$$$$$</p>" );
+        }
+    </script>
+
+    <p>
+        <a href="ejercicio7.18.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.20.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

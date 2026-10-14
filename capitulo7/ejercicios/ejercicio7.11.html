@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.11 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,90 @@
 </head>
 <body>
     <h1>Ejercicio 7.11</h1>
-    <h2>Longitud de un arreglo</h2>
-    <p><strong>Actividad:</strong> Los objetos agrupan informaci&oacute;n relacionada.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Kilómetros por litro de cada viaje y total acumulado</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.10.html">&larr; Anterior</a> | <a href="ejercicio7.12.html">Siguiente &rarr;</a>
+        Se piden los kilómetros y los litros de cada viaje con <code>prompt</code>. Se muestra el rendimiento (km/L) de
+        cada viaje y el rendimiento total acumulado. Como no se sabe cuántos viajes hay, se usa un
+        <strong>centinela</strong>: escribir <strong>-1</strong> en los kilómetros termina.
+    </p>
+
+    <h3>Pseudocódigo (refinamiento arriba-abajo)</h3>
+    <p><strong>Cima:</strong> Calcular y mostrar el rendimiento de cada viaje y el rendimiento total.</p>
+    <p><strong>Primer refinamiento:</strong></p>
+    <pre>Inicializar variables
+Leer los datos de cada viaje, mostrar su rendimiento y acumular totales
+Mostrar el rendimiento total</pre>
+    <p><strong>Segundo refinamiento:</strong></p>
+    <pre>Inicializar totalKilometros en 0
+Inicializar totalLitros en 0
+
+Pedir los kilómetros del primer viaje (o -1 para terminar)
+Mientras kilómetros sea distinto de -1
+    Pedir los litros usados
+    Sumar kilómetros a totalKilometros
+    Sumar litros a totalLitros
+    Mostrar kilómetros / litros de este viaje
+    Mostrar totalKilometros / totalLitros hasta este punto
+    Pedir los kilómetros del siguiente viaje (o -1 para terminar)
+
+Si totalLitros es distinto de 0
+    Mostrar el rendimiento total
+Si no
+    Mostrar "No se introdujeron viajes"</pre>
+
+    <h3>Resultados</h3>
+    <script>
+        var kilometros;      // kilómetros del viaje actual
+        var litros;          // litros del viaje actual
+        var totalKilometros; // kilómetros acumulados
+        var totalLitros;     // litros acumulados
+        var viaje;           // número de viaje (solo para mostrarlo)
+
+        // Fase de inicialización
+        totalKilometros = 0;
+        totalLitros = 0;
+        viaje = 1;
+
+        // Lectura previa (patrón del centinela)
+        kilometros = parseFloat( window.prompt(
+            "Viaje " + viaje + ": kilómetros conducidos (-1 para terminar):", "0" ) );
+
+        // Fase de procesamiento
+        while ( kilometros != -1 )
+        {
+            litros = parseFloat( window.prompt(
+                "Viaje " + viaje + ": litros usados:", "0" ) );
+
+            totalKilometros += kilometros;
+            totalLitros += litros;
+
+            document.writeln( "<p>Viaje " + viaje + ": " +
+                ( kilometros / litros ) + " km/L. " +
+                "Total hasta ahora: " + ( totalKilometros / totalLitros ) + " km/L</p>" );
+
+            ++viaje;
+            kilometros = parseFloat( window.prompt(
+                "Viaje " + viaje + ": kilómetros conducidos (-1 para terminar):", "0" ) );
+        } // fin de while
+
+        // Fase de terminación
+        if ( totalLitros != 0 )
+            document.writeln( "<h3>Rendimiento total: " +
+                ( totalKilometros / totalLitros ) + " km/L</h3>" );
+        else
+            document.writeln( "<p>No se introdujeron viajes</p>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos (3 conjuntos):</strong> 300 km / 25 L = 12 km/L;
+    250 km / 20 L = 12.5 km/L; 180 km / 18 L = 10 km/L. El total es 730 / 63 = 11.587... km/L.</p>
+
+    <p>
+        <a href="ejercicio7.10.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.12.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

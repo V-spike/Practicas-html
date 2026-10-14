@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.23 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,67 @@
 </head>
 <body>
     <h1>Ejercicio 7.23</h1>
-    <h2>Resumen de JavaScript</h2>
-    <p><strong>Actividad:</strong> Los objetos agrupan informaci&oacute;n relacionada.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Descifrar un entero de cuatro dígitos (del ejercicio 7.22)</h2>
+
+    <p>Se deshace el cifrado en <strong>orden inverso</strong>:</p>
+    <ol>
+        <li>Deshacer el intercambio: volver a cambiar el 1° con el 3° y el 2° con el 4°.</li>
+        <li>Deshacer el +7: sumar <strong>3</strong> y sacar <strong>% 10</strong>. Funciona porque 7 + 3 = 10, y sumar 10
+        no cambia el residuo entre 10. Restar 7 daría negativos (por ejemplo 0 - 7 = -7).</li>
+    </ol>
+
+    <h3>Ejemplo a mano con 0189</h3>
+    <pre>Cifrado:          0   1   8   9
+Intercambio:      8   9   0   1
+(d + 3) % 10:     1   2   3   4
+Original:         1234</pre>
+
+    <h3>Resultado</h3>
+    <script>
+        var numero;          // número cifrado
+        var valido;          // bandera de validación
+        var e1, e2, e3, e4;  // dígitos cifrados
+        var d1, d2, d3, d4;  // dígitos originales
+
+        valido = false;
+
+        while ( valido == false )
+        {
+            // parseInt( "0189" ) da 189, pero al separar con división, el primer dígito sale 0. ¡No se pierde!
+            numero = parseInt( window.prompt( "Escriba el entero cifrado de cuatro dígitos:", "0189" ) );
+
+            if ( numero >= 0 )
+            {
+                if ( numero <= 9999 )
+                    valido = true;
+            }
+
+            if ( valido == false )
+                window.alert( "Debe ser un entero de cuatro dígitos (0000 a 9999)." );
+        } // fin de while
+
+        // 1. Separar los dígitos cifrados
+        e1 = parseInt( numero / 1000 );
+        e2 = parseInt( numero / 100 ) % 10;
+        e3 = parseInt( numero / 10 ) % 10;
+        e4 = numero % 10;
+
+        // 2. Deshacer el intercambio y el +7 (sumando 3)
+        d1 = ( e3 + 3 ) % 10;
+        d2 = ( e4 + 3 ) % 10;
+        d3 = ( e1 + 3 ) % 10;
+        d4 = ( e2 + 3 ) % 10;
+
+        document.writeln( "<p>Número cifrado: <strong>" + e1 + e2 + e3 + e4 + "</strong></p>" );
+        document.writeln( "<p>Número original: <strong>" + d1 + d2 + d3 + d4 + "</strong></p>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> 0189 da 1234; 6666 da 9999; 7777 da 0000.</p>
+
     <p>
-        <a href="ejercicio7.22.html">&larr; Anterior</a> | <a href="../../index.html">Inicio</a>
+        <a href="ejercicio7.22.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
     </p>
 </body>
 </html>

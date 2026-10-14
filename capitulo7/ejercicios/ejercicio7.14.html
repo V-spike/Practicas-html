@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.14 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,62 @@
 </head>
 <body>
     <h1>Ejercicio 7.14</h1>
-    <h2>Quitar elementos</h2>
-    <p><strong>Actividad:</strong> Una variable puede almacenar n&uacute;meros, texto y valores l&oacute;gicos.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Sueldo bruto de tres empleados (con tiempo extra)</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.13.html">&larr; Anterior</a> | <a href="ejercicio7.15.html">Siguiente &rarr;</a>
+        Las primeras 40 horas se pagan con la <strong>cuota normal</strong>. Cada hora arriba de 40 se paga
+        <strong>cuota y media</strong> (1.5 veces la tarifa). Como son exactamente 3 empleados, se usa
+        <strong>repetición controlada por contador</strong>.
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <pre>Inicializar contador de empleados en 1
+Mientras contador sea menor o igual a 3
+    Pedir nombre, horas trabajadas y tarifa por hora
+    Si horas es menor o igual a 40
+        sueldo = horas * tarifa
+    Si no
+        sueldo = 40 * tarifa + ( horas - 40 ) * tarifa * 1.5
+    Mostrar nombre y sueldo
+    Sumar 1 al contador</pre>
+
+    <h3>Resultados</h3>
+    <script>
+        var empleado; // contador de empleados
+        var nombre;   // nombre del empleado
+        var horas;    // horas trabajadas
+        var tarifa;   // pago por hora
+        var sueldo;   // sueldo bruto calculado
+
+        empleado = 1;
+
+        while ( empleado <= 3 )
+        {
+            nombre = window.prompt( "Empleado " + empleado + ": nombre:", "" );
+            horas = parseFloat( window.prompt( "Horas que trabajó " + nombre + ":", "0" ) );
+            tarifa = parseFloat( window.prompt( "Tarifa por hora de " + nombre + ":", "0" ) );
+
+            if ( horas <= 40 )
+                sueldo = horas * tarifa;
+            else
+                sueldo = 40 * tarifa + ( horas - 40 ) * tarifa * 1.5;
+
+            document.writeln( "<p><strong>" + nombre + "</strong>: " + horas + " horas a $" + tarifa +
+                " = sueldo bruto de <strong>$" + sueldo + "</strong></p>" );
+
+            ++empleado;
+        } // fin de while
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> Ana, 39 h, $10 = $390. Luis, 40 h, $10 = $400.
+    Sofía, 41 h, $10 = $400 + $15 = $415.</p>
+
+    <p>
+        <a href="ejercicio7.13.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.15.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

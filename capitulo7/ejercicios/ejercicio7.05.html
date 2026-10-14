@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.05 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,31 @@
 </head>
 <body>
     <h1>Ejercicio 7.05</h1>
-    <h2>Instrucci&oacute;n if</h2>
-    <p><strong>Actividad:</strong> Los objetos agrupan informaci&oacute;n relacionada.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Sumar los enteros del 1 al 10 con una instrucción while</h2>
+
+    <p>Se combinan las instrucciones del ejercicio 7.04. El ciclo termina cuando <code>x</code> vale 11.</p>
+    <script>
+        var suma; // almacena el total
+        var x;    // variable contador de control
+
+        x = 1;
+        suma = 0;
+
+        while ( x <= 10 )
+        {
+            suma += x;
+            ++x;
+        } // fin de while
+
+        document.writeln( "<p>La suma es: " + suma + "</p>" ); // debe dar 55
+    </script>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.04.html">&larr; Anterior</a> | <a href="ejercicio7.06.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.04.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.06.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

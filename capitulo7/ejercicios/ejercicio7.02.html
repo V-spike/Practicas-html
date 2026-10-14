@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.02 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,31 @@
 </head>
 <body>
     <h1>Ejercicio 7.02</h1>
-    <h2>Operadores aritm&eacute;ticos</h2>
-    <p><strong>Actividad:</strong> Una variable puede almacenar n&uacute;meros, texto y valores l&oacute;gicos.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Escriba cuatro instrucciones de JavaScript que sumen 1, cada una, a la variable x</h2>
+
+    <pre><code>x = x + 1;
+x += 1;
+++x;
+x++;</code></pre>
+
+    <p><strong>Comprobación:</strong> si <code>x</code> empieza en 0 y se ejecutan las cuatro instrucciones, debe terminar en 4.</p>
+    <script>
+        var x = 0;
+
+        x = x + 1; // asignación normal
+        x += 1;    // operador de asignación compuesto
+        ++x;       // preincremento
+        x++;       // postincremento (solas en una línea, ++x y x++ hacen lo mismo)
+
+        document.writeln( "<p>Valor final de x: " + x + "</p>" );
+    </script>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.01.html">&larr; Anterior</a> | <a href="ejercicio7.03.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.01.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.03.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

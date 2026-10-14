@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.08 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,32 @@
 </head>
 <body>
     <h1>Ejercicio 7.08</h1>
-    <h2>Bucle while</h2>
-    <p><strong>Actividad:</strong> Una variable puede almacenar n&uacute;meros, texto y valores l&oacute;gicos.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>¿Qué está mal en la siguiente instrucción while?</h2>
+
+    <pre><code>while ( z &gt;= 0 )
+   suma += z;</code></pre>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.07.html">&larr; Anterior</a> | <a href="ejercicio7.09.html">Siguiente &rarr;</a>
+        <strong>Respuesta:</strong> el valor de <code>z</code> nunca cambia dentro del cuerpo del <code>while</code>.
+        Si la condición <code>z &gt;= 0</code> es verdadera al principio, lo será siempre y se crea un
+        <strong>ciclo infinito</strong>.
+    </p>
+    <p>
+        <strong>Corrección:</strong> decrementar <code>z</code> para que en algún momento sea menor que 0
+        (y usar llaves, porque ahora el cuerpo tiene dos instrucciones):
+    </p>
+    <pre><code>while ( z &gt;= 0 )
+{
+   suma += z;
+   --z;
+}</code></pre>
+
+    <p>
+        <a href="ejercicio7.07.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.09.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

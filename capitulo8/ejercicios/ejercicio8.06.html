@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.06 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.06</title>
+</head>
+<body>
+    <h1>Ejercicio 8.06</h1>
+    <h2>Encontrar el menor de varios enteros no negativos</h2>
+
+    <p>
+        El primer valor que se lee indica <strong>cuántos números</strong> va a escribir el usuario. Como esa cantidad ya
+        se conoce antes del ciclo, se usa un <code>for</code> (repetición controlada por contador).
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <pre>Pedir la cantidad de valores
+Pedir el primer valor y guardarlo en menor
+Para contador desde 2 hasta cantidad
+    Pedir un valor
+    Si valor es menor que menor
+        menor = valor
+Mostrar menor</pre>
+
+    <h3>Resultado</h3>
+    <script>
+        var cantidad; // cuántos valores se van a introducir
+        var valor;    // valor más reciente
+        var menor;    // el menor encontrado hasta ahora
+
+        cantidad = parseInt( window.prompt( "¿Cuántos valores va a introducir?", "5" ) );
+
+        if ( cantidad >= 1 )
+        {
+            // El primer valor es el menor "por ahora"
+            menor = parseInt( window.prompt( "Valor 1 de " + cantidad + ":", "0" ) );
+
+            for ( var contador = 2; contador <= cantidad; ++contador )
+            {
+                valor = parseInt( window.prompt( "Valor " + contador + " de " + cantidad + ":", "0" ) );
+
+                if ( valor < menor )
+                    menor = valor;
+            } // fin de for
+
+            document.writeln( "<p>El menor de los " + cantidad + " valores es: <strong>" + menor + "</strong></p>" );
+        }
+        else
+            document.writeln( "<p>La cantidad de valores debe ser al menos 1.</p>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> cantidad 5 y valores 8, 3, 15, 0, 7, cuyo menor es 0.</p>
+
+    <p>
+        <a href="ejercicio8.05.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.07.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

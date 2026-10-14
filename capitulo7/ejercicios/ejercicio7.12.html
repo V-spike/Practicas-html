@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.12 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,71 @@
 </head>
 <body>
     <h1>Ejercicio 7.12</h1>
-    <h2>Acceso a un arreglo</h2>
-    <p><strong>Actividad:</strong> Las funciones encapsulan instrucciones reutilizables.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>¿Algún cliente excedió su límite de crédito?</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.11.html">&larr; Anterior</a> | <a href="ejercicio7.13.html">Siguiente &rarr;</a>
+        Para cada cliente se piden: número de cuenta, saldo inicial, cargos del mes, créditos del mes y límite de crédito.
+        Se calcula <strong>nuevo saldo = saldo inicial + cargos - créditos</strong>. Si el nuevo saldo es mayor que el
+        límite, se muestra "Se excedió el límite de su crédito". El centinela es el número de cuenta <strong>-1</strong>.
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <p><strong>Cima:</strong> Determinar qué clientes excedieron su límite de crédito.</p>
+    <pre>Pedir el número de cuenta (o -1 para terminar)
+Mientras número de cuenta sea distinto de -1
+    Pedir saldo inicial, cargos, créditos y límite de crédito
+    nuevoSaldo = saldo inicial + cargos - créditos
+    Mostrar número de cuenta y nuevoSaldo
+    Si nuevoSaldo es mayor que el límite
+        Mostrar "Se excedió el límite de su crédito"
+    Pedir el siguiente número de cuenta (o -1 para terminar)</pre>
+
+    <h3>Resultados</h3>
+    <script>
+        var cuenta;       // número de cuenta
+        var saldoInicial; // saldo al inicio del mes
+        var cargos;       // total de artículos cargados
+        var creditos;     // total de créditos aplicados
+        var limite;       // límite de crédito permitido
+        var nuevoSaldo;   // saldo calculado
+
+        cuenta = parseInt( window.prompt( "Número de cuenta (-1 para terminar):", "0" ) );
+
+        while ( cuenta != -1 )
+        {
+            saldoInicial = parseInt( window.prompt( "Cuenta " + cuenta + ": saldo al inicio del mes:", "0" ) );
+            cargos = parseInt( window.prompt( "Cuenta " + cuenta + ": total de cargos del mes:", "0" ) );
+            creditos = parseInt( window.prompt( "Cuenta " + cuenta + ": total de créditos del mes:", "0" ) );
+            limite = parseInt( window.prompt( "Cuenta " + cuenta + ": límite de crédito:", "0" ) );
+
+            nuevoSaldo = saldoInicial + cargos - creditos;
+
+            document.writeln( "<p><strong>Cuenta:</strong> " + cuenta +
+                "<br><strong>Límite de crédito:</strong> " + limite +
+                "<br><strong>Nuevo saldo:</strong> " + nuevoSaldo );
+
+            if ( nuevoSaldo > limite )
+                document.writeln( "<br><strong>Se excedió el límite de su crédito</strong>" );
+
+            document.writeln( "</p>" );
+
+            cuenta = parseInt( window.prompt( "Número de cuenta (-1 para terminar):", "0" ) );
+        } // fin de while
+    </script>
+
+    <p><strong>Datos de prueba sugeridos (3 conjuntos):</strong></p>
+    <ul>
+        <li>Cuenta 100: saldo 5000, cargos 2000, créditos 500, límite 6000. Nuevo saldo 6500, <strong>excede</strong>.</li>
+        <li>Cuenta 200: saldo 1000, cargos 300, créditos 800, límite 2000. Nuevo saldo 500, no excede.</li>
+        <li>Cuenta 300: saldo 3000, cargos 1000, créditos 0, límite 4000. Nuevo saldo 4000, no excede (es igual, no mayor).</li>
+    </ul>
+
+    <p>
+        <a href="ejercicio7.11.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.13.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

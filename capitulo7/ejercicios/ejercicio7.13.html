@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.13 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,77 @@
 </head>
 <body>
     <h1>Ejercicio 7.13</h1>
-    <h2>Agregar elementos</h2>
-    <p><strong>Actividad:</strong> JavaScript permite manipular contenido de una p&aacute;gina web.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Ingresos semanales de un vendedor por comisión</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.12.html">&larr; Anterior</a> | <a href="ejercicio7.14.html">Siguiente &rarr;</a>
+        El vendedor gana <strong>$200 por semana más el 9% de sus ventas brutas</strong>. Valores de los artículos:
+    </p>
+    <table border="1">
+        <tr><th>Artículo</th><th>Valor</th></tr>
+        <tr><td>1</td><td>239.99</td></tr>
+        <tr><td>2</td><td>129.75</td></tr>
+        <tr><td>3</td><td>99.95</td></tr>
+        <tr><td>4</td><td>350.89</td></tr>
+    </table>
+    <p>
+        Se pide cada artículo vendido (1 a 4) con <code>prompt</code>; el centinela <strong>0</strong> termina. Como
+        <code>switch</code> se ve en el capítulo 8, el precio se elige con <code>if...else</code> anidados.
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <pre>Inicializar ventas en 0
+Pedir el número de artículo (0 para terminar)
+Mientras artículo sea distinto de 0
+    Si artículo es 1, sumar 239.99 a ventas
+    Si no, si artículo es 2, sumar 129.75 a ventas
+    Si no, si artículo es 3, sumar 99.95 a ventas
+    Si no, si artículo es 4, sumar 350.89 a ventas
+    Si no, mostrar "Artículo no válido"
+    Pedir el siguiente número de artículo
+ingresos = 200 + 0.09 * ventas
+Mostrar ventas e ingresos</pre>
+
+    <h3>Resultados</h3>
+    <script>
+        var articulo; // número de artículo vendido
+        var ventas;   // ventas brutas acumuladas
+        var ingresos; // pago semanal del vendedor
+
+        ventas = 0;
+
+        articulo = parseInt( window.prompt( "Número de artículo vendido (1-4), 0 para terminar:", "0" ) );
+
+        while ( articulo != 0 )
+        {
+            if ( articulo == 1 )
+                ventas += 239.99;
+            else if ( articulo == 2 )
+                ventas += 129.75;
+            else if ( articulo == 3 )
+                ventas += 99.95;
+            else if ( articulo == 4 )
+                ventas += 350.89;
+            else
+                window.alert( "Artículo no válido: escriba un número del 1 al 4" );
+
+            articulo = parseInt( window.prompt( "Número de artículo vendido (1-4), 0 para terminar:", "0" ) );
+        } // fin de while
+
+        ingresos = 200 + 0.09 * ventas;
+
+        // toFixed( 2 ) muestra el número con 2 decimales (evita resultados como 245.69100000000003)
+        document.writeln( "<p>Ventas brutas: $" + ventas.toFixed( 2 ) + "</p>" );
+        document.writeln( "<h3>Ingresos del vendedor: $" + ingresos.toFixed( 2 ) + "</h3>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> artículos 1, 2, 4 y luego 0. Ventas = 720.63, ingresos = $264.86.</p>
+
+    <p>
+        <a href="ejercicio7.12.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.14.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

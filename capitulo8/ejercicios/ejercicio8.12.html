@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.12 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.12</title>
+</head>
+<body>
+    <h1>Ejercicio 8.12</h1>
+    <h2>Suponga que i = 1, j = 2, k = 3 y m = 2. ¿Qué imprime cada instrucción?</h2>
+
+    <table border="1">
+        <tr><th></th><th>Instrucción</th><th>Evaluación</th><th>Imprime</th></tr>
+        <tr><td>a)</td><td><code>i == 1</code></td><td>1 == 1</td><td><strong>true</strong></td></tr>
+        <tr><td>b)</td><td><code>j == 3</code></td><td>2 == 3</td><td><strong>false</strong></td></tr>
+        <tr><td>c)</td><td><code>i &gt;= 1 &amp;&amp; j &lt; 4</code></td><td>true &amp;&amp; true</td><td><strong>true</strong></td></tr>
+        <tr><td>d)</td><td><code>m &lt;= 99 &amp;&amp; k &lt; m</code></td><td>true &amp;&amp; (3 &lt; 2 = false)</td><td><strong>false</strong></td></tr>
+        <tr><td>e)</td><td><code>j &gt;= i || k == m</code></td><td>true || ... (corto circuito: ya no evalúa k == m)</td><td><strong>true</strong></td></tr>
+        <tr><td>f)</td><td><code>k + m &lt; j || 3 - j &gt;= k</code></td><td>(5 &lt; 2 = false) || (1 &gt;= 3 = false)</td><td><strong>false</strong></td></tr>
+        <tr><td>g)</td><td><code>!( k &gt; m )</code></td><td>!( 3 &gt; 2 ) = !true</td><td><strong>false</strong></td></tr>
+    </table>
+
+    <h3>¿Son necesarios los paréntesis?</h3>
+    <ul>
+        <li><strong>a) a f): no.</strong> Por precedencia, la aritmética (<code>+ -</code>) va antes que los relacionales
+        (<code>&lt; &gt;=</code>), estos antes que la igualdad (<code>==</code>), luego <code>&amp;&amp;</code> y al final
+        <code>||</code>. La expresión se agrupa sola de forma correcta.</li>
+        <li><strong>g): sí.</strong> El operador <code>!</code> tiene <em>mayor</em> precedencia que <code>&gt;</code>.
+        Sin paréntesis, <code>!k &gt; m</code> significaría <code>(!k) &gt; m</code>, es decir, <code>false &gt; 2</code>.
+        Aquí da el mismo resultado de casualidad, pero significa otra cosa.</li>
+    </ul>
+
+    <h3>Comprobación (ejecución real)</h3>
+    <script>
+        var i = 1, j = 2, k = 3, m = 2;
+
+        document.writeln( "<p>a) " + ( i == 1 ) + "</p>" );
+        document.writeln( "<p>b) " + ( j == 3 ) + "</p>" );
+        document.writeln( "<p>c) " + ( i >= 1 && j < 4 ) + "</p>" );
+        document.writeln( "<p>d) " + ( m <= 99 && k < m ) + "</p>" );
+        document.writeln( "<p>e) " + ( j >= i || k == m ) + "</p>" );
+        document.writeln( "<p>f) " + ( k + m < j || 3 - j >= k ) + "</p>" );
+        document.writeln( "<p>g) " + ( !( k > m ) ) + "</p>" );
+    </script>
+    <p><strong>Ojo:</strong> en la comprobación cada expresión va entre paréntesis porque se concatena con
+    <code>"&lt;p&gt;a) " + ...</code>. Sin ellos, el <code>+</code> se evaluaría primero (tiene mayor precedencia que
+    <code>==</code>) y compararía el texto completo.</p>
+
+    <p>
+        <a href="ejercicio8.11.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.13.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

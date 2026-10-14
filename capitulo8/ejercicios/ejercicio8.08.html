@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.08 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.08</title>
+    <style>
+        table          { width: 300px; border-collapse: collapse; background-color: lightblue; margin-bottom: 20px; }
+        table, td, th  { border: 1px solid black; padding: 4px; }
+        th             { text-align: left; color: white; background-color: darkblue; }
+        tr.filaimpar   { background-color: white; }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 8.08</h1>
+    <h2>Interés compuesto con tasas del 5 al 10 por ciento</h2>
+
+    <p>
+        Es el programa de la figura 8.6 dentro de <strong>otro</strong> <code>for</code> que varía la tasa. El for externo
+        recorre las tasas 5, 6, 7, 8, 9 y 10. El interno recorre los 10 años y genera una tabla por cada tasa.
+    </p>
+    <script>
+        var monto;               // monto actual de dinero
+        var principal = 1000.00; // monto principal
+        var tasa;                // tasa como decimal (0.05, 0.06...)
+
+        for ( var porcentaje = 5; porcentaje <= 10; ++porcentaje )
+        {
+            tasa = porcentaje / 100;
+
+            document.writeln( "<table>" );
+            document.writeln( "<caption>Inter&eacute;s compuesto al " + porcentaje + "%</caption>" );
+            document.writeln( "<thead><tr><th>A&ntilde;o</th><th>Monto en dep&oacute;sito</th></tr></thead><tbody>" );
+
+            for ( var anio = 1; anio <= 10; ++anio )
+            {
+                monto = principal * Math.pow( 1.0 + tasa, anio );
+
+                if ( anio % 2 !== 0 )
+                    document.writeln( "<tr class='filaimpar'><td>" + anio +
+                        "</td><td>" + monto.toFixed( 2 ) + "</td></tr>" );
+                else
+                    document.writeln( "<tr><td>" + anio +
+                        "</td><td>" + monto.toFixed( 2 ) + "</td></tr>" );
+            } // fin del for interno (años)
+
+            document.writeln( "</tbody></table>" );
+        } // fin del for externo (tasas)
+    </script>
+
+    <p>
+        <a href="ejercicio8.07.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.09.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

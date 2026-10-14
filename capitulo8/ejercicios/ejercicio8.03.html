@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.03 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.03</title>
+</head>
+<body>
+    <h1>Ejercicio 8.03</h1>
+    <h2>Encuentre el error en cada segmento de código y explique cómo corregirlo</h2>
+
+    <ol type="a">
+        <li>
+            <pre><code>x = 1;
+while ( x &lt;= 10 );
+   ++x;
+}</code></pre>
+            <strong>Error:</strong> el punto y coma después del encabezado del <code>while</code> lo deja con un cuerpo vacío.
+            <code>x</code> nunca cambia y se crea un <strong>ciclo infinito</strong>. Además falta la llave izquierda <code>{</code>.
+            <br><strong>Corrección:</strong> reemplazar el <code>;</code> por <code>{</code>.
+            <pre><code>x = 1;
+while ( x &lt;= 10 ) {
+   ++x;
+}</code></pre>
+        </li>
+        <li>
+            <pre><code>switch ( n )
+{
+   case 1:
+      document.writeln( "El n&amp;uacute;mero es 1" );
+   case 2:
+      document.writeln( "El n&amp;uacute;mero es 2" );
+      break;
+   default:
+      document.writeln( "El n&amp;uacute;mero no es 1 ni 2" );
+      break;
+}</code></pre>
+            <strong>Error:</strong> falta <code>break</code> en el <code>case 1</code>. Si <code>n</code> vale 1 se imprime
+            "El número es 1" <em>y también</em> "El número es 2", porque la ejecución "cae" al siguiente caso.
+            <br><strong>Corrección:</strong> agregar <code>break;</code> al final del <code>case 1</code>. (No sería error si
+            de verdad se quisiera ejecutar las dos cosas.)
+        </li>
+        <li>
+            Debe imprimir los valores del 1 al 10:
+            <pre><code>n = 1;
+while ( n &lt; 10 )
+   document.writeln( n++ );</code></pre>
+            <strong>Error:</strong> el operador relacional es incorrecto. Con <code>&lt;</code> solo imprime del 1 al 9
+            (error por desplazamiento en uno).
+            <br><strong>Corrección:</strong> usar <code>n &lt;= 10</code>, o bien <code>n &lt; 11</code>.
+        </li>
+    </ol>
+
+    <p>
+        <a href="ejercicio8.02.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.04.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

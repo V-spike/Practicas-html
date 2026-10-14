@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.18 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,75 @@
 </head>
 <body>
     <h1>Ejercicio 7.18</h1>
-    <h2>Funciones</h2>
-    <p><strong>Actividad:</strong> Las funciones encapsulan instrucciones reutilizables.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Sin ejecutarla, determine lo que imprime la secuencia de comandos</h2>
+
+    <pre><code>var fila = 10;
+var columna;
+
+while ( fila &gt;= 1 )
+{
+   columna = 1;
+   document.writeln( "&lt;p&gt;" );
+
+   while ( columna &lt;= 10 )
+   {
+      document.write( fila % 2 == 1 ? "&lt;" : "&gt;" );
+      ++columna;
+   } // end while
+
+   --fila;
+   document.writeln( "&lt;/p&gt;" );
+} // end while</code></pre>
+
+    <h3>Análisis (prueba de escritorio)</h3>
+    <ul>
+        <li>El ciclo externo recorre <code>fila</code> de <strong>10 hasta 1</strong>, así que hay 10 párrafos.</li>
+        <li>El ciclo interno se repite 10 veces por fila, así que cada párrafo tiene 10 símbolos.</li>
+        <li><code>fila % 2 == 1</code> es verdadero cuando la fila es <strong>impar</strong>. Las filas impares imprimen
+        <code>&lt;</code> y las pares imprimen <code>&gt;</code>.</li>
+        <li>Como empieza en 10 (par), la primera línea es de <code>&gt;</code> y luego se alternan.</li>
+    </ul>
+    <p><strong>Salida esperada:</strong></p>
+    <pre>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;   (fila 10)
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   (fila 9)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;   (fila 8)
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   (fila 7)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;   (fila 6)
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   (fila 5)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;   (fila 4)
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   (fila 3)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;   (fila 2)
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   (fila 1)</pre>
+
+    <h3>Comprobación (ejecución real)</h3>
+    <script>
+        var fila = 10;
+        var columna;
+
+        while ( fila >= 1 )
+        {
+            columna = 1;
+            document.writeln( "<p>" );
+
+            while ( columna <= 10 )
+            {
+                // Se imprimen las entidades &lt; y &gt; para que el navegador
+                // no confunda los símbolos con etiquetas HTML.
+                document.write( fila % 2 == 1 ? "&lt;" : "&gt;" );
+                ++columna;
+            } // fin del while interno
+
+            --fila;
+            document.writeln( "</p>" );
+        } // fin del while externo
+    </script>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.17.html">&larr; Anterior</a> | <a href="ejercicio7.19.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.17.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.19.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

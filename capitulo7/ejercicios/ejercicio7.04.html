@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.04 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,30 @@
 </head>
 <body>
     <h1>Ejercicio 7.04</h1>
-    <h2>Expresiones l&oacute;gicas</h2>
-    <p><strong>Actividad:</strong> Los arreglos permiten guardar varios valores en una sola variable.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Escriba una instrucción en JavaScript para realizar cada una de las siguientes tareas</h2>
+
+    <ol type="a">
+        <li>Declarar las variables <code>suma</code> y <code>x</code>.
+            <pre><code>var suma, x;</code></pre></li>
+        <li>Asignar 1 a la variable <code>x</code>.
+            <pre><code>x = 1;</code></pre></li>
+        <li>Asignar 0 a la variable <code>suma</code>.
+            <pre><code>suma = 0;</code></pre></li>
+        <li>Sumar la variable <code>x</code> a <code>suma</code> y asignar el resultado a <code>suma</code>.
+            <pre><code>suma += x;   // o bien: suma = suma + x;</code></pre></li>
+        <li>Imprimir "La suma es: " seguido del valor de <code>suma</code>.
+            <pre><code>document.writeln( "La suma es: " + suma );</code></pre></li>
+    </ol>
+
+    <p><strong>Nota:</strong> la respuesta del libro escribe <code>"La suma es: ", + suma</code> con una coma.
+    Es un error de impresión: lo correcto es concatenar con <code>+</code>.</p>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.03.html">&larr; Anterior</a> | <a href="ejercicio7.05.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.03.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.05.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

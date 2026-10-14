@@ -1,19 +1,61 @@
 <!DOCTYPE html>
+<!--Fig 7.9: promedio2.html-->
+<!--Repeticion controlada por centinela para calcular el promedio de una clase-->
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Acceso a elementos</title>
+    <title>Programa del promedio de una clase: repeticion controlada por centinela</title>
+    <script>
+        var total; //suma de calificaciones
+        var contadorCalificaciones; //numero de calificaciones instroducidas
+        var calificacion; // calificacion escrita por el usuario como cadena
+        var valorCalificacion; // valor de la calificaciones convertido a entero
+        var promedio; //promedio de todas las calificaciones
+
+        //fase de inicializacion 
+        total = 0; // borrar el total
+        contadorCalificaciones = 0; //preparar para iterar
+
+        //fase de procesamiento
+        //pedir la entrada y leer la calificacion del usuario
+        calificacion = window.prompt("Escriba la calificación entera, -1 para salir:", "0");
+
+        //convertir calificacion de cadena en entero 
+        valorCalificacion = parseInt( calificacion );
+
+        while ( valorCalificacion != -1)
+        {
+            //sumar valorCalificacion al total 
+            total = total + valorCalificacion;
+            //agregar 1 al contadorCalificaciones
+            contadorCalificaciones = contadorCalificaciones + 1;
+            //pedir la entrada y leer calificacion del usuario
+            calificacion = window.prompt(" Escriba la calificacion entera, -1 para salir:", "o");
+            //convertir calificacion cadena a entero
+            valorCalificacion = parseInt( calificacion );
+        } //fin while
+
+        //fase de finalizacion 
+        if ( contadorCalificaciones != 0 )
+        {
+            promedio = total / contadorCalificaciones;
+
+            //mostrar el promedio de las calificaciones de los examenes
+        document.writeln( 
+            "<h1>El promedio de la clase es " + promedio + "</h1>");
+        }
+        else 
+        document.writeln(" <p>No se introdujeron calificaciones</p>");
+    </script>
 </head>
 <body>
     <h1>Ejemplo 7.02</h1>
-    <h2>Acceso a elementos</h2>
-    <script type="text/javascript">
-        var dias = ["Lunes", "Martes", "Mi&eacute;rcoles", "Jueves"];
-document.write("<p>Primer d&iacute;a: " + dias[0] + "</p>");
-document.write("<p>&Uacute;ltimo d&iacute;a: " + dias[dias.length - 1] + "</p>");
-    </script>
+    <h2>Promedio de una clase</h2>
+    
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejemplo7.01.html">&larr; Anterior</a> | <a href="ejemplo7.03.html">Siguiente &rarr;</a>
+         <a href="../../index.html">Inicio</a> | <a href="ejemplo7.01.html">&larr; Anterior</a> | <a href="ejemplo7.03.html">Siguiente &rarr;</a>
     </p>
 </body>
 </html>
+
+

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.03 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,64 @@
 </head>
 <body>
     <h1>Ejercicio 7.03</h1>
-    <h2>Operadores de comparaci&oacute;n</h2>
-    <p><strong>Actividad:</strong> La instrucci&oacute;n if permite tomar decisiones.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Escriba instrucciones en JavaScript para realizar cada una de las siguientes tareas</h2>
+
+    <ol type="a">
+        <li>
+            Asignar la suma de <code>x</code> y <code>y</code> a <code>z</code>, e incrementar <code>x</code> en 1
+            después del cálculo (una sola instrucción).
+            <pre><code>z = x++ + y;</code></pre>
+            Se usa <strong>post</strong>incremento porque primero se usa el valor actual de <code>x</code> y después se incrementa.
+        </li>
+        <li>
+            Evaluar si <code>cuenta</code> es mayor que 10; de ser así, imprimir "Cuenta es mayor que 10".
+            <pre><code>if ( cuenta &gt; 10 )
+   document.writeln( "Cuenta es mayor que 10" );</code></pre>
+        </li>
+        <li>
+            Decrementar <code>x</code> en 1 y luego restarla a <code>total</code> (una sola instrucción).
+            <pre><code>total -= --x;</code></pre>
+            Se usa <strong>pre</strong>decremento porque primero se decrementa <code>x</code> y luego se resta el nuevo valor.
+        </li>
+        <li>
+            Calcular el residuo de dividir <code>q</code> entre <code>divisor</code> y asignarlo a <code>q</code> (dos maneras).
+            <pre><code>q %= divisor;
+q = q % divisor;</code></pre>
+        </li>
+    </ol>
+
+    <h3>Prueba con valores</h3>
+    <script>
+        var x = 2, y = 3, z;
+        var cuenta = 15;
+        var total = 10;
+        var q = 17, divisor = 5;
+
+        // a)
+        z = x++ + y;
+        document.writeln( "<p>a) z = " + z + " (2 + 3), y x quedó en " + x + "</p>" );
+
+        // b)
+        document.writeln( "<p>b) " );
+        if ( cuenta > 10 )
+            document.writeln( "Cuenta es mayor que 10" );
+        document.writeln( "</p>" );
+
+        // c) x vale 3: primero baja a 2 y luego total = 10 - 2
+        total -= --x;
+        document.writeln( "<p>c) total = " + total + ", x = " + x + "</p>" );
+
+        // d)
+        q %= divisor;
+        document.writeln( "<p>d) 17 % 5 = " + q + "</p>" );
+    </script>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.02.html">&larr; Anterior</a> | <a href="ejercicio7.04.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.02.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.04.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

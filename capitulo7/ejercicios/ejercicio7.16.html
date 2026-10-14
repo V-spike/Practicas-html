@@ -1,16 +1,48 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.16 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
     <title>Ejercicio 7.16</title>
+    <style>
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 4px 10px; text-align: center; }
+    </style>
 </head>
 <body>
     <h1>Ejercicio 7.16</h1>
-    <h2>Propiedades de objetos</h2>
-    <p><strong>Actividad:</strong> Los arreglos permiten guardar varios valores en una sola variable.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Tabla de valores N, 10*N, 100*N y 1000*N con ciclos</h2>
+
+    <p>La tabla se genera con un <code>while</code> controlado por contador, y el CSS centra los datos de cada columna.</p>
+
+    <table>
+        <tr>
+            <th>N</th>
+            <th>10*N</th>
+            <th>100*N</th>
+            <th>1000*N</th>
+        </tr>
+        <script>
+            var n = 1; // contador y valor de la primera columna
+
+            while ( n <= 6 )
+            {
+                document.writeln( "<tr><td>" + n + "</td><td>" + 10 * n + "</td><td>" +
+                    100 * n + "</td><td>" + 1000 * n + "</td></tr>" );
+                ++n;
+            } // fin de while
+        </script>
+    </table>
+
+    <p><strong>Compáralo con el ejercicio 6.24:</strong> ahí repetiste la misma línea 6 veces a mano. Aquí el ciclo lo hace
+    por ti, y para tener 100 filas solo cambias el 6 por 100.</p>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.15.html">&larr; Anterior</a> | <a href="ejercicio7.17.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.15.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.17.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

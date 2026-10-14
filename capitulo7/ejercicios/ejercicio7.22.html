@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.22 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,76 @@
 </head>
 <body>
     <h1>Ejercicio 7.22</h1>
-    <h2>Eventos del teclado</h2>
-    <p><strong>Actividad:</strong> Los arreglos permiten guardar varios valores en una sola variable.</p>
-    <p><strong>Respuesta:</strong> Se usa la sintaxis adecuada para completar la tarea.</p>
+    <h2>Cifrar un entero de cuatro dígitos</h2>
+
+    <p>Reglas de cifrado:</p>
+    <ol>
+        <li>Reemplazar cada dígito por <strong>(dígito + 7) % 10</strong>.</li>
+        <li>Intercambiar el primer dígito con el tercero, y el segundo con el cuarto.</li>
+    </ol>
+
+    <h3>Ejemplo a mano con 1234</h3>
+    <pre>Dígitos:          1   2   3   4
+(d + 7) % 10:     8   9   0   1
+Intercambio:      0   1   8   9    (1° con 3°, 2° con 4°)
+Cifrado:          0189</pre>
+
+    <h3>Pseudocódigo</h3>
+    <pre>Pedir un número de 4 dígitos (0 a 9999) hasta que sea válido
+Separar d1, d2, d3, d4 con división y residuo
+Cada dígito = ( dígito + 7 ) % 10
+Mostrar d3 d4 d1 d2   (el intercambio)</pre>
+
+    <h3>Resultado</h3>
+    <script>
+        var numero;          // número original
+        var valido;          // bandera de validación
+        var d1, d2, d3, d4;  // dígitos (d1 = millares)
+
+        valido = false;
+
+        while ( valido == false )
+        {
+            numero = parseInt( window.prompt( "Escriba un entero de cuatro dígitos:", "1234" ) );
+
+            if ( numero >= 0 )
+            {
+                if ( numero <= 9999 )
+                    valido = true;
+            }
+
+            if ( valido == false )
+                window.alert( "Debe ser un entero de cuatro dígitos (0000 a 9999)." );
+        } // fin de while
+
+        // 1. Separar los dígitos
+        d1 = parseInt( numero / 1000 );
+        d2 = parseInt( numero / 100 ) % 10;
+        d3 = parseInt( numero / 10 ) % 10;
+        d4 = numero % 10;
+
+        // 2. Reemplazar cada dígito por (dígito + 7) % 10
+        d1 = ( d1 + 7 ) % 10;
+        d2 = ( d2 + 7 ) % 10;
+        d3 = ( d3 + 7 ) % 10;
+        d4 = ( d4 + 7 ) % 10;
+
+        // 3. Intercambio: se imprimen en orden d3 d4 d1 d2.
+        // Se concatenan como texto ("" + ...) para que un 0 inicial no se pierda.
+        // Si se sumaran como números, 0 + 1 + 8 + 9 daría 18, no "0189".
+        document.writeln( "<p>Número original: <strong>" + numero + "</strong></p>" );
+        document.writeln( "<p>Número cifrado: <strong>" + "" + d3 + d4 + d1 + d2 + "</strong></p>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> 1234 da 0189; 9999 da 6666; 0000 da 7777.
+    Comprueba el resultado descifrándolo en el ejercicio 7.23.</p>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.21.html">&larr; Anterior</a> | <a href="ejercicio7.23.html">Siguiente &rarr;</a>
+        <a href="ejercicio7.21.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.23.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

@@ -1,17 +1,43 @@
 <!DOCTYPE html>
+<!--Fig 7.11: analisis.html-->
+<!--calculo de los resultados de un examen-->
 <html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Objetos con propiedades</title>
+    <title>Análisis de los resultados de un examen</title>
+    <script>
+        //inicializar variables en declaraciones
+        var aprobados = 0;
+        var reprobados = 0;
+        var estudiante = 1; //contador 
+        var resultado = 0; // resultado de un examen
+
+        //procesar 10 estudiantes; ciclo controlado por contador
+
+        while ( estudiante <= 10) 
+        {
+            resultado = window.prompt("Escriba el resultado (1=aprobado, 2= reprobado)");
+            if( resultado == "1")
+                aprobados = aprobados + 1;
+            else
+                reprobados = reprobados + 1;
+
+            estudiante = estudiante + 1;
+        }//fin while
+
+        //fase de terminacion
+
+        document.writeln("<h1>Resultados del examen</h1> ");
+        document.writeln("<p>Aprobados: " + aprobados + "; reprobados:" + reprobados + "</p>" );
+
+        if( aprobados > 8 )
+        document.writeln("<p>Bono para el instructor</p>");
+    </script>
 </head>
 <body>
     <h1>Ejemplo 7.03</h1>
-    <h2>Objetos con propiedades</h2>
-    <script type="text/javascript">
-        var persona = { nombre: "Ana", edad: 21, ciudad: "M&eacute;xico" };
-document.write("<p>Nombre: " + persona.nombre + "</p>");
-document.write("<p>Edad: " + persona.edad + " a&ntilde;os</p>");
-    </script>
+    <h2>Resultados de un examen</h2>
+
     <p>
         <a href="../../index.html">Inicio</a> | <a href="ejemplo7.02.html">&larr; Anterior</a> | <a href="ejemplo7.04.html">Siguiente &rarr;</a>
     </p>

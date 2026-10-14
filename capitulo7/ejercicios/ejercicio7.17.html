@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.17 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,65 @@
 </head>
 <body>
     <h1>Ejercicio 7.17</h1>
-    <h2>M&eacute;todos</h2>
-    <p><strong>Actividad:</strong> Los objetos agrupan informaci&oacute;n relacionada.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Encontrar los dos valores más grandes de 10 números</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.16.html">&larr; Anterior</a> | <a href="ejercicio7.18.html">Siguiente &rarr;</a>
+        Es la misma idea del ejercicio 7.15, pero con dos variables: <code>mayor</code> y <code>segundoMayor</code>.
+        Cada número se introduce una sola vez (no hay repetidos).
+    </p>
+
+    <h3>Pseudocódigo</h3>
+    <pre>Asignar 1 a contador
+Asignar -1 a mayor y a segundoMayor   (cualquier dígito, 0 a 9, es mayor que -1)
+Mientras contador sea menor o igual a 10
+    Pedir un número
+    Si número es mayor que mayor
+        segundoMayor = mayor          (el antiguo campeón baja al segundo lugar)
+        mayor = número
+    Si no, si número es mayor que segundoMayor
+        segundoMayor = número
+    Sumar 1 a contador
+Mostrar mayor y segundoMayor</pre>
+
+    <h3>Resultado</h3>
+    <script>
+        var contador;     // cuántos números se han introducido
+        var numero;       // número más reciente
+        var mayor;        // el más grande hasta ahora
+        var segundoMayor; // el segundo más grande hasta ahora
+
+        contador = 1;
+        mayor = -1;
+        segundoMayor = -1;
+
+        while ( contador <= 10 )
+        {
+            numero = parseInt( window.prompt( "Número " + contador + " de 10 (un dígito, sin repetir):", "0" ) );
+
+            if ( numero > mayor )
+            {
+                segundoMayor = mayor; // ¡el orden importa! primero se respalda el mayor anterior
+                mayor = numero;
+            }
+            else if ( numero > segundoMayor )
+                segundoMayor = numero;
+
+            ++contador;
+        } // fin de while
+
+        document.writeln( "<p>El número más grande es: <strong>" + mayor + "</strong></p>" );
+        document.writeln( "<p>El segundo más grande es: <strong>" + segundoMayor + "</strong></p>" );
+    </script>
+
+    <p><strong>Datos de prueba sugeridos:</strong> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 da 9 y 8.
+    9, 8, 7, 6, 5, 4, 3, 2, 1, 0 también da 9 y 8. Este segundo caso prueba la rama del <code>else if</code>.</p>
+
+    <p>
+        <a href="ejercicio7.16.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.18.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

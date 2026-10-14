@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.02 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.02</title>
+</head>
+<body>
+    <h1>Ejercicio 8.02</h1>
+    <h2>Escriba instrucciones en JavaScript para realizar cada tarea</h2>
+
+    <ol type="a">
+        <li>
+            Sumar los enteros impares entre 1 y 99 con una instrucción <code>for</code>.
+            <pre><code>suma = 0;
+for ( cuenta = 1; cuenta &lt;= 99; cuenta += 2 )
+   suma += cuenta;</code></pre>
+        </li>
+        <li>
+            Calcular 2.5 elevado a la potencia 3 con el método <code>pow</code>.
+            <pre><code>Math.pow( 2.5, 3 )</code></pre>
+        </li>
+        <li>
+            Imprimir los enteros del 1 al 20 con <code>while</code> y la variable <code>x</code>, cinco por línea.
+            <pre><code>x = 1;
+document.writeln( "&lt;p&gt;" );
+while ( x &lt;= 20 ) {
+   document.write( x + " " );
+   if ( x % 5 == 0 )
+      document.write( "&lt;/p&gt;&lt;p&gt;" );
+   ++x;
+}
+document.writeln( "&lt;/p&gt;" );</code></pre>
+        </li>
+        <li>
+            Lo mismo que c), pero con <code>for</code>.
+            <pre><code>document.writeln( "&lt;p&gt;" );
+for ( x = 1; x &lt;= 20; x++ ) {
+   document.write( x + " " );
+   if ( x % 5 == 0 )
+      document.write( "&lt;/p&gt;&lt;p&gt;" );
+}
+document.writeln( "&lt;/p&gt;" );</code></pre>
+        </li>
+    </ol>
+
+    <h3>Ejecución</h3>
+    <script>
+        var suma, cuenta, x;
+
+        // a)
+        suma = 0;
+        for ( cuenta = 1; cuenta <= 99; cuenta += 2 )
+            suma += cuenta;
+        document.writeln( "<p><strong>a)</strong> Suma de los impares del 1 al 99: " + suma + "</p>" );
+
+        // b)
+        document.writeln( "<p><strong>b)</strong> 2.5 elevado a la 3 = " + Math.pow( 2.5, 3 ) + "</p>" );
+
+        // c) con while
+        document.writeln( "<p><strong>c)</strong> Con while:</p>" );
+        x = 1;
+        document.writeln( "<p>" );
+        while ( x <= 20 ) {
+            document.write( x + " " );
+            if ( x % 5 == 0 )
+                document.write( "</p><p>" ); // cada 5 números se cierra el párrafo y se abre otro
+            ++x;
+        }
+        document.writeln( "</p>" );
+
+        // d) con for
+        document.writeln( "<p><strong>d)</strong> Con for:</p>" );
+        document.writeln( "<p>" );
+        for ( x = 1; x <= 20; x++ ) {
+            document.write( x + " " );
+            if ( x % 5 == 0 )
+                document.write( "</p><p>" );
+        }
+        document.writeln( "</p>" );
+    </script>
+
+    <p>
+        <a href="ejercicio8.01.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.03.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

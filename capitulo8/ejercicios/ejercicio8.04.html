@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.04 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.04</title>
+</head>
+<body>
+    <h1>Ejercicio 8.04</h1>
+    <h2>Encuentre el error en cada segmento de código (puede haber más de uno)</h2>
+
+    <ol type="a">
+        <li>
+            <pre><code>For ( x = 100, x &gt;= 1, ++x )
+   document.writeln( x );</code></pre>
+            <strong>Errores:</strong>
+            <ol>
+                <li><code>For</code> con mayúscula no existe: JavaScript distingue mayúsculas. Es <code>for</code>.</li>
+                <li>Las partes del encabezado se separan con <strong>punto y coma</strong>, no con comas.</li>
+                <li>Si se cuenta de 100 hacia 1, hay que <strong>decrementar</strong>. Con <code>++x</code>, x crece para siempre
+                (ciclo infinito).</li>
+            </ol>
+            <strong>Corrección:</strong>
+            <pre><code>for ( x = 100; x &gt;= 1; --x )
+   document.writeln( x );</code></pre>
+        </li>
+        <li>
+            Debe imprimir si el entero es par o impar:
+            <pre><code>switch ( valor % 2 )
+{
+   case 0:
+      document.writeln( "Entero par" );
+   case 1:
+      document.writeln( "Entero impar" );
+}</code></pre>
+            <strong>Error:</strong> falta <code>break</code> en el <code>case 0</code>. Con un número par se imprime
+            "Entero par" <em>y</em> "Entero impar".
+            <br><strong>Corrección:</strong>
+            <pre><code>switch ( valor % 2 )
+{
+   case 0:
+      document.writeln( "Entero par" );
+      break;
+   case 1:
+      document.writeln( "Entero impar" );
+}</code></pre>
+        </li>
+        <li>
+            Debe imprimir los impares del 19 al 1:
+            <pre><code>for ( x = 19; x &gt;= 1; x += 2 )
+   document.writeln( x );</code></pre>
+            <strong>Error:</strong> <code>x += 2</code> sube (19, 21, 23...) y la condición <code>x &gt;= 1</code> nunca se
+            vuelve falsa, así que el ciclo es infinito.
+            <br><strong>Corrección:</strong> <code>x -= 2</code>.
+        </li>
+        <li>
+            Debe imprimir los pares del 2 al 100:
+            <pre><code>contador = 2;
+do {
+   document.writeln( contador );
+   contador += 2;
+} While ( contador &lt; 100 );</code></pre>
+            <strong>Errores:</strong>
+            <ol>
+                <li><code>While</code> con mayúscula: debe ser <code>while</code>.</li>
+                <li>Con <code>&lt; 100</code> el 100 no se imprime. Debe ser <code>&lt;= 100</code>.</li>
+            </ol>
+            <strong>Corrección:</strong>
+            <pre><code>contador = 2;
+do {
+   document.writeln( contador );
+   contador += 2;
+} while ( contador &lt;= 100 );</code></pre>
+        </li>
+    </ol>
+
+    <p>
+        <a href="ejercicio8.03.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.05.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

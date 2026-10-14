@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Ejercicio 7.21 -->
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -6,11 +7,57 @@
 </head>
 <body>
     <h1>Ejercicio 7.21</h1>
-    <h2>Eventos del mouse</h2>
-    <p><strong>Actividad:</strong> La instrucci&oacute;n if permite tomar decisiones.</p>
-    <p><strong>Respuesta:</strong> Correcto, se cumple la l&oacute;gica de JavaScript.</p>
+    <h2>Ciclo infinito: múltiplos de 2 (2, 4, 8, 16, 32...)</h2>
+
     <p>
-        <a href="../../index.html">Inicio</a> | <a href="ejercicio7.20.html">&larr; Anterior</a> | <a href="ejercicio7.22.html">Siguiente &rarr;</a>
+        El libro pide un ciclo que <strong>nunca termine</strong>. Para que no se congele esta página cada vez que la abras
+        desde el índice, el ciclo solo se ejecuta si aceptas el <code>confirm</code>.
+    </p>
+
+    <h3>El código del ciclo</h3>
+    <pre><code>var valor = 1;
+
+while ( true )   // la condición siempre es verdadera: el ciclo nunca termina
+{
+   valor *= 2;
+   document.writeln( "&lt;p&gt;" + valor + "&lt;/p&gt;" );
+}</code></pre>
+
+    <h3>¿Qué ocurre al ejecutarlo?</h3>
+    <ul>
+        <li>La pestaña se <strong>congela</strong>: JavaScript nunca termina, así que el navegador no puede terminar de
+        dibujar la página ni responder a clics. Normalmente no alcanzas a ver ningún número.</li>
+        <li>Después de unos segundos el navegador muestra un aviso de "<strong>La página no responde</strong>" con la opción
+        de cerrarla.</li>
+        <li>Si pudieras ver los valores, crecerían hasta 2<sup>1023</sup> (unas 1023 vueltas) y después se mostraría
+        <code>Infinity</code> para siempre, porque el número ya no cabe en memoria.</li>
+        <li>Además, la memoria de la pestaña crece sin parar porque cada <code>writeln</code> agrega más texto.</li>
+    </ul>
+    <p>Para salir: cierra la pestaña o usa el botón del aviso. Si no responde, abre el Administrador de tareas del navegador
+    con <code>Shift + Esc</code> (en Chrome o Edge) y finaliza el proceso de esa pestaña.</p>
+
+    <h3>Ejecución</h3>
+    <script>
+        var valor = 1;
+
+        if ( window.confirm( "Esto ejecuta un CICLO INFINITO y la pestaña se va a congelar. ¿Continuar?" ) )
+        {
+            while ( true )
+            {
+                valor *= 2;
+                document.writeln( "<p>" + valor + "</p>" );
+            } // fin de while (nunca se llega aquí)
+        }
+        else
+            document.writeln( "<p>Ejecución cancelada.</p>" );
+    </script>
+
+    <p>
+        <a href="ejercicio7.20.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio7.22.html">Siguiente ➡</a>
     </p>
 </body>
 </html>

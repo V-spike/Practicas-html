@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Ejercicio 8.10 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 8.10</title>
+</head>
+<body>
+    <h1>Ejercicio 8.10</h1>
+    <h2>Canción "Los Doce Días de Navidad"</h2>
+
+    <p>
+        Se usa un <code>for</code> para los 12 días y dos <code>switch</code>:
+    </p>
+    <ul>
+        <li>El primero elige el número ordinal del día ("primer", "segundo"...). Este sí lleva <code>break</code> en cada caso.</li>
+        <li>El segundo <strong>no lleva <code>break</code> a propósito</strong>: si el día es 5, entra en el
+        <code>case 5</code> y "cae" en el 4, el 3, el 2 y el 1. Así cada estrofa repite todos los regalos anteriores.
+        Es un uso válido de lo que en el ejercicio 8.3 b) era un error.</li>
+    </ul>
+    <script>
+        var ordinal; // texto del día: primer, segundo...
+
+        for ( var dia = 1; dia <= 12; ++dia )
+        {
+            switch ( dia )
+            {
+                case 1:  ordinal = "primer";    break;
+                case 2:  ordinal = "segundo";   break;
+                case 3:  ordinal = "tercer";    break;
+                case 4:  ordinal = "cuarto";    break;
+                case 5:  ordinal = "quinto";    break;
+                case 6:  ordinal = "sexto";     break;
+                case 7:  ordinal = "s&eacute;ptimo"; break;
+                case 8:  ordinal = "octavo";    break;
+                case 9:  ordinal = "noveno";    break;
+                case 10: ordinal = "d&eacute;cimo";  break;
+                case 11: ordinal = "und&eacute;cimo"; break;
+                case 12: ordinal = "duod&eacute;cimo"; break;
+            } // fin del switch de ordinales
+
+            document.writeln( "<p><strong>El " + ordinal + " d&iacute;a de Navidad mi amor verdadero me regal&oacute;:</strong><br>" );
+
+            // Sin break: cada caso "cae" en los siguientes hasta llegar al 1
+            switch ( dia )
+            {
+                case 12: document.writeln( "doce tamborileros tocando,<br>" );
+                case 11: document.writeln( "once gaiteros tocando,<br>" );
+                case 10: document.writeln( "diez se&ntilde;ores saltando,<br>" );
+                case 9:  document.writeln( "nueve damas bailando,<br>" );
+                case 8:  document.writeln( "ocho doncellas orde&ntilde;ando,<br>" );
+                case 7:  document.writeln( "siete cisnes nadando,<br>" );
+                case 6:  document.writeln( "seis gansas poniendo huevos,<br>" );
+                case 5:  document.writeln( "cinco anillos de oro,<br>" );
+                case 4:  document.writeln( "cuatro p&aacute;jaros cantores,<br>" );
+                case 3:  document.writeln( "tres gallinas francesas,<br>" );
+                case 2:  document.writeln( "dos t&oacute;rtolas<br>" );
+                case 1:  document.writeln( ( dia > 1 ? "y " : "" ) + "una perdiz en un peral.</p>" );
+            } // fin del switch de regalos
+        } // fin de for
+    </script>
+
+    <p>
+        <a href="ejercicio8.09.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio8.11.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>
