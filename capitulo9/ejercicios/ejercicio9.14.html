@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.14 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.14</title>
+    <script>
+        function iniciar()
+        {
+            var boton = document.getElementById( "botonProbar" );
+            boton.addEventListener( "click", probarPar, false );
+        } // fin de la función iniciar
+
+        function probarPar()
+        {
+            var a = parseInt( document.getElementById( "campoPrimero" ).value );
+            var b = parseInt( document.getElementById( "campoSegundo" ).value );
+
+            document.getElementById( "resultados" ).innerHTML +=
+                "<p>multiplo( " + a + ", " + b + " ) = " + multiplo( a, b ) + "</p>";
+        } // fin de la función probarPar
+
+        // devuelve true si segundo es múltiplo de primero
+        function multiplo( primero, segundo )
+        {
+            return segundo % primero == 0;
+        } // fin de la función multiplo
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.14</h1>
+    <h2>Función multiplo: ¿el segundo número es múltiplo del primero?</h2>
+
+    <p><code>b</code> es múltiplo de <code>a</code> si la división <code>b / a</code> no deja residuo, es decir,
+    <code>b % a == 0</code>. La función devuelve directamente el resultado de esa comparación (<code>true</code> o
+    <code>false</code>). Cada par que pruebes se agrega a la lista.</p>
+    <form action = "#">
+        <p><label>Primer entero: <input id = "campoPrimero" type = "number"></label>
+           <label>Segundo entero: <input id = "campoSegundo" type = "number"></label>
+           <input id = "botonProbar" type = "button" value = "Probar"></p>
+    </form>
+    <div id = "resultados"></div>
+    <p><strong>Prueba:</strong> (3, 12) da true; (5, 12) da false; (7, 49) da true.</p>
+
+    <p>
+        <a href="ejercicio9.13.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.15.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

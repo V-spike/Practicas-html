@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.10 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.10</title>
+</head>
+<body>
+    <h1>Ejercicio 9.10</h1>
+    <h2>Preguntas sobre números aleatorios</h2>
+
+    <ol type="a">
+        <li><strong>¿Qué significa elegir números "al azar"?</strong><br>
+            Que cada valor del rango tiene la <strong>misma probabilidad</strong> de salir y no se puede predecir cuál saldrá.
+            <code>Math.random</code> es en realidad <em>pseudoaleatorio</em>: lo calcula un algoritmo, pero para fines
+            prácticos se comporta como azar.</li>
+        <li><strong>¿Por qué es útil <code>Math.random</code> para simular juegos de probabilidad?</strong><br>
+            Porque reproduce el "elemento de azar" de un dado, una moneda o una carta. Así se pueden programar juegos que
+            no salen siempre igual.</li>
+        <li><strong>¿Por qué hay que escalar y/o desplazar sus valores?</strong><br>
+            Porque <code>Math.random()</code> da un decimal entre 0.0 y 1.0 (sin incluir el 1). Casi nunca se necesita
+            eso, sino enteros en un rango, por ejemplo del 1 al 6 para un dado. Al <strong>multiplicar</strong> (escalar)
+            se elige cuántos valores hay, y al <strong>sumar</strong> (desplazar) se elige dónde empieza el rango:
+            <code>Math.floor( a + Math.random() * b )</code>.</li>
+        <li><strong>¿Por qué es útil la simulación por computadora?</strong><br>
+            Permite repetir un experimento miles de veces en segundos y sin costo (tirar un dado 6000 veces, probar una
+            estrategia de juego, modelar el tráfico). Así se estudian situaciones que en la vida real serían caras,
+            lentas o peligrosas.</li>
+    </ol>
+
+    <p>
+        <a href="ejercicio9.09.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.11.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

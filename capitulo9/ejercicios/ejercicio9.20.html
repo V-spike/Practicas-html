@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.20 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.20</title>
+    <script>
+        function iniciar()
+        {
+            document.getElementById( "botonCalcular" ).addEventListener( "click", mostrarPuntos, false );
+        }
+
+        function mostrarPuntos()
+        {
+            var promedio = parseFloat( document.getElementById( "campoPromedio" ).value );
+            document.getElementById( "resultado" ).innerHTML =
+                "Promedio " + promedio + ": " + puntosCalidad( promedio ) + " punto(s) de calidad";
+        }
+
+        // devuelve los puntos de calidad según el promedio
+        function puntosCalidad( promedio )
+        {
+            if ( promedio >= 90 )
+                return 4;
+            else if ( promedio >= 80 )
+                return 3;
+            else if ( promedio >= 70 )
+                return 2;
+            else if ( promedio >= 60 )
+                return 1;
+            else
+                return 0;
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.20</h1>
+    <h2>Función puntosCalidad</h2>
+
+    <table border="1">
+        <tr><th>Promedio</th><th>Puntos</th></tr>
+        <tr><td>90 a 100</td><td>4</td></tr>
+        <tr><td>80 a 89</td><td>3</td></tr>
+        <tr><td>70 a 79</td><td>2</td></tr>
+        <tr><td>60 a 69</td><td>1</td></tr>
+        <tr><td>menor a 60</td><td>0</td></tr>
+    </table>
+    <p>Se usan <code>if...else if</code> en cascada (capítulo 7). Cada <code>return</code> sale de la función en cuanto
+    encuentra el rango correcto.</p>
+    <form action = "#">
+        <p><label>Promedio del estudiante: <input id = "campoPromedio" type = "number" step = "any" min = "0" max = "100"></label>
+           <input id = "botonCalcular" type = "button" value = "Calcular puntos"></p>
+    </form>
+    <p id = "resultado"></p>
+    <p><strong>Prueba:</strong> 95 da 4; 89.5 da 3; 70 da 2; 60 da 1; 59.9 da 0.</p>
+
+    <p>
+        <a href="ejercicio9.19.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.21.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

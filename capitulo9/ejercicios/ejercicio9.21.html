@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.21 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.21</title>
+    <script>
+        var caras = 0;
+        var cruces = 0;
+
+        function iniciar()
+        {
+            document.getElementById( "botonLanzar" ).addEventListener( "click", lanzarUna, false );
+            document.getElementById( "botonMil" ).addEventListener( "click", lanzarMil, false );
+        }
+
+        // simula un lanzamiento: true = cara, false = cruz
+        function arrojar()
+        {
+            return Math.random() < 0.5;
+        }
+
+        function registrar()
+        {
+            var resultado = arrojar();
+
+            if ( resultado )
+                ++caras;
+            else
+                ++cruces;
+
+            return resultado;
+        }
+
+        function lanzarUna()
+        {
+            var resultado = registrar();
+            document.getElementById( "ultimo" ).innerHTML =
+                "&Uacute;ltimo lanzamiento: <strong>" + ( resultado ? "Cara" : "Cruz" ) + "</strong>";
+            mostrarConteo();
+        }
+
+        function lanzarMil()
+        {
+            for ( var i = 1; i <= 1000; ++i )
+                registrar();
+
+            document.getElementById( "ultimo" ).innerHTML = "Se lanzaron 1000 monedas.";
+            mostrarConteo();
+        }
+
+        function mostrarConteo()
+        {
+            var total = caras + cruces;
+            document.getElementById( "conteo" ).innerHTML =
+                "Caras: " + caras + " (" + ( caras / total * 100 ).toFixed( 1 ) + "%) &mdash; " +
+                "Cruces: " + cruces + " (" + ( cruces / total * 100 ).toFixed( 1 ) + "%) &mdash; " +
+                "Total: " + total;
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.21</h1>
+    <h2>Lanzamiento de monedas (función arrojar)</h2>
+
+    <p><code>arrojar()</code> no recibe argumentos y devuelve <code>true</code> (cara) o <code>false</code> (cruz).
+    <code>Math.random() &lt; 0.5</code> ya es una comparación, así que da <code>true</code> la mitad de las veces.
+    Con el botón de 1000 lanzamientos verás que cada lado sale cerca del 50%.</p>
+    <form action = "#">
+        <p><input id = "botonLanzar" type = "button" value = "Lanzar">
+           <input id = "botonMil" type = "button" value = "Lanzar 1000 veces"></p>
+    </form>
+    <p id = "ultimo"></p>
+    <p id = "conteo"></p>
+
+    <p>
+        <a href="ejercicio9.20.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.22.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

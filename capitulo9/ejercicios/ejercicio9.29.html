@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.29 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.29</title>
+    <script>
+        var traza; // texto que muestra la cadena de llamadas
+
+        function iniciar()
+        {
+            document.getElementById( "botonCalcular" ).addEventListener( "click", mostrarPotencia, false );
+        }
+
+        function mostrarPotencia()
+        {
+            var base = parseInt( document.getElementById( "campoBase" ).value );
+            var exponente = parseInt( document.getElementById( "campoExponente" ).value );
+
+            if ( isNaN( exponente ) || exponente < 1 )
+            {
+                document.getElementById( "resultado" ).innerHTML =
+                    "El exponente debe ser un entero mayor o igual a 1.";
+                return;
+            }
+
+            traza = "";
+            var resultado = potencia( base, exponente );
+
+            document.getElementById( "resultado" ).innerHTML =
+                "<strong>potencia( " + base + ", " + exponente + " ) = " + resultado + "</strong>";
+            document.getElementById( "traza" ).innerHTML = "Llamadas: " + traza;
+        }
+
+        // definición recursiva de la potencia
+        function potencia( base, exponente )
+        {
+            traza += "potencia( " + base + ", " + exponente + " ) &rarr; ";
+
+            if ( exponente == 1 )   // caso base
+                return base;
+            else                    // paso recursivo
+                return base * potencia( base, exponente - 1 );
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.29</h1>
+    <h2>Función recursiva potencia( base, exponente )</h2>
+
+    <ul>
+        <li><strong>Caso base:</strong> si <code>exponente == 1</code>, devuelve <code>base</code> (base<sup>1</sup> = base).</li>
+        <li><strong>Paso recursivo:</strong> base<sup>exponente</sup> = base × base<sup>exponente − 1</sup>.</li>
+    </ul>
+    <p>Compárala con el ejercicio 9.13: allí el <code>for</code> repite la multiplicación, aquí lo hacen las llamadas
+    sucesivas a la función.</p>
+    <form action = "#">
+        <p><label>Base: <input id = "campoBase" type = "number"></label>
+           <label>Exponente (&ge; 1): <input id = "campoExponente" type = "number" min = "1"></label>
+           <input id = "botonCalcular" type = "button" value = "Calcular"></p>
+    </form>
+    <p id = "resultado"></p>
+    <p id = "traza"></p>
+    <p><strong>Prueba:</strong> 3 y 4 da 81; 2 y 10 da 1024.</p>
+
+    <p>
+        <a href="ejercicio9.28.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.30.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

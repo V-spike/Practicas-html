@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.02 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.02</title>
+    <script>
+        var x;
+        var texto = "";
+
+        function salida()
+        {
+            for ( x = 1; x <= 10; x++ )
+                texto += "<p>" + cubo( x ) + "</p>";
+
+            document.getElementById( "resultados" ).innerHTML = texto;
+        } // fin de la función salida
+
+        function cubo( y )
+        {
+            return y * y * y;
+        } // fin de la función cubo
+
+        window.addEventListener( "load", salida, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.02</h1>
+    <h2>Indique el alcance (global o de función) de cada elemento del programa de la figura 9.13</h2>
+
+    <pre><code>var x;
+
+function salida()
+{
+   for ( x = 1; x &lt;= 10; x++ )
+      document.writeln( "&lt;p&gt;" + cubo( x ) + "&lt;/p&gt;" );
+} // fin de la función salida
+
+function cubo( y )
+{
+   return y * y * y;
+} // fin de la función cubo
+
+window.addEventListener( "load", salida, false );</code></pre>
+
+    <ol type="a">
+        <li>La variable <code>x</code>: <strong>alcance global</strong>. Se declara con <code>var</code> fuera de cualquier
+            función. Ojo: <code>salida</code> no la declara, solo la usa, así que trabaja con la global.</li>
+        <li>La variable <code>y</code>: <strong>alcance de función</strong>. Es un parámetro de <code>cubo</code>, y los
+            parámetros son variables locales.</li>
+        <li>La función <code>cubo</code>: <strong>alcance global</strong>.</li>
+        <li>La función <code>salida</code>: <strong>alcance global</strong>.</li>
+    </ol>
+
+    <h3>Ejecución (figura 9.13)</h3>
+    <p>Imprime los cubos del 1 al 10. Como <code>salida</code> se llama con el evento <code>load</code>, usa
+    <code>document.writeln</code> después de cargar la página y <strong>reemplaza</strong> todo el documento.
+    Por eso aquí se muestra en un <code>div</code> con <code>innerHTML</code>.</p>
+    <div id="resultados"></div>
+
+    <p>
+        <a href="ejercicio9.01.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.03.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

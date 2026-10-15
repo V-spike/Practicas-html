@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.07 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.07</title>
+    <script>
+        function iniciar()
+        {
+            var boton = document.getElementById( "botonCalcular" );
+            boton.addEventListener( "click", mostrarArea, false );
+        } // fin de la función iniciar
+
+        function mostrarArea()
+        {
+            var radio = parseFloat( document.getElementById( "campoRadio" ).value );
+            document.getElementById( "resultado" ).innerHTML =
+                "El &aacute;rea del c&iacute;rculo es: " + areaCirculo( radio );
+        } // fin de la función mostrarArea
+
+        // calcula el área de un círculo a partir de su radio
+        function areaCirculo( radio )
+        {
+            return Math.PI * radio * radio;
+        } // fin de la función areaCirculo
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.07</h1>
+    <h2>Área de un círculo (función areaCirculo)</h2>
+
+    <p>Misma técnica del 9.6: <strong>área = π × radio²</strong>.</p>
+    <form action = "#">
+        <p><label>Radio del c&iacute;rculo:
+            <input id = "campoRadio" type = "number" step = "any"></label>
+            <input id = "botonCalcular" type = "button" value = "Calcular &aacute;rea"></p>
+    </form>
+    <p id = "resultado"></p>
+    <p><strong>Prueba:</strong> radio 1 da 3.141592653589793; radio 2 da 12.566370614359172.</p>
+
+    <p>
+        <a href="ejercicio9.06.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.08.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

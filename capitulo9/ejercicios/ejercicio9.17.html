@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.17 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.17</title>
+    <script>
+        function iniciar()
+        {
+            document.getElementById( "botonFaC" ).addEventListener( "click", convertirFaC, false );
+            document.getElementById( "botonCaF" ).addEventListener( "click", convertirCaF, false );
+        } // fin de la función iniciar
+
+        function leerTemperatura()
+        {
+            return parseFloat( document.getElementById( "campoTemp" ).value );
+        }
+
+        function convertirFaC()
+        {
+            var f = leerTemperatura();
+            document.getElementById( "resultado" ).innerHTML =
+                f + " &deg;F = " + celsius( f ).toFixed( 2 ) + " &deg;C";
+        }
+
+        function convertirCaF()
+        {
+            var c = leerTemperatura();
+            document.getElementById( "resultado" ).innerHTML =
+                c + " &deg;C = " + fahrenheit( c ).toFixed( 2 ) + " &deg;F";
+        }
+
+        // a) equivalente en Celsius de una temperatura en Fahrenheit
+        function celsius( f )
+        {
+            return 5.0 / 9.0 * ( f - 32 );
+        }
+
+        // b) equivalente en Fahrenheit de una temperatura en Celsius
+        function fahrenheit( c )
+        {
+            return 9.0 / 5.0 * c + 32;
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.17</h1>
+    <h2>Conversión de temperaturas Celsius y Fahrenheit</h2>
+
+    <ul>
+        <li><code>celsius( F )</code>: C = 5.0 / 9.0 × ( F − 32 )</li>
+        <li><code>fahrenheit( C )</code>: F = 9.0 / 5.0 × C + 32</li>
+    </ul>
+    <form action = "#">
+        <p><label>Temperatura: <input id = "campoTemp" type = "number" step = "any"></label></p>
+        <p><input id = "botonFaC" type = "button" value = "Fahrenheit &rarr; Celsius">
+           <input id = "botonCaF" type = "button" value = "Celsius &rarr; Fahrenheit"></p>
+    </form>
+    <p id = "resultado"></p>
+    <p><strong>Prueba:</strong> 212 °F da 100 °C; 32 °F da 0 °C; 100 °C da 212 °F; −40 da −40 en ambas escalas.</p>
+
+    <p>
+        <a href="ejercicio9.16.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.18.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

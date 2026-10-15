@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.26 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.26</title>
+    <script>
+        var numeroSecreto;
+        var intentos;
+
+        function iniciar()
+        {
+            document.getElementById( "botonEnviar" ).addEventListener( "click", revisarIntento, false );
+            nuevoJuego();
+        }
+
+        function nuevoJuego()
+        {
+            numeroSecreto = Math.floor( 1 + Math.random() * 1000 );
+            intentos = 0;
+        }
+
+        // elige el comentario según el número de intentos
+        function comentario( intentos )
+        {
+            if ( intentos < 10 )
+                return "&iexcl;Conoce el secreto o tuvo suerte!";
+            else if ( intentos == 10 )
+                return "&iexcl;Entonces s&iacute; conoce el secreto!";
+            else
+                return "&iexcl;Deber&iacute;a poder hacerlo mejor!";
+        }
+
+        function revisarIntento()
+        {
+            var campo = document.getElementById( "campoIntento" );
+            var intento = parseInt( campo.value );
+            var mensaje = document.getElementById( "mensaje" );
+
+            ++intentos;
+
+            if ( intento > numeroSecreto )
+                mensaje.innerHTML = intento + ": Demasiado alto. Intente de nuevo.";
+            else if ( intento < numeroSecreto )
+                mensaje.innerHTML = intento + ": Demasiado bajo. Intente de nuevo.";
+            else
+            {
+                mensaje.innerHTML = "Felicidades. &iexcl;Adivin&oacute; el n&uacute;mero en " + intentos +
+                    " intento(s)! " + comentario( intentos ) + " Ya eleg&iacute; otro n&uacute;mero.";
+                nuevoJuego();
+            }
+
+            document.getElementById( "intentos" ).innerHTML = "Intentos en este juego: " + intentos;
+            campo.value = "";
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.26</h1>
+    <h2>Adivinar el número contando intentos</h2>
+
+    <p>Igual que el 9.25, pero cuenta los intentos:</p>
+    <ul>
+        <li>Menos de 10: "¡Conoce el secreto o tuvo suerte!"</li>
+        <li>Exactamente 10: "¡Entonces sí conoce el secreto!"</li>
+        <li>Más de 10: "¡Debería poder hacerlo mejor!"</li>
+    </ul>
+    <p><strong>¿Por qué bastan 10 intentos?</strong> Si siempre intentas el número de en medio del rango que queda, cada
+    respuesta ("alto" o "bajo") elimina la <strong>mitad</strong> de los números. Después de cada intento quedan como
+    máximo 1000 → 500 → 250 → 125 → 63 → 32 → 16 → 8 → 4 → 2 → 1. Son 10 divisiones, porque
+    2<sup>10</sup> = 1024 ≥ 1000. A esta estrategia se le llama <strong>búsqueda binaria</strong> (capítulo 10).</p>
+    <p><strong>Adivine un n&uacute;mero entre 1 y 1000</strong></p>
+    <form action = "#">
+        <p><input id = "campoIntento" type = "number" min = "1" max = "1000">
+           <input id = "botonEnviar" type = "button" value = "Enviar"></p>
+    </form>
+    <p id = "mensaje"></p>
+    <p id = "intentos"></p>
+
+    <p>
+        <a href="ejercicio9.25.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.27.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.22 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.22</title>
+    <style>
+        #pregunta { font-size: 1.6em; }
+        #mensaje  { font-weight: bold; }
+    </style>
+    <script>
+        var numero1, numero2; // números de la pregunta actual
+
+        function iniciar()
+        {
+            document.getElementById( "botonResponder" ).addEventListener( "click", revisar, false );
+            nuevaPregunta();
+        }
+
+        // genera y muestra una nueva pregunta
+        function nuevaPregunta()
+        {
+            numero1 = Math.floor( 1 + Math.random() * 9 );
+            numero2 = Math.floor( 1 + Math.random() * 9 );
+            document.getElementById( "pregunta" ).innerHTML =
+                "&iquest;Cu&aacute;nto es " + numero1 + " por " + numero2 + "?";
+            document.getElementById( "campoRespuesta" ).value = "";
+        }
+
+        function revisar()
+        {
+            var respuesta = parseInt( document.getElementById( "campoRespuesta" ).value );
+
+            if ( respuesta == numero1 * numero2 )
+            {
+                document.getElementById( "mensaje" ).innerHTML = "Muy bien!";
+                nuevaPregunta();
+            }
+            else
+                document.getElementById( "mensaje" ).innerHTML = "No. Intente de nuevo.";
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.22</h1>
+    <h2>Programa para aprender a multiplicar</h2>
+
+    <p><code>nuevaPregunta()</code> genera dos enteros de un dígito (1 a 9). Se llama al cargar la página y cada vez que el
+    estudiante acierta. Si se equivoca, la pregunta <strong>no cambia</strong> hasta que la conteste bien.</p>
+    <p id = "pregunta"></p>
+    <form action = "#">
+        <p><input id = "campoRespuesta" type = "number">
+           <input id = "botonResponder" type = "button" value = "Responder"></p>
+    </form>
+    <p id = "mensaje"></p>
+
+    <p>
+        <a href="ejercicio9.21.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.23.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

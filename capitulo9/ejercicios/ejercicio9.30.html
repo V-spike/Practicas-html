@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.30 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.30</title>
+    <script>
+        function misterio( a, b )
+        {
+            if ( b == 1 )
+                return a;
+            else
+                return a + misterio( a, b - 1 );
+        }
+
+        function iniciar()
+        {
+            document.getElementById( "resultados" ).innerHTML =
+                "<p>misterio( 4, 3 ) = " + misterio( 4, 3 ) + "</p>" +
+                "<p>misterio( 7, 5 ) = " + misterio( 7, 5 ) + "</p>" +
+                "<p>misterio( 9, 1 ) = " + misterio( 9, 1 ) + "</p>";
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.30</h1>
+    <h2>¿Qué hace la siguiente función?</h2>
+
+    <pre><code>// El parámetro b debe ser entero
+// positivo para evitar recursividad infinita
+function misterio( a, b )
+{
+   if ( b == 1 )
+      return a;
+   else
+      return a + misterio( a, b - 1 );
+}</code></pre>
+
+    <h3>Respuesta</h3>
+    <p>
+        <strong>Multiplica <code>a × b</code></strong> con sumas repetidas: suma <code>a</code> consigo mismo
+        <code>b</code> veces. Ejemplo con <code>misterio( 4, 3 )</code>:
+    </p>
+    <pre>misterio( 4, 3 ) = 4 + misterio( 4, 2 )
+                 = 4 + ( 4 + misterio( 4, 1 ) )
+                 = 4 + ( 4 + 4 )        &larr; caso base: b == 1 devuelve a
+                 = 12</pre>
+    <p>Si <code>b</code> fuera 0 o negativo, nunca llegaría a 1 y la recursividad sería infinita (Error común 9.3).</p>
+
+    <h3>Comprobación</h3>
+    <div id="resultados"></div>
+
+    <p>
+        <a href="ejercicio9.29.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.06 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.06</title>
+    <script>
+        function iniciar()
+        {
+            var boton = document.getElementById( "botonCalcular" );
+            boton.addEventListener( "click", mostrarVolumen, false );
+        } // fin de la función iniciar
+
+        function mostrarVolumen()
+        {
+            var campoEntrada = document.getElementById( "campoRadio" );
+            var radio = parseFloat( campoEntrada.value );
+            var resultado = document.getElementById( "resultado" );
+            resultado.innerHTML = "El volumen de la esfera es: " + volumenEsfera( radio );
+        } // fin de la función mostrarVolumen
+
+        function volumenEsfera( radio )
+        {
+            return ( 4.0 / 3.0 ) * Math.PI * Math.pow( radio, 3 );
+        } // fin de la función volumenEsfera
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.06</h1>
+    <h2>Volumen de una esfera con un formulario</h2>
+
+    <p>
+        Primer programa con <strong>formulario</strong>: el radio se escribe en un <code>input type="number"</code> y el botón
+        llama a la función. Es la solución del libro: <code>volumen = ( 4.0 / 3.0 ) * Math.PI * Math.pow( radio, 3 )</code>.
+        El enunciado pide <code>id="campoEntrada"</code>, pero la solución del libro usa <code>"campoRadio"</code>; aquí se
+        respetó la solución.
+    </p>
+    <form action = "#">
+        <p><label>Radio:
+            <input id = "campoRadio" type = "number"></label>
+            <input id = "botonCalcular" type = "button" value = "Calcular"></p>
+    </form>
+    <p id = "resultado"></p>
+    <p><strong>Prueba:</strong> radio 1 da 4.1887902047863905; radio 2.2 da 44.602238100565 (aprox.).</p>
+
+    <p>
+        <a href="ejercicio9.05.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.07.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

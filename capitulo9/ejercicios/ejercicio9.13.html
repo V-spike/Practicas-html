@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.13 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.13</title>
+    <script>
+        function iniciar()
+        {
+            var boton = document.getElementById( "botonCalcular" );
+            boton.addEventListener( "click", mostrarPotencia, false );
+        } // fin de la función iniciar
+
+        function mostrarPotencia()
+        {
+            var base = parseInt( document.getElementById( "campoBase" ).value );
+            var exponente = parseInt( document.getElementById( "campoExponente" ).value );
+
+            document.getElementById( "resultado" ).innerHTML =
+                base + "<sup>" + exponente + "</sup> = " + potenciaEntera( base, exponente );
+        } // fin de la función mostrarPotencia
+
+        // devuelve base elevado a exponente (exponente entero >= 0)
+        function potenciaEntera( base, exponente )
+        {
+            var resultado = 1;
+
+            for ( var i = 1; i <= exponente; ++i )
+                resultado *= base;
+
+            return resultado;
+        } // fin de la función potenciaEntera
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.13</h1>
+    <h2>Función potenciaEntera( base, exponente ) con un ciclo</h2>
+
+    <p><code>potenciaEntera( 3, 4 )</code> = 3 × 3 × 3 × 3 = 81. Se usa un <code>for</code> que multiplica la base tantas
+    veces como indica el exponente. El acumulador empieza en 1, igual que en el ejercicio 8.7.</p>
+    <form action = "#">
+        <p><label>Base: <input id = "campoBase" type = "number"></label>
+           <label>Exponente: <input id = "campoExponente" type = "number" min = "0"></label>
+           <input id = "botonCalcular" type = "button" value = "Calcular"></p>
+    </form>
+    <p id = "resultado"></p>
+    <p><strong>Prueba:</strong> 3 y 4 da 81; 2 y 10 da 1024; 5 y 0 da 1.</p>
+
+    <p>
+        <a href="ejercicio9.12.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.14.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.27 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.27</title>
+    <style>
+        #pregunta { font-size: 1.6em; }
+        #mensaje  { font-weight: bold; }
+    </style>
+    <script>
+        var respuestaCorrecta;  // resultado de la pregunta actual
+        var correctas = 0;
+        var incorrectas = 0;
+
+        function iniciar()
+        {
+            document.getElementById( "botonEmpezar" ).addEventListener( "click", empezar, false );
+            document.getElementById( "botonResponder" ).addEventListener( "click", revisar, false );
+            empezar();
+        }
+
+        // reinicia el marcador con el nivel y tipo elegidos
+        function empezar()
+        {
+            correctas = 0;
+            incorrectas = 0;
+            document.getElementById( "mensaje" ).innerHTML = "";
+            nuevaPregunta();
+            mostrarMarcador();
+        }
+
+        // número aleatorio de 1 hasta el máximo del nivel
+        function numeroAleatorio()
+        {
+            var nivel = parseInt( document.getElementById( "nivel" ).value );
+            var maximo = Math.pow( 10, nivel ) - 1;   // nivel 1 -> 9, nivel 2 -> 99...
+            return Math.floor( 1 + Math.random() * maximo );
+        }
+
+        function nuevaPregunta()
+        {
+            var tipo = parseInt( document.getElementById( "tipo" ).value );
+            var a = numeroAleatorio();
+            var b = numeroAleatorio();
+            var texto;
+
+            if ( tipo == 5 )
+                tipo = Math.floor( 1 + Math.random() * 4 ); // mezcla: elige 1 a 4 al azar
+
+            switch ( tipo )
+            {
+                case 1:
+                    respuestaCorrecta = a + b;
+                    texto = a + " m&aacute;s " + b;
+                    break;
+                case 2:
+                    // el mayor primero, para que el resultado no sea negativo
+                    respuestaCorrecta = Math.max( a, b ) - Math.min( a, b );
+                    texto = Math.max( a, b ) + " menos " + Math.min( a, b );
+                    break;
+                case 3:
+                    respuestaCorrecta = a * b;
+                    texto = a + " por " + b;
+                    break;
+                case 4:
+                    // a será el resultado; el dividendo se construye para que la división sea exacta
+                    respuestaCorrecta = a;
+                    texto = ( a * b ) + " entre " + b;
+                    break;
+            }
+
+            document.getElementById( "pregunta" ).innerHTML =
+                "&iquest;Cu&aacute;nto es " + texto + "?";
+            document.getElementById( "campoRespuesta" ).value = "";
+        }
+
+        function mensajeCorrecto()
+        {
+            switch ( Math.floor( 1 + Math.random() * 4 ) )
+            {
+                case 1: return "Muy bien.";
+                case 2: return "Excelente.";
+                case 3: return "Buen trabajo.";
+                default: return "Siga as&iacute;.";
+            }
+        }
+
+        function mensajeIncorrecto()
+        {
+            switch ( Math.floor( 1 + Math.random() * 4 ) )
+            {
+                case 1: return "No. Intente de nuevo.";
+                case 2: return "Equivocado. Trate una vez m&aacute;s.";
+                case 3: return "No se d&eacute; por vencido.";
+                default: return "No. Siga intentando.";
+            }
+        }
+
+        function mostrarMarcador()
+        {
+            document.getElementById( "marcador" ).innerHTML =
+                "Respuestas: " + ( correctas + incorrectas ) + " de 10 &mdash; Correctas: " +
+                correctas + ", Incorrectas: " + incorrectas;
+        }
+
+        function revisar()
+        {
+            var respuesta = parseInt( document.getElementById( "campoRespuesta" ).value );
+            var mensaje;
+
+            if ( respuesta == respuestaCorrecta )
+            {
+                ++correctas;
+                mensaje = mensajeCorrecto();
+                nuevaPregunta();
+            }
+            else
+            {
+                ++incorrectas;
+                mensaje = mensajeIncorrecto();
+            }
+
+            if ( correctas + incorrectas == 10 )
+            {
+                var porcentaje = correctas / 10 * 100;
+                if ( porcentaje < 75 )
+                    mensaje = "Obtuvo " + porcentaje + "%. Pida ayuda adicional a su instructor.";
+                else
+                    mensaje = "&iexcl;Felicidades! Obtuvo " + porcentaje + "%.";
+                mensaje += " El cuestionario se reinici&oacute;.";
+                correctas = 0;
+                incorrectas = 0;
+                nuevaPregunta();
+            }
+
+            document.getElementById( "mensaje" ).innerHTML = mensaje;
+            mostrarMarcador();
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.27</h1>
+    <h2>Proyecto: instrucción asistida con nivel y tipo de operación</h2>
+
+    <ol type="a">
+        <li><strong>Nivel de grado:</strong> 1 usa números de un dígito (1 a 9), 2 usa hasta dos dígitos (1 a 99), y así
+            sucesivamente. El máximo se calcula con <code>Math.pow( 10, nivel ) - 1</code>.</li>
+        <li><strong>Tipo de problema:</strong> 1 suma, 2 resta, 3 multiplicación, 4 división, 5 mezcla al azar.</li>
+    </ol>
+    <p><strong>Decisiones:</strong></p>
+    <ul>
+        <li>En la <strong>resta</strong> se pone primero el número mayor, para que el resultado nunca sea negativo.</li>
+        <li>En la <strong>división</strong> primero se genera el resultado y luego el dividendo (dividendo = divisor ×
+            resultado). Así la respuesta siempre es un entero.</li>
+        <li>Se conservan los mensajes variados del 9.23 y la evaluación de 10 respuestas del 9.24.</li>
+    </ul>
+    <form action = "#">
+        <p><label>Nivel de grado:
+            <select id = "nivel">
+                <option value = "1">1 (un d&iacute;gito)</option>
+                <option value = "2">2 (hasta dos d&iacute;gitos)</option>
+                <option value = "3">3 (hasta tres d&iacute;gitos)</option>
+            </select></label>
+           <label>Tipo:
+            <select id = "tipo">
+                <option value = "1">1 Suma</option>
+                <option value = "2">2 Resta</option>
+                <option value = "3" selected>3 Multiplicaci&oacute;n</option>
+                <option value = "4">4 Divisi&oacute;n</option>
+                <option value = "5">5 Mezcla</option>
+            </select></label>
+           <input id = "botonEmpezar" type = "button" value = "Empezar"></p>
+    </form>
+    <p id = "pregunta"></p>
+    <form action = "#">
+        <p><input id = "campoRespuesta" type = "number">
+           <input id = "botonResponder" type = "button" value = "Responder"></p>
+    </form>
+    <p id = "mensaje"></p>
+    <p id = "marcador"></p>
+
+    <p>
+        <a href="ejercicio9.26.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.28.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

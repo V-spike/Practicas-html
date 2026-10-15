@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.19 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.19</title>
+    <script>
+        var divisiones; // cuenta cuántas operaciones % se hicieron
+
+        function iniciar()
+        {
+            document.getElementById( "botonMitad" ).addEventListener( "click", calcularMitad, false );
+            document.getElementById( "botonRaiz" ).addEventListener( "click", calcularRaiz, false );
+        }
+
+        // a) versión que prueba divisores hasta n / 2
+        function esPrimoMitad( n )
+        {
+            if ( n < 2 )
+                return false;
+
+            for ( var d = 2; d <= n / 2; ++d )
+            {
+                ++divisiones;
+                if ( n % d == 0 )
+                    return false;   // encontró un divisor: no es primo
+            }
+            return true;
+        }
+
+        // c) versión que prueba divisores sólo hasta la raíz cuadrada de n
+        function esPrimoRaiz( n )
+        {
+            if ( n < 2 )
+                return false;
+
+            var limite = Math.sqrt( n );
+            for ( var d = 2; d <= limite; ++d )
+            {
+                ++divisiones;
+                if ( n % d == 0 )
+                    return false;
+            }
+            return true;
+        }
+
+        // b) recorre del 1 al 10000. funcionPrueba es una FUNCIÓN recibida como argumento
+        //    (igual que cuando le pasas tirarDados a addEventListener)
+        function listarPrimos( funcionPrueba, nombre )
+        {
+            var texto = "";
+            var cantidad = 0;
+            divisiones = 0;
+
+            for ( var n = 1; n <= 10000; ++n )
+            {
+                if ( funcionPrueba( n ) )
+                {
+                    texto += n + "  ";
+                    ++cantidad;
+                }
+            }
+
+            document.getElementById( "salida" ).value = texto;
+            document.getElementById( "resumen" ).innerHTML =
+                "<strong>" + nombre + ":</strong> " + cantidad + " primos encontrados, " +
+                divisiones.toLocaleString() + " divisiones realizadas.";
+        }
+
+        function calcularMitad() { listarPrimos( esPrimoMitad, "L&iacute;mite n / 2" ); }
+        function calcularRaiz()  { listarPrimos( esPrimoRaiz, "L&iacute;mite &radic;n" ); }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.19</h1>
+    <h2>Números primos del 1 al 10,000</h2>
+
+    <ol type="a">
+        <li><code>esPrimo( n )</code> prueba si algún divisor de 2 en adelante divide exacto a <code>n</code>. En cuanto
+            encuentra uno, devuelve <code>false</code> con <code>return</code>, sin seguir probando.</li>
+        <li>Se recorren los números del 1 al 10,000 y los primos se muestran en un <code>&lt;textarea&gt;</code>.
+            <strong>¿Cuántos números hay que probar?</strong> Todos los candidatos del 2 al 10,000 (9,999), porque
+            cualquiera podría ser primo. Lo que sí se puede reducir es <em>cuántos divisores</em> se prueban por cada número.</li>
+        <li><strong>¿Por qué basta llegar a √n?</strong> Si <code>n = a × b</code> y ambos fueran mayores que √n, su
+            producto sería mayor que n. Entonces todo número compuesto tiene un divisor <strong>≤ √n</strong>. Si no hay
+            ninguno hasta ahí, no hay ninguno después. Para 9973 eso significa probar hasta 99 en vez de hasta 4986.</li>
+    </ol>
+    <p>La comparación cuenta cuántas divisiones (<code>%</code>) hace cada versión. Así se ve la mejora sin medir el
+    tiempo, que cambia de una computadora a otra.</p>
+
+    <form action = "#">
+        <p><input id = "botonMitad" type = "button" value = "Calcular (l&iacute;mite n / 2)">
+           <input id = "botonRaiz" type = "button" value = "Calcular (l&iacute;mite &radic;n)"></p>
+    </form>
+    <p id = "resumen"></p>
+    <textarea id = "salida" rows = "12" cols = "70" readonly></textarea>
+
+    <p>
+        <a href="ejercicio9.18.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.20.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

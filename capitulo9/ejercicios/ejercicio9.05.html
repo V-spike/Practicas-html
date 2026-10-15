@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.05 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.05</title>
+    <script>
+        function sumaMal( x, y )
+        {
+            var resultado;
+            resultado = x + y;
+        }
+
+        function sumaBien( x, y )
+        {
+            return x + y;
+        }
+
+        function iniciar()
+        {
+            document.getElementById( "resultados" ).innerHTML =
+                "<p>sumaMal( 2, 3 ) = " + sumaMal( 2, 3 ) + "</p>" +
+                "<p>sumaBien( 2, 3 ) = " + sumaBien( 2, 3 ) + "</p>";
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.05</h1>
+    <h2>Localice el error en cada segmento de programa y explique cómo corregirlo</h2>
+
+    <ol type="a">
+        <li>
+            <pre><code>method g()
+{
+   document.writeln( "Dentro del m&amp;eacute;todo g" );
+}</code></pre>
+            <strong>Error:</strong> <code>method</code> no es una palabra clave de JavaScript. Las funciones se definen con
+            <code>function</code>.
+            <br><strong>Corrección:</strong> <code>function g()</code>
+        </li>
+        <li>
+            <pre><code>// Esta función debe devolver la suma de sus argumentos
+function suma( x, y )
+{
+   var resultado;
+   resultado = x + y;
+}</code></pre>
+            <strong>Error:</strong> calcula la suma pero <strong>no la devuelve</strong>, así que quien la llame recibe
+            <code>undefined</code>. Es un error lógico (Error común de programación 9.1).
+            <br><strong>Corrección:</strong> agregar <code>return resultado;</code> al final, o simplificar todo a
+            <code>return x + y;</code>
+        </li>
+        <li>
+            <pre><code>function f( a );
+{
+   document.writeln( a );
+}</code></pre>
+            <strong>Error:</strong> el punto y coma después del paréntesis de la lista de parámetros. En la copia escaneada
+            del libro no se alcanza a ver, pero la respuesta del libro confirma que ese es el error.
+            <br><strong>Corrección:</strong> quitar el <code>;</code> que va después de <code>f( a )</code>.
+        </li>
+    </ol>
+
+    <h3>Comprobación del inciso b)</h3>
+    <div id="resultados"></div>
+
+    <p>
+        <a href="ejercicio9.04.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.06.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

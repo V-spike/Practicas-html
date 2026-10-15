@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.23 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.23</title>
+    <style>
+        #pregunta { font-size: 1.6em; }
+        #mensaje  { font-weight: bold; }
+    </style>
+    <script>
+        var numero1, numero2;
+
+        function iniciar()
+        {
+            document.getElementById( "botonResponder" ).addEventListener( "click", revisar, false );
+            nuevaPregunta();
+        }
+
+        function nuevaPregunta()
+        {
+            numero1 = Math.floor( 1 + Math.random() * 9 );
+            numero2 = Math.floor( 1 + Math.random() * 9 );
+            document.getElementById( "pregunta" ).innerHTML =
+                "&iquest;Cu&aacute;nto es " + numero1 + " por " + numero2 + "?";
+            document.getElementById( "campoRespuesta" ).value = "";
+        }
+
+        // devuelve una frase al azar para una respuesta correcta
+        function mensajeCorrecto()
+        {
+            switch ( Math.floor( 1 + Math.random() * 4 ) )
+            {
+                case 1: return "Muy bien.";
+                case 2: return "Excelente.";
+                case 3: return "Buen trabajo.";
+                default: return "Siga as&iacute;.";
+            }
+        }
+
+        // devuelve una frase al azar para una respuesta incorrecta
+        function mensajeIncorrecto()
+        {
+            switch ( Math.floor( 1 + Math.random() * 4 ) )
+            {
+                case 1: return "No. Intente de nuevo.";
+                case 2: return "Equivocado. Trate una vez m&aacute;s.";
+                case 3: return "No se d&eacute; por vencido.";
+                default: return "No. Siga intentando.";
+            }
+        }
+
+        function revisar()
+        {
+            var respuesta = parseInt( document.getElementById( "campoRespuesta" ).value );
+
+            if ( respuesta == numero1 * numero2 )
+            {
+                document.getElementById( "mensaje" ).innerHTML = mensajeCorrecto();
+                nuevaPregunta();
+            }
+            else
+                document.getElementById( "mensaje" ).innerHTML = mensajeIncorrecto();
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.23</h1>
+    <h2>Multiplicación con respuestas variadas (switch + aleatorio)</h2>
+
+    <p>Igual que el 9.22, pero cada respuesta se elige al azar entre 4 frases con <code>switch</code>, para que el
+    estudiante no se aburra.</p>
+    <p id = "pregunta"></p>
+    <form action = "#">
+        <p><input id = "campoRespuesta" type = "number">
+           <input id = "botonResponder" type = "button" value = "Responder"></p>
+    </form>
+    <p id = "mensaje"></p>
+
+    <p>
+        <a href="ejercicio9.22.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.24.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

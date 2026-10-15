@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.03 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.03</title>
+    <script>
+        function iniciar()
+        {
+            var cadena = "¡Hola, José!";
+            var codificada = escape( cadena );
+            var salida = "";
+
+            salida += "<p>isNaN( \"abc\" ) = " + isNaN( "abc" ) + "</p>";
+            salida += "<p>isNaN( \"42\" ) = " + isNaN( "42" ) + "</p>";
+            salida += "<p>escape( \"" + cadena + "\" ) = " + codificada + "</p>";
+            salida += "<p>unescape( \"" + codificada + "\" ) = " + unescape( codificada ) + "</p>";
+            salida += "<p>eval( \"2 + 3 * 4\" ) = " + eval( "2 + 3 * 4" ) + "</p>";
+
+            document.getElementById( "resultados" ).innerHTML = salida;
+        } // fin de la función iniciar
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.03</h1>
+    <h2>Complete las siguientes oraciones</h2>
+
+    <ol type="a">
+        <li>Las funciones definidas por el programador, variables globales y funciones globales de JavaScript son todas
+            partes del objeto <strong><code>Global</code></strong>.</li>
+        <li>La función <strong><code>isNaN</code></strong> determina si su argumento es un número o no.</li>
+        <li>La función <strong><code>escape</code></strong> recibe una cadena y devuelve otra en la que los espacios,
+            la puntuación, los acentos y los caracteres fuera de ASCII se codifican en hexadecimal.</li>
+        <li>La función <strong><code>eval</code></strong> recibe una cadena que representa código de JavaScript a ejecutar.</li>
+        <li>La función <strong><code>unescape</code></strong> decodifica una cadena codificada antes con <code>escape</code>.</li>
+    </ol>
+
+    <h3>Prueba de cada función</h3>
+    <div id="resultados"></div>
+    <p><strong>Nota actual:</strong> <code>escape</code>/<code>unescape</code> son antiguas. Hoy se usan
+    <code>encodeURIComponent</code>/<code>decodeURIComponent</code>. Además, <code>eval</code> se evita porque ejecuta
+    cualquier texto como código y eso es un riesgo de seguridad.</p>
+
+    <p>
+        <a href="ejercicio9.02.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.04.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.24 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.24</title>
+    <style>
+        #pregunta { font-size: 1.6em; }
+        #mensaje  { font-weight: bold; }
+    </style>
+    <script>
+        var numero1, numero2;
+        var correctas = 0;
+        var incorrectas = 0;
+
+        function iniciar()
+        {
+            document.getElementById( "botonResponder" ).addEventListener( "click", revisar, false );
+            nuevaPregunta();
+            mostrarMarcador();
+        }
+
+        function nuevaPregunta()
+        {
+            numero1 = Math.floor( 1 + Math.random() * 9 );
+            numero2 = Math.floor( 1 + Math.random() * 9 );
+            document.getElementById( "pregunta" ).innerHTML =
+                "&iquest;Cu&aacute;nto es " + numero1 + " por " + numero2 + "?";
+            document.getElementById( "campoRespuesta" ).value = "";
+        }
+
+        function mensajeCorrecto()
+        {
+            switch ( Math.floor( 1 + Math.random() * 4 ) )
+            {
+                case 1: return "Muy bien.";
+                case 2: return "Excelente.";
+                case 3: return "Buen trabajo.";
+                default: return "Siga as&iacute;.";
+            }
+        }
+
+        function mensajeIncorrecto()
+        {
+            switch ( Math.floor( 1 + Math.random() * 4 ) )
+            {
+                case 1: return "No. Intente de nuevo.";
+                case 2: return "Equivocado. Trate una vez m&aacute;s.";
+                case 3: return "No se d&eacute; por vencido.";
+                default: return "No. Siga intentando.";
+            }
+        }
+
+        function mostrarMarcador()
+        {
+            document.getElementById( "marcador" ).innerHTML =
+                "Respuestas: " + ( correctas + incorrectas ) + " de 10 &mdash; Correctas: " +
+                correctas + ", Incorrectas: " + incorrectas;
+        }
+
+        function revisar()
+        {
+            var respuesta = parseInt( document.getElementById( "campoRespuesta" ).value );
+            var mensaje;
+
+            if ( respuesta == numero1 * numero2 )
+            {
+                ++correctas;
+                mensaje = mensajeCorrecto();
+                nuevaPregunta();
+            }
+            else
+            {
+                ++incorrectas;
+                mensaje = mensajeIncorrecto();
+            }
+
+            if ( correctas + incorrectas == 10 )
+            {
+                var porcentaje = correctas / 10 * 100;
+
+                if ( porcentaje < 75 )
+                    mensaje = "Obtuvo " + porcentaje + "%. Pida ayuda adicional a su instructor.";
+                else
+                    mensaje = "&iexcl;Felicidades! Obtuvo " + porcentaje + "%.";
+
+                mensaje += " Siguiente estudiante: el cuestionario se reinici&oacute;.";
+                correctas = 0;     // reiniciar para otro estudiante
+                incorrectas = 0;
+                nuevaPregunta();
+            }
+
+            document.getElementById( "mensaje" ).innerHTML = mensaje;
+            mostrarMarcador();
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.24</h1>
+    <h2>Multiplicación con evaluación de 10 respuestas</h2>
+
+    <p>Se cuentan las respuestas correctas e incorrectas. Al llegar a <strong>10 respuestas</strong> se calcula el
+    porcentaje de aciertos. Si es menor al 75% se muestra "Pida ayuda adicional a su instructor", y el cuestionario se
+    reinicia para el siguiente estudiante.</p>
+    <p><strong>Decisión de diseño:</strong> cada intento cuenta como una respuesta, incluidos los fallidos. Si fallas, la
+    pregunta se repite como en el 9.22.</p>
+    <p id = "pregunta"></p>
+    <form action = "#">
+        <p><input id = "campoRespuesta" type = "number">
+           <input id = "botonResponder" type = "button" value = "Responder"></p>
+    </form>
+    <p id = "mensaje"></p>
+    <p id = "marcador"></p>
+
+    <p>
+        <a href="ejercicio9.23.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.25.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

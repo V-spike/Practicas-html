@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.25 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.25</title>
+    <script>
+        var numeroSecreto;
+
+        function iniciar()
+        {
+            document.getElementById( "botonEnviar" ).addEventListener( "click", revisarIntento, false );
+            nuevoJuego();
+        }
+
+        function nuevoJuego()
+        {
+            numeroSecreto = Math.floor( 1 + Math.random() * 1000 );
+        }
+
+        function revisarIntento()
+        {
+            var campo = document.getElementById( "campoIntento" );
+            var intento = parseInt( campo.value );
+            var mensaje = document.getElementById( "mensaje" );
+
+            if ( intento > numeroSecreto )
+                mensaje.innerHTML = intento + ": Demasiado alto. Intente de nuevo.";
+            else if ( intento < numeroSecreto )
+                mensaje.innerHTML = intento + ": Demasiado bajo. Intente de nuevo.";
+            else
+            {
+                mensaje.innerHTML = "Felicidades. &iexcl;Adivin&oacute; el n&uacute;mero (" + numeroSecreto +
+                    ")! Ya eleg&iacute; otro para jugar de nuevo.";
+                nuevoJuego();
+            }
+
+            campo.value = ""; // borrar el campo para el siguiente intento
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.25</h1>
+    <h2>Adivinar el número (1 a 1000)</h2>
+
+    <p>El programa elige un entero aleatorio del 1 al 1000. Después de cada intento indica "Demasiado alto" o "Demasiado
+    bajo" y borra el campo de texto. Al adivinar, felicita al jugador y elige un número nuevo.</p>
+    <p><strong>Adivine un n&uacute;mero entre 1 y 1000</strong></p>
+    <form action = "#">
+        <p><input id = "campoIntento" type = "number" min = "1" max = "1000">
+           <input id = "botonEnviar" type = "button" value = "Enviar"></p>
+    </form>
+    <p id = "mensaje"></p>
+
+    <p>
+        <a href="ejercicio9.24.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.26.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

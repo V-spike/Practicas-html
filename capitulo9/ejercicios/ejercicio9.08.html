@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.08 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.08</title>
+    <script>
+        var totalAyer = 0;  // total corriente de los recibos
+        var cliente = 0;    // número de cliente
+
+        function iniciar()
+        {
+            var boton = document.getElementById( "botonCalcular" );
+            boton.addEventListener( "click", registrarCliente, false );
+        } // fin de la función iniciar
+
+        function registrarCliente()
+        {
+            var horas = parseFloat( document.getElementById( "campoHoras" ).value );
+
+            if ( isNaN( horas ) || horas <= 0 || horas > 24 )
+            {
+                window.alert( "Escriba un número de horas entre 0 y 24" );
+                return;
+            }
+
+            var cargo = calcularCargos( horas );
+            ++cliente;
+            totalAyer += cargo;
+
+            document.getElementById( "recibos" ).innerHTML +=
+                "<p>Cliente " + cliente + ": " + horas + " h &rarr; $" + cargo.toFixed( 2 ) + "</p>";
+            document.getElementById( "total" ).innerHTML =
+                "<strong>Total de los recibos de ayer: $" + totalAyer.toFixed( 2 ) + "</strong>";
+        } // fin de la función registrarCliente
+
+        // determina el cargo de estacionamiento para un cliente
+        function calcularCargos( horas )
+        {
+            var cargo = 2.00; // cuota mínima (hasta 3 horas)
+
+            if ( horas > 3 )
+                cargo += Math.ceil( horas - 3 ) * 0.50; // cada hora o fracción extra
+
+            return Math.min( cargo, 10.00 ); // nunca más de $10.00
+        } // fin de la función calcularCargos
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.08</h1>
+    <h2>Cargos de un estacionamiento (función calcularCargos)</h2>
+
+    <ul>
+        <li>Hasta 3 horas: <strong>$2.00</strong>.</li>
+        <li>Cada hora <strong>o fracción</strong> arriba de 3 horas: <strong>$0.50</strong> adicionales.</li>
+        <li>Máximo por 24 horas: <strong>$10.00</strong>.</li>
+    </ul>
+    <p>
+        "O fracción" significa que 3.2 horas extra cuentan como 4. Para eso se usa <code>Math.ceil</code>, que redondea
+        <strong>hacia arriba</strong>; es lo contrario de <code>Math.floor</code>, que ya viste en el capítulo:
+        <code>Math.ceil( 1.2 )</code> da 2. El máximo se aplica con <code>Math.min( cargo, 10 )</code>.
+    </p>
+    <form action = "#">
+        <p><label>Horas que se estacion&oacute; el cliente:
+            <input id = "campoHoras" type = "number" step = "any" min = "0" max = "24"></label>
+            <input id = "botonCalcular" type = "button" value = "Calcular cargo"></p>
+    </form>
+    <div id = "recibos"></div>
+    <p id = "total"></p>
+    <p><strong>Prueba:</strong> 1.5 h da $2.00; 4 h da $2.50; 3.2 h da $2.50; 10 h da $5.50; 24 h da $10.00 (con el
+    cálculo serían $12.50, pero el máximo es $10.00).</p>
+
+    <p>
+        <a href="ejercicio9.07.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.09.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

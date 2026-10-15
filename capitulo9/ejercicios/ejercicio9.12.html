@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.12 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.12</title>
+    <script>
+        function serie( primero, salto )
+        {
+            var texto = "";
+            for ( var i = 1; i <= 15; ++i )
+                texto += ( primero + salto * Math.floor( Math.random() * 5 ) ) + " ";
+            return texto;
+        }
+
+        function iniciar()
+        {
+            document.getElementById( "resultados" ).innerHTML =
+                "<p>a) " + serie( 2, 2 ) + "</p>" +
+                "<p>b) " + serie( 3, 2 ) + "</p>" +
+                "<p>c) " + serie( 6, 4 ) + "</p>";
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.12</h1>
+    <h2>Imprimir un número al azar de cada conjunto</h2>
+
+    <p>
+        Los conjuntos no son consecutivos, pero sí van <strong>de k en k</strong>. Truco: se elige al azar una
+        <em>posición</em> (0 a 4) y se convierte con <code>primero + posición × salto</code>.
+    </p>
+    <ol type="a">
+        <li>2, 4, 6, 8, 10 (empieza en 2, salta de 2 en 2):
+            <pre><code>document.writeln( 2 + 2 * Math.floor( Math.random() * 5 ) );</code></pre></li>
+        <li>3, 5, 7, 9, 11 (empieza en 3, salta de 2 en 2):
+            <pre><code>document.writeln( 3 + 2 * Math.floor( Math.random() * 5 ) );</code></pre></li>
+        <li>6, 10, 14, 18, 22 (empieza en 6, salta de 4 en 4):
+            <pre><code>document.writeln( 6 + 4 * Math.floor( Math.random() * 5 ) );</code></pre></li>
+    </ol>
+
+    <h3>Ejecución: 15 valores de cada conjunto (recarga con F5 para ver otros)</h3>
+    <div id="resultados"></div>
+
+    <p>
+        <a href="ejercicio9.11.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.13.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

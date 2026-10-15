@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.15 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.15</title>
+</head>
+<body>
+    <h1>Ejercicio 9.15</h1>
+    <h2>Función esPar con ciclo controlado por centinela</h2>
+
+    <p>Se piden enteros con <code>prompt</code> hasta que el usuario escriba el centinela <strong>0</strong>. Se eligió 0
+    porque −1 también es un entero que se podría querer probar. Cada número se pasa a <code>esPar</code>, que usa el
+    operador módulo.</p>
+    <script>
+        // devuelve true si el número es par
+        function esPar( numero )
+        {
+            return numero % 2 == 0;
+        } // fin de la función esPar
+
+        var numero = parseInt( window.prompt( "Escriba un entero (0 para terminar):", "0" ) );
+
+        while ( numero != 0 )
+        {
+            if ( esPar( numero ) )
+                document.writeln( "<p>" + numero + " es <strong>par</strong></p>" );
+            else
+                document.writeln( "<p>" + numero + " es <strong>impar</strong></p>" );
+
+            numero = parseInt( window.prompt( "Escriba un entero (0 para terminar):", "0" ) );
+        } // fin de while
+
+        document.writeln( "<p>Fin del programa.</p>" );
+    </script>
+    <p><strong>Prueba:</strong> 7, 10, −4, 0. Debe dar impar, par, par.</p>
+
+    <p>
+        <a href="ejercicio9.14.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.16.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

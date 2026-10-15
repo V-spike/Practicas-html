@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.16 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.16</title>
+</head>
+<body>
+    <h1>Ejercicio 9.16</h1>
+    <h2>Mostrar los dígitos de un entero separados por dos espacios</h2>
+
+    <ol type="a">
+        <li>Parte entera del cociente de <code>a</code> entre <code>b</code>:
+            <pre><code>cociente = Math.floor( a / b );</code></pre></li>
+        <li>Residuo entero de <code>a</code> entre <code>b</code>:
+            <pre><code>residuo = a % b;</code></pre></li>
+        <li>Función <code>mostrarDigitos</code>: usa a) y b) con un divisor que empieza en 10000. En cada vuelta toma el
+            dígito con <code>Math.floor( numero / divisor ) % 10</code> y luego divide el divisor entre 10. Los ceros a la
+            izquierda se saltan, para que 4562 no salga como 0 4 5 6 2.</li>
+        <li>Se pide el número con <code>prompt</code> y se llama a la función.</li>
+    </ol>
+
+    <h3>Resultado</h3>
+    <script>
+        // c) imprime un entero de 1 a 99999 como dígitos separados por dos espacios
+        function mostrarDigitos( numero )
+        {
+            var divisor = 10000;    // posición más alta posible (decenas de millar)
+            var empezo = false;     // se vuelve true al encontrar el primer dígito distinto de 0
+            var texto = "";
+            var digito;
+
+            while ( divisor >= 1 )
+            {
+                digito = Math.floor( numero / divisor ) % 10;   // a) y b) juntos
+
+                if ( digito != 0 || empezo )
+                {
+                    texto += digito + "&nbsp;&nbsp;";   // &nbsp; = espacio que el navegador no junta
+                    empezo = true;
+                }
+
+                divisor = Math.floor( divisor / 10 );
+            } // fin de while
+
+            document.writeln( "<p style='font-family: monospace; font-size: 1.5em'>" + texto + "</p>" );
+        } // fin de la función mostrarDigitos
+
+        // d)
+        var entrada = parseInt( window.prompt( "Escriba un entero entre 1 y 99999:", "4562" ) );
+
+        if ( entrada >= 1 && entrada <= 99999 )
+            mostrarDigitos( entrada );
+        else
+            document.writeln( "<p>El n&uacute;mero debe estar entre 1 y 99999.</p>" );
+    </script>
+    <p><strong>Prueba:</strong> 4562 da 4  5  6  2; 10203 da 1  0  2  0  3 (los ceros intermedios sí se
+    imprimen); 7 da 7.</p>
+
+    <p>
+        <a href="ejercicio9.15.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.17.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

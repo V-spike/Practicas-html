@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.09 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.09</title>
+    <script>
+        function iniciar()
+        {
+            var boton = document.getElementById( "botonCalcular" );
+            boton.addEventListener( "click", mostrarDistancia, false );
+        } // fin de la función iniciar
+
+        function mostrarDistancia()
+        {
+            var x1 = parseFloat( document.getElementById( "x1" ).value );
+            var y1 = parseFloat( document.getElementById( "y1" ).value );
+            var x2 = parseFloat( document.getElementById( "x2" ).value );
+            var y2 = parseFloat( document.getElementById( "y2" ).value );
+
+            document.getElementById( "resultado" ).innerHTML =
+                "La distancia es: " + distancia( x1, y1, x2, y2 );
+        } // fin de la función mostrarDistancia
+
+        // calcula la distancia entre ( x1, y1 ) y ( x2, y2 )
+        function distancia( x1, y1, x2, y2 )
+        {
+            var dx = x2 - x1;
+            var dy = y2 - y1;
+            return Math.sqrt( dx * dx + dy * dy );
+        } // fin de la función distancia
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.09</h1>
+    <h2>Distancia entre dos puntos (función distancia)</h2>
+
+    <p>Fórmula: <strong>distancia = √( (x2 − x1)² + (y2 − y1)² )</strong>. La raíz se calcula con <code>Math.sqrt</code>.</p>
+    <form action = "#">
+        <p>Punto 1:
+            <label>x1 <input id = "x1" type = "number" step = "any"></label>
+            <label>y1 <input id = "y1" type = "number" step = "any"></label></p>
+        <p>Punto 2:
+            <label>x2 <input id = "x2" type = "number" step = "any"></label>
+            <label>y2 <input id = "y2" type = "number" step = "any"></label></p>
+        <p><input id = "botonCalcular" type = "button" value = "Calcular distancia"></p>
+    </form>
+    <p id = "resultado"></p>
+    <p><strong>Prueba:</strong> (0, 0) y (3, 4) da 5; (1, 1) y (4, 5) da 5; (−2, 3) y (2, 0) da 5.</p>
+
+    <p>
+        <a href="ejercicio9.08.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.10.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>

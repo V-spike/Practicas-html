@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- Ejercicio 9.28 -->
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 9.28</title>
+    <style>
+        p.rojo  { color: red; }
+        img     { width: 54px; height: 54px; }
+        div     { border: 5px ridge royalblue; padding: 10px; width: 120px; margin-bottom: 10px; }
+        .punto  { margin: 0px; }
+    </style>
+    <script>
+        var saldoBanco = 1000;
+        var apuesta = 0;
+        var miPunto;
+        var valorDado1, valorDado2;
+
+        function obtener( id ) { return document.getElementById( id ); } // atajo para no repetir getElementById
+
+        function iniciar()
+        {
+            obtener( "jugar" ).addEventListener( "click", iniciarJuego, false );
+            obtener( "tirar" ).addEventListener( "click", tirarDeNuevo, false );
+            obtener( "tirar" ).disabled = true;
+            mostrarSaldo();
+        }
+
+        function mostrarSaldo()
+        {
+            obtener( "saldo" ).innerHTML = "<strong>Saldo en banco: $" + saldoBanco + "</strong>";
+        }
+
+        // elige al azar un mensaje de conversación
+        function conversacion()
+        {
+            switch ( Math.floor( 1 + Math.random() * 5 ) )
+            {
+                case 1: return "&iquest;As&iacute; que se va a quedar en bancarrota?";
+                case 2: return "&iexcl;Vamos, arri&eacute;sguese!";
+                case 3: return "&iexcl;Est&aacute; teniendo &eacute;xito!";
+                case 4: return "&iexcl;Ahora es momento de cambiar sus fichas!";
+                default: return "La suerte est&aacute; de su lado... &iquest;o no?";
+            }
+        }
+
+        function iniciarJuego()
+        {
+            apuesta = parseInt( obtener( "campoApuesta" ).value );
+
+            // validar la apuesta: debe ser positiva y no mayor que el saldo
+            if ( isNaN( apuesta ) || apuesta <= 0 || apuesta > saldoBanco )
+            {
+                obtener( "mensajes" ).innerHTML = "Apuesta inv&aacute;lida. Escriba una cantidad entre $1 y $" +
+                    saldoBanco + ".";
+                return;
+            }
+
+            obtener( "campoApuesta" ).disabled = true;
+            establecerImagen( obtener( "puntoDado1" ) );
+            establecerImagen( obtener( "puntoDado2" ) );
+            miPunto = 0;
+            primerTiro();
+        }
+
+        function primerTiro()
+        {
+            var suma = tirarDados();
+
+            switch ( suma )
+            {
+                case 7: case 11:
+                    terminarJuego( true );
+                    break;
+                case 2: case 3: case 12:
+                    terminarJuego( false );
+                    break;
+                default:
+                    miPunto = suma;
+                    establecerImagen( obtener( "puntoDado1" ), valorDado1 );
+                    establecerImagen( obtener( "puntoDado2" ), valorDado2 );
+                    obtener( "mensajes" ).innerHTML = "Su punto es " + miPunto + ". Tire de nuevo.";
+                    obtener( "tirar" ).disabled = false;
+                    obtener( "jugar" ).disabled = true;
+                    break;
+            }
+            obtener( "charla" ).innerHTML = conversacion();
+        }
+
+        function tirarDeNuevo()
+        {
+            var suma = tirarDados();
+
+            if ( suma == miPunto )
+                terminarJuego( true );
+            else if ( suma == 7 )
+                terminarJuego( false );
+            else
+                obtener( "mensajes" ).innerHTML = "Sali&oacute; " + suma + ". Su punto es " + miPunto + ". Tire de nuevo.";
+
+            obtener( "charla" ).innerHTML = conversacion();
+        }
+
+        // actualiza el saldo y los botones al terminar un juego
+        function terminarJuego( gano )
+        {
+            if ( gano )
+            {
+                saldoBanco += apuesta;
+                obtener( "mensajes" ).innerHTML = "&iexcl;Ha ganado $" + apuesta + "!";
+            }
+            else
+            {
+                saldoBanco -= apuesta;
+                obtener( "mensajes" ).innerHTML = "Perdi&oacute; $" + apuesta + ".";
+            }
+
+            mostrarSaldo();
+            obtener( "tirar" ).disabled = true;
+
+            if ( saldoBanco == 0 )
+            {
+                obtener( "mensajes" ).innerHTML += " &iexcl;Lo siento. Est&aacute; en bancarrota!";
+                obtener( "jugar" ).disabled = true;
+            }
+            else
+            {
+                obtener( "jugar" ).disabled = false;
+                obtener( "campoApuesta" ).disabled = false;
+                obtener( "mensajes" ).innerHTML += " Escriba otra apuesta y haga clic en Jugar.";
+            }
+        }
+
+        function tirarDados()
+        {
+            valorDado1 = Math.floor( 1 + Math.random() * 6 );
+            valorDado2 = Math.floor( 1 + Math.random() * 6 );
+            establecerImagen( obtener( "tiroDado1" ), valorDado1 );
+            establecerImagen( obtener( "tiroDado2" ), valorDado2 );
+            return valorDado1 + valorDado2;
+        }
+
+        function establecerImagen( imgDado, valorDado )
+        {
+            if ( isFinite( valorDado ) )
+                imgDado.src = "../ejemplos/dado" + valorDado + ".png";
+            else
+                imgDado.src = "../ejemplos/blanco.png";
+        }
+
+        window.addEventListener( "load", iniciar, false );
+    </script>
+</head>
+<body>
+    <h1>Ejercicio 9.28</h1>
+    <h2>Craps con apuestas</h2>
+
+    <p>Es el juego de la figura 9.7 con estas modificaciones:</p>
+    <ul>
+        <li><code>saldoBanco</code> empieza en $1000. Antes de jugar se escribe una apuesta. Si es mayor que el saldo (o
+            no es válida) se pide otra; aquí se avisa y no se deja jugar hasta que sea válida.</li>
+        <li>Si gana, el saldo aumenta lo apostado; si pierde, disminuye. Si llega a $0 aparece "¡Lo siento. Está en
+            bancarrota!" y se desactiva el juego.</li>
+        <li><code>conversacion()</code> elige al azar uno de varios mensajes de "plática" durante el juego.</li>
+        <li>Se quitó el sonido para que los dados se vean de inmediato. Las imágenes son las de la carpeta de ejemplos.</li>
+    </ul>
+    <p id = "saldo"></p>
+    <form action = "#">
+        <p><label>Apuesta: $<input id = "campoApuesta" type = "number" min = "1"></label></p>
+        <p><input id = "jugar" type = "button" value = "Jugar">
+           <input id = "tirar" type = "button" value = "Tirar"></p>
+    </form>
+    <div id = "puntoDiv">
+        <p class = "punto">El punto es:</p>
+        <img id = "puntoDado1" src = "../ejemplos/blanco.png" alt = "Dado 1 de valor de punto">
+        <img id = "puntoDado2" src = "../ejemplos/blanco.png" alt = "Dado 2 de valor de punto">
+    </div>
+    <div>
+        <img id = "tiroDado1" src = "../ejemplos/blanco.png" alt = "Dado 1 de valor de tiro">
+        <img id = "tiroDado2" src = "../ejemplos/blanco.png" alt = "Dado 2 de valor de tiro">
+    </div>
+    <p id = "mensajes" class = "rojo">Escriba su apuesta y haga clic en Jugar</p>
+    <p id = "charla"></p>
+
+    <p>
+        <a href="ejercicio9.27.html">⬅ Anterior</a>
+        |
+        <a href="../../index.html">Inicio</a>
+        |
+        <a href="ejercicio9.29.html">Siguiente ➡</a>
+    </p>
+</body>
+</html>
